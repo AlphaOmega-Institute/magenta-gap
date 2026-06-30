@@ -1,12 +1,20 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 theta    = np.load("theta_uniform.npy")
 ratio    = np.load("ratio_lhs.npy")
-beta     = np.load("beta_uniform.npy")
+# Prefer the purple-corrected β (from fix1) so the publication plot reflects
+# the full 297-angle non-degenerate region. Fall back to the pre-correction
+# β if fix1 has not been run yet (then the plot shows the 188-angle arc).
+_beta_file = ("beta_uniform_fixed.npy"
+             if os.path.exists("beta_uniform_fixed.npy")
+             else "beta_uniform.npy")
+beta     = np.load(_beta_file)
 alpha    = np.load("alpha_uniform.npy")
 margin   = beta - ratio
 deg      = np.degrees(theta)
+print(f"Using β from: {_beta_file}")
 
 # Clip to non-degenerate region only
 BETA_MAX = 10.0
