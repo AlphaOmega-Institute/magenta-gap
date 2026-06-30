@@ -2,7 +2,7 @@
 
 Numerical verification of the Lorentzian gamut bound, companion code for:
 
-> Yiannopoulos, A. (2026). *The Magenta Gap: Phenomenal Reachability and the Geometry of Color Consciousness.* Journal of Mathematical Psychology.
+> Yiannopoulos, A. (2026). *The Magenta Gap: A Geometric Reachability Model of Nonspectral Hue and Color Gamut Boundaries.*
 
 ## What this code does
 
@@ -21,14 +21,15 @@ This repository verifies that bound numerically against:
 | Quantity | Value |
 |---|---|
 | α(θ) range | [0.1082, 0.6577] |
-| max |α'/α| | 2.480 (at θ = -23°) |
-| Flat-space violations |α'/α| > 1 | 90/360 (25.0%) |
+| Flat-space violations \|α'/α\| > 1 | 90/360 (25.0%) |
 | Non-degenerate angles (β < 10) | 297/360 |
 | Bound satisfied (non-degenerate) | 297/297 (100%) |
-| Tightest margin | 0.542 at θ = -149° |
+| Bound satisfied (spectral arc) | 188/188 (100%) |
+| Binding constraint — tightest margin | 0.542 at θ = -149° (\|α'/α\| = 1.933, β = 2.475) |
+| max \|α'/α\| (degenerate wing) | 2.480 at θ = -23° (β → ∞; bound holds trivially) |
 | MacAdam ellipse check | 25/25 (100%) |
 
-The flat-space bound fails 25% of the time — as predicted by the theory, since it is not coordinate-invariant. The Fisher-corrected bound holds at every non-degenerate angle. The test is non-trivial: the 46 angles where the flat bound fails but β < 10 are rescued by genuine Fisher curvature (β ranging from 2.13 to 4.77), not by degenerate blow-up.
+The flat-space bound fails 25% of the time — as predicted by the theory, since it is not coordinate-invariant. The Fisher-corrected bound holds at every non-degenerate angle. The test is non-trivial: the 65 angles where the flat bound fails but β < 10 are rescued by genuine Fisher curvature (β ranging from 2.13 to 7.45), not by degenerate blow-up. The binding constraint is the *smallest margin* (0.542 at θ = -149°, the violet shoulder), not the largest derivative: |α'/α| peaks at 2.480 near the red terminus (θ = -23°), but β diverges there into the degenerate wing, so the bound holds there with astronomical room rather than binding.
 
 ## Environment setup
 
@@ -81,7 +82,7 @@ MIT
 
     @article{Yiannopoulos2026,
       author  = {Yiannopoulos, Alexander},
-      title   = {The Magenta Gap: Phenomenal Reachability and the Geometry of Color Consciousness},
-      journal = {Journal of Mathematical Psychology},
+      title   = {The Magenta Gap: A Geometric Reachability Model of Nonspectral Hue and Color Gamut Boundaries},
+      journal = {Preprint},
       year    = {2026}
     }
