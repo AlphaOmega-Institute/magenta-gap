@@ -54,6 +54,12 @@ np.save("theta_alpha.npy", theta_alpha)
 np.save("alpha_theta.npy", alpha_theta)
 np.save("wl_sorted.npy", wl_sorted)
 
+# Save wavelength-ordered Cartesian chromaticity coords for fix1
+# (x_c[0], y_c[0]) is the 390 nm violet endpoint and
+# (x_c[-1], y_c[-1]) is the 700 nm red endpoint of the purple chord.
+np.save("x_c_vis.npy", x_c)
+np.save("y_c_vis.npy", y_c)
+
 # --- Plot ---
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
