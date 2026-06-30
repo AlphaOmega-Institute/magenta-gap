@@ -56,7 +56,7 @@ Run scripts in order. Each step saves .npy files consumed by the next.
 | fix1_purple_beta.py | Recompute β in purple-chord region from mixture chromaticities |
 | fix2_macadam.py | MacAdam ellipse cross-check |
 
-Run fix1_purple_beta.py after step5_fisher_beta.py to get the corrected 297/297 non-degenerate result. Run fix2_macadam.py after fix1_purple_beta.py for the MacAdam cross-check.
+Run fix1_purple_beta.py after step5_fisher_beta.py to get the corrected 297/297 non-degenerate result. Run fix2_macadam.py after fix1_purple_beta.py for the MacAdam cross-check. step5c_plot_clipped.py automatically uses the purple-corrected β when fix1 has already been run; re-run it after fix1 to regenerate the publication plot over the full 297-angle non-degenerate region (run before fix1, it plots the 188-angle spectral arc).
 
 ## Key technical notes
 
