@@ -219,3 +219,7 @@ __marimo__/
 .DS_Store
 *.npy
 *.png
+
+# The corrected calculation needs its bundled inputs and ships its figures
+!recompute/inputs/*.npy
+!recompute/*.png

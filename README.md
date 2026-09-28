@@ -16,6 +16,21 @@ This repository verifies that bound numerically against:
 - The Stockman-Sharpe 2-degree cone fundamentals (via colour-science 0.4.7)
 - The MacAdam (1942) empirical discrimination ellipses
 
+## Corrected calculation (`recompute/`)
+
+`recompute/` contains a revised calculation prepared for the JOSA A draft of 28 September 2026. It differs from the original pipeline below in these ways:
+
+- The outer gamut boundary is the convex hull of the tabulated 390–700 nm responses (188 vertices), not the spectral locus closed by a 390–700 nm chord. The 390–409 nm samples lie inside the hull.
+- Equal-energy white is handled explicitly: channels are either balanced to it, or left raw and centered on their actual integrated white. `step2_spectral_locus.py` centered raw fundamentals on (1/3, 1/3, 1/3).
+- Angular slopes on hull edges are computed analytically instead of with 1° finite differences.
+- Every sampled boundary point satisfies the bound with the Fisher metric at unit scale. The outcome depends on that scale: the bound holds for scale factors above 0.376 (balanced) or 0.403 (raw).
+- On the original locus construction, finer sampling finds a narrow raw-normalization failure near 403 nm that the 1° grid missed.
+- The MacAdam comparison is not used as independent validation, because the two metrics' scales have not been matched.
+
+Run `python3 recompute/recompute_bound.py` (needs NumPy, SciPy and Matplotlib; the cone fundamentals are bundled, so colour-science is not required). See [recompute/README.md](recompute/README.md) for the model, controls and full results.
+
+The scripts, results and notes in the rest of this README describe the original pipeline and are unchanged.
+
 ## Results
 
 | Quantity | Value |
