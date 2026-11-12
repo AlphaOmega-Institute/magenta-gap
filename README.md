@@ -1,5 +1,21 @@
 # magenta-gap
 
+## Current manuscript — work in progress
+
+The September 28, 2026 author-review draft is now available in [`manuscript/`](manuscript/):
+
+- [TeX source](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex)
+- [Archived PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf)
+- [Build instructions and provenance](manuscript/README.md)
+
+The manuscript source is imported unchanged. Its figures and layout support are included. The PDF is the copy from the September source archive, not a new build.
+
+**The pipeline description and numerical results below are historical.** The current draft distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
+
+The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). This manuscript import does not merge that branch. The recent Hilbert-geometry and Berthier–Provenzi discussion is ongoing work and is not incorporated in this draft.
+
+## Historical pipeline documentation
+
 Numerical verification of the Lorentzian gamut bound, companion code for:
 
 > Yiannopoulos, A. (2026). *The Magenta Gap: A Geometric Reachability Model of Nonspectral Hue and Color Gamut Boundaries.*

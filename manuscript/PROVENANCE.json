@@ -1,0 +1,15 @@
+{
+  "source_file": "Magenta_Gap_MSS(1).pdf",
+  "source_sha256": "4ce1bcf9e9f3c798604b24d401954f43aab7faf12f2de03da305eaccd063e8b6",
+  "revision_date": "2026-09-28",
+  "revision_file": "Magenta_Gap_JOSAA_2026-09-28.tex",
+  "source_preserved": true,
+  "page_count": 8,
+  "abstract_word_count": 100,
+  "calculation_software": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8"
+  }
+}

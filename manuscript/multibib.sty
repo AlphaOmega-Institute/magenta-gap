@@ -1,0 +1,13 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{multibib}[2026/07/25 local compile shim]
+% The official length-check class uses multibib only to mirror citations into
+% an optional full-reference list. This mockup has a single manual reference
+% list, so the secondary-list commands are harmless no-ops.
+\DeclareOption*{}
+\ProcessOptions\relax
+\newcommand{\newcites}[2]{%
+  \expandafter\newcommand\csname nocite#1\endcsname[1]{}%
+  \expandafter\newcommand\csname bibliographystyle#1\endcsname[1]{}%
+  \expandafter\newcommand\csname bibliography#1\endcsname[1]{}%
+}
+\endinput
