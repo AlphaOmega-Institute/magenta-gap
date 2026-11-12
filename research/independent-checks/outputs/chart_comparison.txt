@@ -1,0 +1,2 @@
+white-balanced: retained 14436; appendix chart 0.376081907; opponent chart 0.430243986
+raw, E-centred: retained 12267; appendix chart 0.402831775; opponent chart 0.485244688

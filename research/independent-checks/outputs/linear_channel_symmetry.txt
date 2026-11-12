@@ -1,0 +1,3 @@
+[fixed surround] 40 random linear white/black channels: R(theta,z) = R(theta+pi,-z) always: True; median relative failure of R(theta,z) = R(theta,-z): 31%; centre of the widest band: -0.91T .. +0.91T, within 0.02T of the equator at 3% of hues
+[surround varies too] 40 random linear white/black channels: R(theta,z) = R(theta+pi,-z) always: True; median relative failure of R(theta,z) = R(theta,-z): 10%; centre of the widest band: -0.58T .. +0.58T, within 0.02T of the equator at 10% of hues
+printed formulas alone: complementing the cone activations sends (x, y) to (-x, -y): True

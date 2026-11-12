@@ -1,0 +1,24 @@
+== 1. single spectral contact, no bins and no LP: exact band integrals vs A = q / (24 b^3)  [September eq. (1), (12)] ==
+[spline] 510 nm: A = 5.82705; deficit/(A z^3) -> z=0.0005: 0.998 (band 0.13 nm), z=0.001: 0.996 (band 0.26 nm), z=0.002: 0.992 (band 0.53 nm), z=0.004: 0.985 (band 1.06 nm), z=0.008: 0.968 (band 2.11 nm), z=0.016: 0.935 (band 4.22 nm), z=0.04: 0.826 (band 10.49 nm)
+[spline] 550 nm: A = 0.05963; deficit/(A z^3) -> z=0.0005: 1.001 (band 0.08 nm), z=0.001: 1.002 (band 0.16 nm), z=0.002: 1.004 (band 0.33 nm), z=0.004: 1.007 (band 0.65 nm), z=0.008: 1.015 (band 1.30 nm), z=0.016: 1.030 (band 2.60 nm), z=0.04: 1.073 (band 6.50 nm)
+[pchip] 510 nm: A = 6.05795; deficit/(A z^3) -> z=0.0005: 0.997 (band 0.13 nm), z=0.001: 0.993 (band 0.26 nm), z=0.002: 0.985 (band 0.53 nm), z=0.004: 0.970 (band 1.06 nm), z=0.008: 0.939 (band 2.11 nm), z=0.016: 0.900 (band 4.22 nm), z=0.04: 0.794 (band 10.49 nm)
+[pchip] 550 nm: A = 0.05785; deficit/(A z^3) -> z=0.0005: 1.005 (band 0.08 nm), z=0.001: 1.007 (band 0.16 nm), z=0.002: 1.010 (band 0.33 nm), z=0.004: 1.018 (band 0.65 nm), z=0.008: 1.032 (band 1.30 nm), z=0.016: 1.059 (band 2.60 nm), z=0.04: 1.105 (band 6.50 nm)
+
+== 2. the two-contact (purple) face on the full table, 390-830 nm, PCHIP  [September endpoint audit] ==
+long contact: L/M is stationary at 703.417797 nm  [September note: approximately 703.417797 nm]; S there = 0.0e+00
+candidate short contact 397.395107 nm: n.c >= 0 on the whole table: False (min -8.09e-06)
+candidate short contact 409.717155 nm: n.c >= 0 on the whole table: True (min 7.22e-16)
+   quadratic coefficients q0 = 9.454956e-08, q1 = 2.971049e-10 (both positive: True)
+   signal functional = equal-weight sum of white-balanced channels: A0 = 1.632, A1 = 4308.86, tau* = 0.0674706704
+   signal functional = raw sum L+M+S: A0 = 5.38555, A1 = 2075.05, tau* = 0.1208214127
+   signal functional = luminance 0.68990272 L + 0.34832189 M: A0 = 8322.23, A1 = 510.79, tau* = 0.7171244538
+   signal functional = L + M: A0 = 7530, A1 = 996.14, tau* = 0.6624550581
+[September note, Stockman-Sharpe / PCHIP: tau* = 0.0674706704]
+
+[stderr]
+/home/user/magenta-gap/research/independent-checks/cubic_law_and_september_numbers.py:39: RuntimeWarning: The iteration is not making good progress, as measured by the 
+ improvement from the last ten iterations.
+  sol = fsolve(lambda u: [ell(I(u[0], u[1])) - z, hfun(I(u[0], u[1]))/z], [lam0 - w/2, lam0 + w/2], xtol=1e-14)
+/home/user/magenta-gap/research/independent-checks/cubic_law_and_september_numbers.py:39: RuntimeWarning: xtol=0.000000 is too small, no further improvement in the approximate
+ solution is possible.
+  sol = fsolve(lambda u: [ell(I(u[0], u[1])) - z, hfun(I(u[0], u[1]))/z], [lam0 - w/2, lam0 + w/2], xtol=1e-14)

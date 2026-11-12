@@ -1,0 +1,5 @@
+boost keeps white: False | rotation keeps white: True
+boosted colour eigenvalues: [0.045 2.003] (> 1 means it left the colour body)
+missing arc  60 deg: unreachable fraction MC = 0.0290, formula (phi - sin phi)/(2 pi) = 0.0288, max saturation on the chord midpoint = 0.866
+missing arc  90 deg: unreachable fraction MC = 0.0914, formula (phi - sin phi)/(2 pi) = 0.0908, max saturation on the chord midpoint = 0.707
+missing arc 120 deg: unreachable fraction MC = 0.1951, formula (phi - sin phi)/(2 pi) = 0.1955, max saturation on the chord midpoint = 0.500

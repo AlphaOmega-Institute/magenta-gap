@@ -1,0 +1,16 @@
+== inputs ==
+the shared loader returns the CSV values exactly (441 rows, 390-830 nm): True
+
+== the two core routines ==
+exact rational PCHIP agrees with SciPy's PCHIP on sampled cells (including both ends): worst difference 6.7e-16
+sign certifier on (t-0.4)(t-0.6), positive at both ends but negative inside: refused
+sign certifier on (t-0.5)^2, touching zero inside: refused
+sign certifier on (t-0.4)(t-0.6) + 0.011, positive everywhere but needing subdivision: certified
+
+== independent floating-point reproduction on the full 390-830 nm table ==
+sign changes of q on a 0.002 nm grid: 2 | roots: 486.86308097592, 599.36944776045  [certificate: 486.863080975890..948 and 599.369447760400..458]
+support point: 0.11649647725656, 0.20194541250742, 0.09328313559544 | inside the certified enclosures: True
+hue of this point: 60.021 deg; q is positive exactly on the band: True
+
+== what 'horizontal' means without coordinates ==
+white = 226.409 c(lambda1) + 91.248 c(lambda2), residual 9.0e-16; both weights positive: True

@@ -1,0 +1,15 @@
+== 1. the purple gap is not a linear defect (point raised in review) ==
+rank of three hue projectors from one short arc (space of real symmetric 2x2 is 3-dim): 3
+rank of the spectral lights' cone-signal vectors: 3 -> linear span is everything, linear defect = 0
+
+== 2. straight stretch of the locus (coordinate-free obstruction to roundness under linear maps) ==
+wavelengths with tabulated S exactly 0: 85 of 311, from 616 nm; these are exactly collinear (the line S = 0)
+wavelengths with S share below 1e-3: 150, from 551 nm
+
+== 3. Hilbert metric on the round model ==
+invariant under every E -> S E S^T; distance from white = artanh(saturation); equals the Klein hyperbolic distance: True
+boost along the hue axis adds saturations like velocities: True
+
+== 4. Hilbert metric on the measured gamut (convex hull of the locus) ==
+distances unchanged under 20 random linear changes of cone coordinates and chromaticity charts: worst relative change 6.9e-13
+distance from white along hue theta = (1/2) log[(1 + r/alpha(theta+pi)) / (1 - r/alpha(theta))]: True

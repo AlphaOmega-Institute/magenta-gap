@@ -1,0 +1,19 @@
+== 1. crease along the one-transition (edge) colours: predicted from tangent planes vs measured ==
+hue  +10: long-pass at 557.2 nm; measured slopes below/above +0.2870 / -0.0605; planes through c(lam1) and the red end / violet end give +0.2872 / -0.0601
+hue  +20: long-pass at 542.5 nm; measured slopes below/above +0.2579 / -0.1240; planes through c(lam1) and the red end / violet end give +0.2580 / -0.1236
+hue  +30: long-pass at 525.0 nm; measured slopes below/above +0.2331 / -0.2086; planes through c(lam1) and the red end / violet end give +0.2328 / -0.2079
+hue  +40: long-pass at 492.0 nm; measured slopes below/above +0.0201 / -0.3541; planes through c(lam1) and the red end / violet end give +0.0145 / -0.3534
+hue -170: short-pass at 557.2 nm; measured slopes below/above +0.0605 / -0.2870; planes through c(lam1) and the red end / violet end give -0.2872 / +0.0601
+hue -150: short-pass at 525.0 nm; measured slopes below/above +0.2086 / -0.2331; planes through c(lam1) and the red end / violet end give -0.2328 / +0.2079
+
+== 2. near black: finite bins sit on the cone, fine bins fall inside it ==
+bin width 1.0 nm, hue of 520 nm: t=0.002: 1 - R/(alpha t) = 3.95e-14, t=0.008: 1 - R/(alpha t) = 1.94e-14, t=0.032: 1 - R/(alpha t) = 4.95e-04
+bin width 0.05 nm, hue of 520 nm: t=0.002: 1 - R/(alpha t) = 1.76e-04, t=0.008: 1 - R/(alpha t) = 2.07e-04, t=0.032: 1 - R/(alpha t) = 4.65e-04
+
+== 3. the cubic law at spectral directions (0.05 nm bins, 390-700 nm) ==
+470 nm (hull vertex: True): deficit 5.29e-07, 8.66e-07, 2.31e-06, 1.76e-05; exponents 0.71, 1.41, 2.93; band widths 1.1, 2.2, 4.4, 8.8 nm
+490 nm (hull vertex: True): deficit 1.66e-07, 1.31e-06, 1.04e-05, 7.99e-05; exponents 2.98, 2.98, 2.95; band widths 1.8, 3.5, 7.0, 13.8 nm
+510 nm (hull vertex: True): deficit 3.78e-07, 2.68e-06, 2.04e-05, 1.47e-04; exponents 2.83, 2.93, 2.85; band widths 1.4, 2.7, 5.3, 10.5 nm
+530 nm (hull vertex: True): deficit 2.33e-07, 2.82e-07, 2.13e-06, 1.56e-05; exponents 0.27, 2.92, 2.88; band widths 0.9, 1.8, 3.6, 7.2 nm
+550 nm (hull vertex: True): deficit 2.87e-08, 5.58e-07, 1.15e-06, 2.05e-06; exponents 4.28, 1.04, 0.84; band widths 0.8, 1.7, 3.2, 6.5 nm
+(1s)

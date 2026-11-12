@@ -1,0 +1,25 @@
+white = [0. 0. 2.] (should be (0, 0, 2))
+interior sign changes of n.c along the rim: 1: 890 of 1440 normals, 2: 536 of 1440 normals, 3: 14 of 1440 normals
+all zeros simple (n.c' != 0): True | grid points where n.c touches zero without crossing: 4
+hue advances monotonically along the rim: True; total hue swept 6.2832 rad
+  share of the hue circle whose widest point has 1 interior transition(s): 21.6%
+  share of the hue circle whose widest point has 2 interior transition(s): 77.1%
+  share of the hue circle whose widest point has 3 interior transition(s): 1.3%
+
+two-transition rim points: 536
+  independence of c(lambda1), c(lambda2): sine of their angle ranges 0.447 .. 0.633
+  the unique normal c1 x c2 is parallel to the horizontal n to within 2.2e-16, height component at most 3.3e-15
+  transitions stay inside the spectrum: nearest approach to an end is 6.90 nm
+  height of these widest points: z from -0.516 to +0.516
+
+one-transition rim points: 890
+  the horizontal normal supports the edge colour over the whole spectrum: 890 of 890
+  a second, non-parallel normal (tilted 0.05 about c(lambda1)) also supports it: 890 of 890 (both tilt signs: 830)
+  both extreme normals (planes through c(lambda1) and each spectrum end) support it: 0 of 890
+  transition wavelengths 491.0 .. 569.7 nm; heights z from -0.516 to +0.516
+  other: 40.3 3 [490.96, 687.4, 715.64]
+  other: 40.6 3 [490.92, 671.43, 743.27]
+  other: 41.0 3 [490.89, 664.29, 761.0]
+  other: 41.2 3 [490.85, 660.1, 778.6]
+  other: 41.5 3 [490.81, 656.59, 793.69]
+  other: 41.8 3 [490.77, 653.33, 805.7]

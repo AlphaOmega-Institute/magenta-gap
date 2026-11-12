@@ -1,0 +1,7 @@
+S on 616-830 nm: table max 0.0 | interpolant max 0.0
+smallest tabulated L, M over the whole table: 9.74306e-07 9.53411e-08 | S is zero only from 616.0 nm
+half reflectance on 616-830 nm, none elsewhere: a = [0.06566 0.01201 0.     ]  [value reported in review: (0.06566, 0.01201, 0)]
+n.c <= 0 on the whole spectrum: True | n.c = 0 on a stretch of 214 nm | n.a = 0.0 = support value 0, so a is a boundary point
+response vectors at 630 and 760 nm are independent (the face is two-dimensional): True | so half reflectance is in its relative interior and the tangent plane there is S = 0
+the intensity-scaling direction a lies in that plane: True | complement W - a: [0.93434 0.98799 1.     ] with normal +S: (W - a) direction toward white has S-component 0.0
+certified point: n.x = 0.908754 (from black), n.(W - x) = -0.908754 (toward white); both nonzero, so neither direction is tangent there

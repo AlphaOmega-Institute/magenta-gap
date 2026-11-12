@@ -1,0 +1,6 @@
+bicone == effect space {0 <= E <= 1}; boundary sheets are det E = 0 and det(1-E) = 0: True
+boundary point at z=0, r=1 is a projector: True trace 1.0
+X^2 + Y^2 + N^2 = Z^2 for every vector: True
+  Krein-null state with relative phase 0.0: N = -2.2e-17, (X, Y)/Z = (+1.0000, +0.0000) = (cos, sin) of phase: True; X^2+Y^2-Z^2 = +0.0e+00
+  Krein-null state with relative phase 1.0: N = -1.1e-16, (X, Y)/Z = (+0.5403, +0.8415) = (cos, sin) of phase: True; X^2+Y^2-Z^2 = -3.3e-16
+  Krein-null state with relative phase 2.5: N = -2.8e-17, (X, Y)/Z = (-0.8011, +0.5985) = (cos, sin) of phase: True; X^2+Y^2-Z^2 = +1.1e-16

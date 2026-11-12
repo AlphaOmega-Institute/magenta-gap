@@ -1,0 +1,12 @@
+input grid: 390.0 - 830.0 nm, 441 samples
+E integrals: [115.978408  94.821179  58.419451]
+
+[E-balanced] hull vertices: 188; edges joining non-adjacent samples (nm): [(410, 700), (453, 458), (599, 616), (616, 700)]
+  410-700 nm edge: distance from white 0.2940, normal at -87.0 deg, subtends 111.6 deg at white
+  manuscript edge formula equals tan(theta - theta0): True; slope range -1.127 .. 1.978
+  hull radius range 0.1412 .. 0.6516
+
+[raw, E-centred] hull vertices: 188; edges joining non-adjacent samples (nm): [(410, 700), (453, 458), (599, 616), (616, 700)]
+  410-700 nm edge: distance from white 0.3069, normal at -88.5 deg, subtends 111.4 deg at white
+  manuscript edge formula equals tan(theta - theta0): True; slope range -1.316 .. 1.640
+  hull radius range 0.1533 .. 0.5894

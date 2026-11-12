@@ -1,0 +1,37 @@
+bins: coarse 311, fine 1241
+1 nm model, hue 100 deg: second differences of R in z are <= 0 everywhere: True; exactly zero (straight pieces) at 83% of grid points
+72 hues in 21s
+
+hue    z_widest  reflectance at the widest point            slope jump in z at steps 0.04 / 0.02 / 0.01 / 0.005    alpha(theta)+alpha(theta+pi)
+ -180  +0.507    band-pass  [406.5, 569.8]          0.080 / 0.006 / 0.003 / 0.002                 0.498
+ -165  +0.280    short-pass [550.0]                 0.366 / 0.364 / 0.363 / 0.363                 0.473
+ -150  -0.014    short-pass [525.0]                 0.446 / 0.444 / 0.442 / 0.441                 0.522
+ -135  -0.233    band-stop  [490.2, 634.2]          0.078 / 0.039 / 0.020 / 0.010                 0.675
+ -120  -0.093    band-stop  [486.8, 599.2]          0.054 / 0.027 / 0.014 / 0.007                 0.594
+ -105  +0.014    band-stop  [474.5, 577.8]          0.021 / 0.010 / 0.005 / 0.003                 0.573
+  -90  -0.068    band-stop  [460.0, 572.8]          0.013 / 0.006 / 0.003 / 0.002                 0.529
+  -75  -0.148    band-stop  [451.2, 571.5]          0.010 / 0.005 / 0.003 / 0.001                 0.485
+  -60  -0.215    band-stop  [445.2, 571.0]          0.009 / 0.005 / 0.002 / 0.001                 0.487
+  -45  -0.277    band-stop  [439.8, 570.8]          0.009 / 0.004 / 0.002 / 0.001                 0.540
+  -30  -0.339    band-stop  [434.0, 570.5]          0.009 / 0.005 / 0.002 / 0.001                 0.681
+  -15  -0.412    band-stop  [426.2, 570.2]          0.010 / 0.005 / 0.003 / 0.001                 0.619
+   +0  -0.507    band-stop  [406.5, 569.8]          0.080 / 0.006 / 0.003 / 0.002                 0.498
+  +15  -0.280    long-pass  [550.0]                 0.366 / 0.364 / 0.363 / 0.363                 0.473
+  +30  +0.014    long-pass  [525.0]                 0.446 / 0.444 / 0.442 / 0.441                 0.522
+  +45  +0.233    band-pass  [490.2, 634.2]          0.078 / 0.039 / 0.020 / 0.010                 0.675
+  +60  +0.093    band-pass  [486.8, 599.2]          0.054 / 0.027 / 0.014 / 0.007                 0.594
+  +75  -0.014    band-pass  [474.5, 577.8]          0.021 / 0.010 / 0.005 / 0.003                 0.573
+  +90  +0.068    band-pass  [460.0, 572.8]          0.013 / 0.006 / 0.003 / 0.002                 0.529
+ +105  +0.148    band-pass  [451.2, 571.5]          0.010 / 0.005 / 0.003 / 0.001                 0.485
+ +120  +0.215    band-pass  [445.2, 571.0]          0.009 / 0.005 / 0.002 / 0.001                 0.487
+ +135  +0.277    band-pass  [439.8, 570.8]          0.009 / 0.004 / 0.002 / 0.001                 0.540
+ +150  +0.339    band-pass  [434.0, 570.5]          0.009 / 0.005 / 0.002 / 0.001                 0.681
+ +165  +0.412    band-pass  [426.2, 570.2]          0.010 / 0.005 / 0.003 / 0.001                 0.619
+
+slope jump persists as the step shrinks 8-fold (ratio > 0.6): 16 hues; shrinks (ratio < 0.25): 56 hues; in between: 0 hues
+  band-pass  : 28 hues, of which jump persists at 0 and shrinks at 28; median jump ratio 0.13
+  band-stop  : 28 hues, of which jump persists at 0 and shrinks at 28; median jump ratio 0.13
+  long-pass  :  8 hues, of which jump persists at 8 and shrinks at 0; median jump ratio 0.99
+  short-pass :  8 hues, of which jump persists at 8 and shrinks at 0; median jump ratio 0.99
+hues whose widest-point reflectance has a transition within 3 nm of an end of the spectrum: 0; jump persists at 0 of them
+jump persists but no transition near a spectrum end: 16 hues, at angles [-175, -170, -165, -160, -155, -150, -145, -140, 5, 10, 15, 20, 25, 30, 35, 40]

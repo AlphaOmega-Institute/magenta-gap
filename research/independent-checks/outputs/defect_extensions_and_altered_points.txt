@@ -1,0 +1,13 @@
+== qualification 2: dynamics that reaches the defect separates the two extensions ==
+  phenomenal dynamics preserving the range: largest difference between the two readouts on evolved paired states = 0.000
+  phenomenal dynamics mixing range and defect: largest difference between the two readouts on evolved paired states = 0.603
+
+== can a bicone readout hold the altered colours named in the July manuscript? ==
+  chromatic at the black level (stygian): eigenvalues [-0.25  0.25] -> effect: False
+  chromatic at the white level (self-luminous): eigenvalues [0.75 1.25] -> effect: False
+  more saturated than the rim at mid level: eigenvalues [-0.15  1.15] -> effect: False
+  ordinary rim colour: eigenvalues [0. 1.] -> effect: True
+  smallest enlargement of the bicone about mid-grey that admits each point:
+    stygian: factor 1.50; the enlarged body's dark tip then sits at z = -1.50, below ordinary black at z = -1: True
+    self-luminous: factor 1.50; the enlarged body's dark tip then sits at z = -1.50, below ordinary black at z = -1: True
+    oversaturated: factor 1.30; the enlarged body's dark tip then sits at z = -1.30, below ordinary black at z = -1: True

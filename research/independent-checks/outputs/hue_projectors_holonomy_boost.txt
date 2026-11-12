@@ -1,0 +1,4 @@
+J(theta)^2 = 1, J = P(hue) - P(opposite hue), E = weight * hue + weight * opposite hue, det = product of weights: True
+eigenvector after one trip around the hue circle: [-1.  0.]  (started at [1, 0]) -> holonomy -1
+boost maps pure hues to pure hues with tan(theta'/2) = exp(-eta) tan(theta/2): True
+example: hues at 90 and 270 degrees move to [48.4, 311.6] (crowd toward the boost axis)

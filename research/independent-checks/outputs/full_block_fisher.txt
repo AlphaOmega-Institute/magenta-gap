@@ -1,0 +1,16 @@
+E-balanced B-only test: holds for c > 0.3761  (scale-dependent)
+           full-block test: G^-1(dF,dF) ranges 0.0001 .. 0.8525, max/min = 8081.1  (must be 1 for any c)
+            hue     0..  60 deg: 0.0001 .. 0.0004
+            hue    60.. 120 deg: 0.0057 .. 0.8525
+            hue   120.. 180 deg: 0.2562 .. 0.3899
+            hue  -180..-120 deg: 0.0187 .. 0.3975
+            hue  -120.. -60 deg: 0.0384 .. 0.0596
+            hue   -60..   0 deg: 0.0617 .. 0.3226
+raw        B-only test: holds for c > 0.4028  (scale-dependent)
+           full-block test: G^-1(dF,dF) ranges 0.0001 .. 0.5096, max/min = 6052.0  (must be 1 for any c)
+            hue     0..  60 deg: 0.0001 .. 0.0002
+            hue    60.. 120 deg: 0.0435 .. 0.5096
+            hue   120.. 180 deg: 0.3445 .. 0.4338
+            hue  -180..-120 deg: 0.0312 .. 0.4792
+            hue  -120.. -60 deg: 0.0442 .. 0.0617
+            hue   -60..   0 deg: 0.0635 .. 0.1942

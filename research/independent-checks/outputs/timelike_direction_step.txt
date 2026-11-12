@@ -1,0 +1,3 @@
+200000 random signature-(2,1) metrics with the achromatic direction timelike (199916 with sizeable cross-terms):
+  smallest g^-1(n,n) for a conormal annihilating that direction, relative to the metric scale: 1.75e-04 (positive: True)
+null achromatic direction (1,0,1) in the flat metric: conormal (1,0,-1) annihilates it: True and is null: True

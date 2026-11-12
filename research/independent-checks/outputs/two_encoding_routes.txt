@@ -1,0 +1,9 @@
+== route 1: hue as intersector phase ==
+<W_theta psi, E W_theta psi> = (1 + z + x cos(theta) + y sin(theta))/2 for every psi: True
+on the active carrier E is an effect exactly inside the bicone: True
+on the bridge-selected graph (theta = 0) every input gives <R>, <Q>, <J> = [1.0, 0.0, 0.0]
+an effect with E + J E J = identity that is not in the three-parameter family (arbitrary off-diagonal block): True
+
+== route 2: colour as content carried across the fixed bridge ==
+paired effect F_Phi = u F_Psi u* gives the same probability on corresponding states: True; the probability varies with the input (0.13 .. 0.99)
+adding any multiple of the defect projection to F_Phi changes no paired probability: True | F_Phi itself assigns probability -0.0 to every defect state

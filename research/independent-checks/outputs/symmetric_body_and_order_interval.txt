@@ -1,0 +1,15 @@
+== A. eq:baseline is minus four times the determinant of the displacement ==
+g0(dE,dE) = -4 det(dE): True
+generator tangent of eq:generator has rank 1 and g0 = 0.0
+
+== B. the two symmetries ==
+E -> 1 - E sends (x, y, z) to (-x, -y, -z): True  (hue theta -> theta + pi, z -> -z)
+order-interval body of the measured gamut is r <= min( alpha(theta)(T+z), alpha(theta+pi)(T-z) ): True
+ridge height z/T over hue: from -0.641 (hue -24 deg, boundary on 410-700 nm edge) to +0.641 (hue 156 deg, boundary on 490-491 nm edge)
+share of hue angles with |z_ridge|/T > 0.2: 61%; alpha(theta)/alpha(theta+pi) ranges 0.22 .. 4.57
+volumes: manuscript body 0.1859, order-interval body 0.1284, common part 0.1068 -> 43% of the manuscript body lies outside the order-interval body
+
+== C. Hilbert metric as a candidate for the angular scale B ==
+at 0.900 of the ceiling: Hilbert angular scale beta_H over hue: min 2.4, median 13.9
+at 0.990 of the ceiling: Hilbert angular scale beta_H over hue: min 2.4, median 107.3
+at 0.999 of the ceiling: Hilbert angular scale beta_H over hue: min 2.4, median 1042.5

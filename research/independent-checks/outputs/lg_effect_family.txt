@@ -1,0 +1,8 @@
+R0, Q0 Hermitian, square to the identity, anticommute with each other and with J: True
+0 <= E <= 1 exactly when sqrt(x^2 + y^2) <= 1 - |z| (200,000 random points): True
+conjugating by J reverses hue at fixed z:  J E J = E(-x, -y, z): True
+complement is the central symmetry:  1 - E = E(-x, -y, -z): True
+their product is the bicone's mirror symmetry:  1 - J E J = E(x, y, -z): True
+a general ground-plane effect has a fourth coordinate w (along J); E + J E J is a multiple of the identity exactly when w = 0: True
+for the colour family, the vacuum and the luminous ground give the same probability (1+z)/2: True
+equal incoherent mixture of the two grounds: <R0>, <Q0>, <J> = [0.0, 0.0, 0.0] | coherent Xi_0(0): [1.0, 0.0, 0.0]
