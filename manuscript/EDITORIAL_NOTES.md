@@ -105,3 +105,9 @@ The conversion moves the abstract into the standard document body, replaces clas
 An independent source comparison confirms that all 50 displayed mathematical environments, 286 inline math fragments, 70 labels, 46 reference calls, 18 citation calls, the numerical table, all captions, and the 16-entry bibliography are unchanged. After normalizing the stated formatting edits and forward-reference wording, the document body is identical. The three figure files match the reviewed Git blobs.
 
 The canonical PDF builds to 20 pages with no warnings, undefined references/citations, overfull boxes or underfull notices. All pages were rendered and inspected. The continuum certificate again reproduces byte for byte and the 11 colour-interface checks pass. The standard packages used by the source require no custom class, compatibility shim or runtime-specific path; the three external figure PDFs remain the only project assets needed alongside the TeX source.
+
+### Presentation follow-up to review of `cf2cd14` (12 November 2026)
+
+The diagonal theorem now says "the calibration of Eq. (22)". The calculation branch name in the data statement is set as one unbreakable text span so the PDF can be copied without a mid-word line break. `PROVENANCE.json` now explicitly identifies itself as the historical September import record, links its original commit, and points to the canonical working source. Its original filenames and eight-page count are retained as historical facts. The source artwork for Figure 1 remains unchanged; its label-size variation does not impede readability.
+
+The PDF still has 20 pages and builds without warnings or unresolved references. Its updated data-availability page was rendered and checked, and extracted text contains the full branch name on one line. No equations, numerical values, figure files or scientific claims changed.
