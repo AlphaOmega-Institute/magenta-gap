@@ -1,5 +1,7 @@
 % Editorial condensation of Magenta_Gap_MSS(1).pdf (July 2026).
 % See EDITORIAL_NOTES.md for substantive corrections and source provenance.
+% Consolidation draft, 12 November 2026: effect algebra, calibration and
+% a certified obstruction for a separately specified object-colour model.
 \documentclass[9pt,twocolumn,twoside]{opticajnl}
 \journal{opticajournal}
 \setboolean{shortarticle}{false}
@@ -7,6 +9,7 @@
 \doi{}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx,booktabs,microtype}
+\usepackage{courier}
 \hypersetup{pdftitle={Magenta gap: a geometric reachability model of nonspectral hue and color gamut boundaries},pdfauthor={Alexander Yiannopoulos}}
 \theoremstyle{plain}
 \newtheorem{proposition}{Proposition}
@@ -18,7 +21,7 @@
 \affil[1]{A$\lvert\Omega\rangle$ Institute, Alpha Omega Lattice Corporation, 3724 Laurel Street, Suite 108, New Orleans, Louisiana, USA}
 \affil[*]{ayianno@ao.institute}
 \begin{abstract}
-Monochromatic stimuli are ordered by wavelength, whereas hue includes a nonspectral purple closure. We model this closure by inserting a purple interval into a compactified spectral arc, then incorporate the resulting hue circle into a color body with an achromatic quotient. A proposed indefinite reachability metric makes a prescribed gamut boundary piecewise null. Under explicit calibration and regularity assumptions, nullity bounds the angular variation of the saturation ceiling; a diagonal construction requires strict inequality. Cone-fundamental calculations illustrate the constraint's dependence on normalization and metric scale. The construction separates a geometric compatibility condition from the physiological assumptions needed for optical confinement.
+Monochromatic stimuli are ordered by wavelength, whereas hue includes a nonspectral purple closure. We model this closure by inserting a purple interval into a compactified spectral arc, then incorporate the resulting hue circle into a color body with an achromatic quotient. For a prescribed boundary and an explicitly calibrated indefinite metric, nullity bounds the angular variation of the saturation ceiling; a diagonal construction requires strict inequality. The symmetric body also has a standard two-level effect representation, without identifying effect magnitude with opponent contrast. A separate bounded-reflectance signal model supplies a certified boundary point with a unique tangent plane containing the achromatic direction. At that point no Lorentzian metric making this direction timelike can make the boundary null, even with cross-terms. The results separate conditional geometric compatibility from the encoding, calibration and controls required for a perceptual realization.
 \end{abstract}
 \begin{document}
 \maketitle
@@ -28,6 +31,8 @@ Monochromatic stimuli are ordered by wavelength, whereas hue includes a nonspect
 Color perception provides a concrete setting in which physical stimulus coordinates, color-matching relations, and the organization of appearance must be distinguished. Wavelength orders monochromatic stimuli along a line. Hue, by contrast, includes a route from violet to red through the nonspectral purples. Magenta has no single-wavelength correlate, although it is induced by physically ordinary spectral mixtures. The resulting ``magenta gap'' concerns the organization of a response space, rather than an absent physical wavelength.
 
 Geometrical approaches to color have a substantial history. Color-matching structure is formalized by Grassmann representations \cite{Krantz1975}; differential-geometric models address additional questions about color-space organization and discrimination \cite{Resnikoff1974}. Appearance also depends on adaptation, surround, and the viewing regime \cite{Shevell2003,Fairchild2013}. A physical account therefore begins with spectral distributions and an observer-dependent response map, not with an identification of color and wavelength. The wavelength interval is only a restricted locus within the full stimulus domain.
+
+Two-level effect models already connect color solids with positive cones and Lorentzian algebra \cite{Berthier2020,BerthierProvenzi2022}. We use their effect-body geometry as an algebraic comparison, not as a new derivation of that geometry or of a physiological response map. Separately, the classical object-color solid concerns bounded reflectances under a fixed illuminant \cite{Koenderink2010,Logvinenko2025}. These two constructions describe different objects until an encoding relates them.
 
 This paper develops a geometric model in three stages. First, the ordered spectral arc is completed by a purple interval to form a resolved hue circle. Second, hue is collapsed at zero chromatic radius, giving a three-dimensional color body with an achromatic axis. Third, an indefinite metric is introduced as a \emph{reachability gauge}: a device for representing a prescribed boundary of ordinary optical access. The metric is not a perceptual-distance function, and its signature does not follow from the topology. It is a further modeling assumption whose mathematical consequences can be stated separately from its physiological interpretation.
 
@@ -45,15 +50,17 @@ where $\beta$ is the boundary angular metric scale divided by its chromatic radi
 
 The distinction is consequential. The bicone shape and its calibration are inputs, not predictions derived from cone physiology. Its equatorial ridge follows from the assumed symmetric shape. A related obstruction to a smooth null radial envelope holds under explicit metric and boundary hypotheses. Neither statement proves that optical response trajectories are confined by the metric. We therefore separate the geometry, a numerical consistency calculation using cone fundamentals, and the additional control condition that a reachability interpretation would require.
 
+Section~\ref{sec:object-obstruction} makes the limitation concrete. In a specified continuum object-color model, an exact-arithmetic calculation certifies a differentiable boundary point whose tangent plane contains the achromatic direction. A short Lorentzian argument rules out nullity there whenever that direction is timelike. This excludes one signal-boundary identification; it neither changes the conditional bicone theorem nor identifies a perceptual boundary with the signal solid.
+
 \section{Spectral stimuli and resolved hue}
 \label{sec:hue}
 \subsection{Stimulus space and nonspectrality}
-Let $a$ denote an observer and fixed viewing regime, including the adaptation and surround conditions relevant to the response. Let $\mathcal S_a$ be an admissible cone of finite positive spectral measures, and let
+Let $a$ denote an observer and fixed viewing regime, including the adaptation and surround conditions relevant to the response. Let $\mathcal S_a$ be an admissible set of finite positive spectral measures, and let
 \begin{equation}
  \Phi_a:\mathcal S_a\longrightarrow M_a
  \label{eq:response}
 \end{equation}
-be its response map. Measures accommodate both continuous spectral power distributions and idealized monochromatic stimuli. The latter have the form $t\delta_\lambda$, where $t>0$ specifies intensity. After choosing an intensity normalization, the wavelength interval
+be its response map. An additive-light model may take $\mathcal S_a$ to be a cone; bounded reflectances under fixed illumination instead give a bounded stimulus class. Measures accommodate both continuous spectral power distributions and idealized monochromatic stimuli. In the additive model the latter have the form $t\delta_\lambda$, where $t>0$ specifies intensity. After choosing an intensity normalization, the wavelength interval
 \begin{equation}
  I_a=(\lambda_-^a,\lambda_+^a)
  \label{eq:interval}
@@ -112,7 +119,7 @@ Changing this calibration transforms the metric components and derivatives used 
 \section{Quotient color body and metric model}
 \label{sec:body}
 \subsection{The achromatic quotient}
-Let $r\in[0,r_{\max}]$ denote a chromatic radius and $z\in L_a$ a centered luminosity coordinate. Neither is assumed at this stage to be a standardized perceptually uniform coordinate. Hue is undefined at $r=0$, so the ambient color body is modeled by
+Let $r\in[0,r_{\max}]$ denote a chromatic radius and $z\in L_a$ a centered height coordinate, provisionally called luminosity. Its relation to opponent activation, luminance or brightness requires calibration. Neither coordinate is assumed at this stage to be perceptually uniform. Hue is undefined at $r=0$, so the ambient color body is modeled by
 \begin{equation}
  M_a=\bigl([0,r_{\max}]\times\widetilde H_a\times L_a\bigr)/\sim,
  \qquad (0,h,z)\sim(0,h',z).
@@ -129,7 +136,7 @@ Choosing $x=r\cos\theta$ and $y=r\sin\theta$ identifies the chromatic disk in or
 \end{equation}
 The polar chart fails on the axis, but the Cartesian tensor is regular there. The period $2\pi$ is part of this coordinate convention. Under a nonlinear angular reparameterization, the component multiplying the new angular differential must transform; one cannot preserve the bare $r^2$ expression and simultaneously claim to have kept the same metric.
 
-The gauge and a local discrimination metric are different objects. Choosing a regular Cartesian core for $g_0$ does not specify discrimination thresholds near gray, nor does it identify coordinate circumference with perceptual circumference. Empirical anisotropy may enter a separately calibrated discrimination tensor. The boundary identification used in Sec.~\ref{sec:numerics}.\ref{sec:identification} is an additional assumption linking that tensor to the reachability construction.
+The gauge and a local discrimination metric are different objects. Choosing a regular Cartesian core for $g_0$ does not specify discrimination thresholds near gray, nor does it identify coordinate circumference with perceptual circumference. Empirical anisotropy may enter a separately calibrated discrimination tensor. The boundary identification used in Sec.~\ref{sec:identification} is an additional assumption linking that tensor to the reachability construction.
 
 \subsection{Fixed-hue sections and the role of the signature}
 Each fixed-hue radial--luminosity section has the quadratic form
@@ -139,7 +146,7 @@ Each fixed-hue radial--luminosity section has the quadratic form
 \end{equation}
 It admits the split-complex notation $q=r+j\kappa z$, $j^2=1$, with $q\overline q=r^2-\kappa^2z^2$. The state-space section is a half-plane because $r\geq0$; its tangent-space quadratic form has signature $(1,1)$. This notation introduces no fourth color coordinate. Hue labels the section rather than contributing another component to $q$.
 
-Hyperbolic rotations preserve the baseline split form. That algebraic fact does not establish that adaptation or luminance-induced changes in colorfulness follow such rotations. A connection to phenomena such as the Hunt effect would require a response model and an independent test. The present use of the split form is restricted to describing the proposed metric and its null directions.
+Hyperbolic rotations preserve the split form on the containing signed plane; they need not preserve the half-plane $r\geq0$ or the bounded color body. Their use in color theory, including a model of the Hunt effect, has prior precedent \cite{BerthierProvenzi2022}. The algebraic invariance alone does not establish a physiological transformation law. The present use of the split form describes the proposed metric and its null directions.
 
 The minus sign distinguishes the luminosity direction in the chosen reachability model. A null displacement is not asserted to be a zero perceptual difference. Likewise, a spacelike displacement is not inherently inaccessible: ordinary isoluminant changes have $\dd z=0$ and positive spatial norm. These facts prevent the metric alone from serving as a physiological rule for permitted transitions.
 
@@ -151,6 +158,43 @@ For a fixed ordinary regime $a_0$, write
  \label{eq:image}
 \end{equation}
 The model assigns the ordinary optical image a spindle-like boundary. To compare it with another regime, both images must first be represented in a common calibrated ambient space. A change of adaptation may then change the response map and its image. The claim that an altered-regime percept lies outside the ordinary image is operational and requires such calibration; the drawing of an exterior region is not itself evidence for that claim.
+
+\subsection{Effect geometry and the meaning of height}
+\label{sec:effect-body}
+The symmetric bicone has a standard representation by measurement effects \cite[Sec.~5.1]{Berthier2020}. Let
+\begin{equation}
+ J=\begin{pmatrix}1&0\\0&-1\end{pmatrix},\quad
+ R_0=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+ Q_0=\begin{pmatrix}0&-i\\i&0\end{pmatrix}.
+ \label{eq:effect-pauli}
+\end{equation}
+In normalized coordinates define
+\begin{equation}
+ E(\xi,\eta,\zeta)=\tfrac12\bigl[(1+\zeta)I+\xi R_0+\eta Q_0\bigr],
+ \quad r_e=(\xi^2+\eta^2)^{1/2}.
+ \label{eq:colour-effect}
+\end{equation}
+Since $(\xi R_0+\eta Q_0)^2=r_e^2I$, the eigenvalues are $(1+\zeta\pm r_e)/2$. Hence
+\begin{equation}
+ 0\leq E\leq I\quad\Longleftrightarrow\quad r_e+|\zeta|\leq1.
+ \label{eq:effect-bicone}
+\end{equation}
+A unitary change of basis identifies this three-dimensional family with real symmetric two-by-two effects. It is a slice of the four-dimensional complex-qubit effect space. Setting $\xi=x/(\kappa T)$, $\eta=y/(\kappa T)$ and $\zeta=z/T$ gives the symmetric body in Eq.~\eqref{eq:bicone}. Its two sheets are $\det E=0$ and $\det(I-E)=0$.
+
+An effect assigns probabilities $\operatorname{Tr}(\rho E)$ to states $\rho$; it is not itself a state vector. Identifying effects with perceived colors is an additional model choice. Nor does the matrix representation identify the optical image with the entire effect body. Conjugation by $J$ reverses $(\xi,\eta)$, complementation $E\mapsto I-E$ reverses all three coordinates, and their composition reverses $\zeta$ alone. These symmetries of the ideal body do not imply the same symmetries for a preparation image.
+
+Three height meanings must be distinguished. The opponent interpretation uses a centered white/black activation, with extrema describing focal-versus-surround contrast. In Eq.~\eqref{eq:colour-effect}, the height is $\zeta=2a_3-1$, where $a_3=\operatorname{Tr}(E)/2$ is effect magnitude; its proposed relation to luminance \cite[Sec.~5.3]{BerthierProvenzi2022} does not calibrate opponent contrast. In the object-color example of Sec.~\ref{sec:object-obstruction}, height is a centered sum of white-normalized cone catches under bounded reflectance. Perfectly absorbing and perfectly reflecting surfaces fix that example's endpoints. Reusing a height coordinate does not identify these quantities.
+
+The quotient in Eq.~\eqref{eq:quotient} already distinguishes the ambient cylinder from an ordinary spindle inside it. The cylinder permits chromatic variation at its height extremes. An effect bicone has tips instead. If ordinary black and white are identified with those tips, and a shared cross-regime calibration places an altered chromatic appearance at either of the same extreme heights, Eq.~\eqref{eq:effect-bicone} excludes that appearance. This is a conditional incompatibility of those identifications, not a measured location of a chimerical color.
+
+For example, the illustrative point $(r_e,\zeta)=(1/2,-1)$ has eigenvalues $-1/4,1/4$ and is not an effect. A uniform recalibration
+\begin{equation}
+ E_s=\tfrac12\bigl[(1+\zeta/s)I+(\xi/s)R_0+(\eta/s)Q_0\bigr]
+ \label{eq:effect-recalibration}
+\end{equation}
+with $s>0$ is positive and bounded by $I$ exactly when $s\geq r_e+|\zeta|$. At $s=3/2$, the former achromatic references $\zeta=\pm1$ become $I/6$ and $5I/6$, so they are no longer the tips. Changing the target shape is another possibility. Neither choice is selected by the illustrative point. A full effect target can also contain a proper ordinary image, leaving room for other regimes within the same target. Berthier explicitly allows observer-dependent convex subsets of the chromatic state space and leaves contextual effects for further study \cite[Secs.~7.3--7.4]{Berthier2020}. We therefore infer no general exclusion of altered colors from the effect approach.
+
+Appendix~\ref{app:paired-readout} states the additional limitation when the two-level coordinate labels paired sectors: on a fixed aligned graph, sector effects have input-independent statistics. Color-sensitive internal observables remain possible, but require a specified encoding and readout.
 
 \section{Null-boundary compatibility}
 \label{sec:constraint}
@@ -355,16 +399,126 @@ Every retained edge sample satisfies the strict diagonal condition at the chosen
 A control calculation explains why the boundary definition and differentiation method matter. On the original spectral-locus construction, a $1^\circ$ angular grid misses a narrow raw-normalization failure near 403~nm. Differentiating a PCHIP interpolation of the LMS functions resolves it: at 403.4~nm, $u\approx5.9852$ and $\beta\approx5.2312$, so $(u/\beta)^2\approx1.3091$. This feature is inside the attainable mixture hull and is therefore not a failure of the outer-boundary check in Table~\ref{tab:bound}. It is retained in the reproducibility archive to document why the coarse original-locus result cannot support an all-hue claim.
 
 \subsection{Metric scale and a testable comparison}
-Writing $u=|\alpha'/\alpha|$, a common rescaling $G\mapsto cG$ gives $\beta\mapsto\sqrt c\,\beta$. On a fixed retained finite grid, strict compatibility is equivalent to
+Writing $u=|\alpha'/\alpha|$, rescaling the chromatic metric $G\mapsto cG$ while holding $C=\alpha^2$ fixed gives $\beta\mapsto\sqrt c\,\beta$. On a fixed retained finite grid, strict compatibility is equivalent to
 \begin{equation}
  c>c_*:=\max_\theta\left(\frac{u(\theta)}{\beta(\theta)}\right)^2.
  \label{eq:scale}
 \end{equation}
 The value $c=1$ is a convention in this illustration, not a measured physiological calibration. Increasing it can turn a failure into a pass without changing the boundary. Thus the test is hue-coordinate covariant but not independent of discrimination-metric normalization. The two properties must not be conflated.
 
+A common rescaling of the entire Lorentzian metric leaves nullity unchanged. Photon number alone therefore does not calibrate the relative chromatic and height scales. For example, independent Poisson catches with means $Np_i$, $\sum_i p_i=1$, have Fisher form
+\begin{equation}
+ \sum_i\frac{\dd(Np_i)^2}{Np_i}
+ =N\left(\sum_i\frac{\dd p_i^2}{p_i}+\dd\zeta_I^2\right),
+ \qquad \zeta_I=\log N.
+ \label{eq:poisson-scale}
+\end{equation}
+The cross-term vanishes because $\sum_i\dd p_i=0$. Both parts scale with $N$; the negative sign of a reachability metric is an additional choice, not a property of Fisher information. This calculation supplies no lower bound on a working observer's relative discrimination scale.
+
 For the Euclidean spatial reference metric, $B=r^2$ and $\beta=1$ in the stated polar coordinate. Comparing $u$ with 1 is a comparison with that specific metric. If the angle is reparameterized and the Euclidean tensor is transformed consistently, its comparison is covariant too. A failure of the fixed Euclidean benchmark does not, by itself, demonstrate a coordinate artifact or select the Fisher metric as physiological truth.
 
 An empirical test would measure the ceiling and local discrimination independently in the same observer, stimulus class, adaptation state, coordinates, and units. It would propagate their uncertainties and fix the metric scale before evaluating the inequality. A large apparent margin obtained by comparing differently normalized metrics cannot supply that identification. In particular, the earlier manuscript's comparison with MacAdam ellipses \cite{MacAdam1942} did not resolve the scale and location mismatch between interior ellipse centers and boundary data; it is not used here as independent validation.
+
+One possible calibration identifies $B=kB_{\rm meas}$ and $C=kC_{\rm meas}$ with chromatic and height sensitivities in the same units, with one constant $k>0$. The condition $C=\alpha^2$ then requires $C_{\rm meas}/\alpha^2$ to be constant on the tested boundary; it is itself a prediction of this identification. Once that ratio is fixed, the angular constraint becomes
+\begin{equation}
+ R_\theta^2\,C_{\rm meas}\leq\alpha^2 B_{\rm meas},
+ \label{eq:relative-calibration}
+\end{equation}
+with strict inequality for the diagonal realization. This is an additional measurement bridge, not a consequence of cone fundamentals. It leaves the radial and radial--angular coefficients free. Identifying the entire spatial block with a scaled Fisher tensor is a stronger choice, excluded on nontrivial open edge segments where that tensor is defined by Appendix~\ref{app:full-fisher}.
+
+\section{A bounded-reflectance obstruction}
+\label{sec:object-obstruction}
+\subsection{Timelike directions and boundary conormals}
+The compatibility theorem concerns a prescribed bicone. A different question is whether an independently specified signal body can have an everywhere-null boundary under a chosen interpretation of height. The following local fact allows all metric cross-terms.
+
+\begin{proposition}[Achromatic tangency obstruction]
+\label{prop:timelike-conormal}
+Let a boundary in a three-dimensional signal space be differentiable at a point, with nonzero conormal $n$. If $n(W)=0$ for a direction $W$, then every Lorentzian metric of signature $(2,1)$ with $g(W,W)<0$ at that point satisfies
+\begin{equation}
+ g^{-1}(n,n)>0.
+ \label{eq:timelike-conormal}
+\end{equation}
+In particular, the boundary is not null there.
+\end{proposition}
+\begin{proof}
+Put $n^\sharp=g^{-1}n$. Then $g(n^\sharp,W)=n(W)=0$. The orthogonal complement of a timelike vector is positive definite. Since $n^\sharp\ne0$, its squared norm is strictly positive.
+\end{proof}
+
+The hypothesis concerns a tangent direction, not a coordinate name. Transporting the metric, conormal and direction together under a coordinate change preserves the result. For a differentiable radial graph at an interior maximum in height, the tangent plane contains $\partial_z$, so this also strengthens the metric scope of Proposition~\ref{prop:ridge} whenever that direction is timelike.
+
+\subsection{Continuum signal model and a unique normal}
+We now use a different stimulus class from the additive mixture hull in Sec.~\ref{sec:numerics}. Let $s_i(\lambda)$ be the componentwise PCHIP interpolants of all 441 Stockman--Sharpe samples on $[390,830]$~nm. Set
+\begin{equation}
+ \begin{aligned}
+ c_i(\lambda)&=\frac{s_i(\lambda)}{\int_{390}^{830}s_i(\lambda)\,\dd\lambda},\\
+ \mathcal O&=\left\{\int_{390}^{830}c(\lambda)\rho(\lambda)\,\dd\lambda:
+ 0\leq\rho\leq1\right\}.
+ \end{aligned}
+ \label{eq:object-solid}
+\end{equation}
+Here $\rho$ is any measurable reflectance, and equal-energy illumination is included in $c$. White is exactly $W=(1,1,1)$ in catch coordinates. This is the standard bounded-reflectance construction \cite{Logvinenko2025}; it is not the cone of unrestricted additive spectra. Its support function is
+\begin{equation}
+ h(n)=\int_{390}^{830}\max\{n\cdot c(\lambda),0\}\,\dd\lambda.
+ \label{eq:object-support}
+\end{equation}
+It is attained by choosing $\rho=1$ where $n\cdot c>0$ and $\rho=0$ where $n\cdot c<0$. This pointwise rule is independent of any perceptual metric.
+
+\begin{proposition}[Two independent transition vectors]
+\label{prop:transition-normal}
+Suppose $\mathcal O$ is full dimensional and $c$ is continuous. A genuine interior $0\leftrightarrow1$ transition means that $\rho$ equals zero almost everywhere on one adjacent interval and one almost everywhere on the other. If a boundary point is represented by a reflectance with at least two such transitions, and the corresponding response vectors are linearly independent, the point has a unique outward normal direction and the boundary is differentiable there.
+\end{proposition}
+\begin{proof}
+Any supporting functional at this point is maximized by the same reflectance. The nonnegative difference between its pointwise maximum and its attained integral must vanish. Continuity therefore forces the functional to vanish at each genuine transition. Two independent transition vectors determine a one-dimensional space of possible normals. Full dimensionality excludes both orientations supporting the same point, leaving one outward normal ray. For a convex body this is differentiability at the point.
+\end{proof}
+Additional transitions do not invalidate the argument. Merely touching zero without a reflectance transition is insufficient. No continuously differentiable neighborhood is asserted.
+
+\subsection{Certified instance and its scope}
+For a catch vector $a$, choose the affine coordinates
+\begin{equation}
+ \begin{aligned}
+ x&=\tfrac29(2a_L-a_M-a_S),\\
+ y&=\tfrac29(-a_L+2a_M-a_S),\\
+ z&=\tfrac23(a_L+a_M+a_S)-1.
+ \end{aligned}
+ \label{eq:object-chart}
+\end{equation}
+Black and white lie at $(0,0,-1)$ and $(0,0,1)$. The \emph{direction} $W$ is sent by the linear part to $(0,0,2)$. Take the support conormal $n=\dd y$, or, equivalently, maximize the integral of
+\begin{equation}
+ q(\lambda)=-c_L(\lambda)+2c_M(\lambda)-c_S(\lambda).
+ \label{eq:object-cost}
+\end{equation}
+
+The certificate treats the archived binary64 samples as exact rational data and constructs the PCHIP coefficients with rational arithmetic. Signs on the interpolation cells are certified by Bernstein-polynomial bounds, with subdivision where required; the two transition cells have derivative signs of fixed nonzero sign and their roots are enclosed by rational bisection. The cost has exactly two simple roots, with $q>0$ between them and $q<0$ outside. Outward-rounded enclosures are
+\begin{equation}
+ \begin{aligned}
+ 486.8630809758&<\lambda_1<486.8630809761,\\
+ 599.3694477603&<\lambda_2<599.3694477606
+ \end{aligned}
+ \quad\text{nm}.
+ \label{eq:object-roots}
+\end{equation}
+Thus $\rho_*=\mathbf1_{(\lambda_1,\lambda_2)}$ is a support optimizer. Exact polynomial integration and outward interval bounds enclose its point by
+\begin{equation}
+ \begin{aligned}
+ 0.11649647725622&\leq x_*\leq0.11649647725683,\\
+ 0.20194541250715&\leq y_*\leq0.20194541250768,\\
+ 0.09328313559491&\leq z_*\leq0.09328313559570.
+ \end{aligned}
+ \label{eq:object-point}
+\end{equation}
+
+At either root, $2c_M=c_L+c_S$, so the transformed response vector is
+\begin{equation}
+ \bigl((c_L-c_S)/3,\ 0,\ c_L+c_S\bigr).
+ \label{eq:transition-vector}
+\end{equation}
+The interval calculation gives $-0.003<c_L-c_S<-0.002$ at the first root and $0.007<c_L-c_S<0.008$ at the second, with $c_L+c_S>0$ at both. The vectors are independent. A response vector inside the positive band has positive $y$ component; together these span three dimensions, so by continuity $\mathcal O$ is full dimensional. Proposition~\ref{prop:transition-normal} therefore gives a unique tangent plane at $a_*$, with conormal $\dd y$. Since $\dd y(W)=0$, Proposition~\ref{prop:timelike-conormal} excludes nullity for every Lorentzian metric making the adding-white direction timelike there.
+
+The same signs show that a positive combination of the two transition vectors points along $W$: their chromatic components cancel. These are complementary spectral directions in the specified model. Tangent planes parallel to the achromatic axis and complementary transitions belong to the classical geometry of full colors \cite[p.~213]{Koenderink2010}. The calculation makes no claim that this geometry is new and imposes no universal two-transition restriction on object-color boundaries.
+
+The certificate concerns a continuous piecewise-cubic response density and all measurable reflectances in $[0,1]$, not a finite-bin reflectance polytope. It certifies the declared interpolation model, not biological sensitivities without uncertainty. No sampled proportion of the hue circle is needed. The point is above the equator, but its height does not drive the obstruction: achromatic tangency does.
+
+This result prevents identifying the entire boundary of $\mathcal O$ with an everywhere-null surface while retaining the stated timelike direction. It does not refute the conditional bicone theorem or determine a perceptual boundary. A merely different coordinate chart cannot remove the obstruction. A different response encoding must explain what happens to the boundary and the achromatic direction; nonlinearity alone does not guarantee an escape.
 
 \section{Discussion}
 \label{sec:discussion}
@@ -374,20 +528,24 @@ The topological construction is deliberately modest. The compactification and in
 
 The metric calculation gives a conditional result with a definite mathematical content. Once the boundary form, the lack of temporal cross-terms, the calibration $C=\alpha^2$, and the angular coefficient $B$ have been prescribed, Eq.~\eqref{eq:square} supplies a necessary inequality. In the diagonal ansatz, strict inequality is sufficient for finite positive boundary data and a local regular collar. The construction is flexible: it neither singles out a unique interior metric nor selects the angular metric from cone fundamentals. This limits what a successful numerical illustration can establish.
 
-There are two distinct aspects of the ridge claim. Within the symmetric bicone, the ridge at $z=0$ is an exact feature of the assumed boundary. Proposition~\ref{prop:ridge} gives a broader obstruction to a smooth null radial envelope, but only under its stated hypotheses. Neither result shows that every empirical color solid must have an isoluminant ridge. A measured smooth maximum would challenge an everywhere-null description within this metric class; it would not challenge the observed existence of nonspectral hues or the achromatic quotient.
+There are distinct aspects of the ridge claim. Within the symmetric bicone, the ridge at $z=0$ is an exact feature of the assumed boundary. Proposition~\ref{prop:ridge} gives a broader obstruction to a differentiable, everywhere-null radial envelope. Proposition~\ref{prop:timelike-conormal} permits cross-terms and applies to the certified point of the separately specified signal solid. Thus an everywhere-null boundary with adding white timelike is already excluded for that model; a future discrimination measurement is not needed to establish this mathematical limitation. None of these results shows that every perceptual color solid has an isoluminant ridge.
 
 The reachability interpretation introduces another independent task. Altered adaptation can change color appearance \cite{Shevell2003,Fairchild2013}, and chimerical-color demonstrations motivate comparisons between ordinary and altered response regimes \cite{Churchland2005}. Those demonstrations do not measure the metric or establish the location of an exterior state in the coordinates used here. Reports of reddish green and yellowish blue under special viewing conditions \cite{Crane1983} address a related but distinct phenomenon and should not be treated as interchangeable evidence for every proposed chimerical state.
 
 To test non-egress, an experiment or physiological model would need to identify admissible controls near the candidate boundary and determine whether outward velocities remain available. Equation~\eqref{eq:identity} makes clear why invoking a null normal cannot substitute for that task. A successful control model could support a reachability interpretation without making ordinary optical motion globally causal in the Lorentzian sense. The geometry would still organize the compatibility question rather than supply the biological control law.
 
-The numerical illustration also has a restricted domain. It uses a standard observer, a finite wavelength cutoff, the convex hull of tabulated responses, and a modeled angular information metric. It does not evaluate a measured object-color solid, individual observer variation, the full luminosity dependence of discrimination, or a measured purple appearance boundary. Straight mixture edges are meaningful for the declared additive stimulus model; the absence of a monochromatic correlate does not imply that nonspectral gamut boundaries are undefined in color science.
+The two signal calculations have different domains. Section~\ref{sec:numerics} uses an additive mixture hull and a modeled angular information metric. Section~\ref{sec:object-obstruction} permits all bounded reflectances against a specified continuous response density. Neither measures an individual's appearance boundary or discrimination tensor. Straight mixture edges are meaningful for the additive stimulus model; the absence of a monochromatic correlate does not imply that nonspectral gamut boundaries are undefined in color science.
 
-The priority for further testing is therefore independent calibration. One should first fix the stimulus class and observer, reconstruct a boundary in declared coordinates, and measure the relevant local discrimination tensor on that boundary. Only then can a failure or success of Eq.~\eqref{eq:bound-intro} carry the intended empirical weight. Additional measurements of accessible control directions would address confinement separately. Keeping these tests separate makes the model's assumptions and possible failure modes explicit.
+The effect representation adds an algebraic comparison, not a physiological derivation. An ordinary preparation image can be a proper convex subset of a carrier while spanning it linearly. Its excluded colors then describe a convex reachability restriction, not an adjoint-kernel defect. For example, a linear or affine encoding that keeps three collinear signal points distinct cannot send all three to distinct pure chromatic states on a round disk: a line intersects the circle in at most two points. This constraint applies only to encodings with those assumptions. The tabulated long-wavelength chromaticities with $S=0$ supply collinear examples, but the exact zeros belong to the declared input table.
+
+The remaining realization task is to specify the stimulus and adaptation encoding, the observer-state carrier, and the observables or report procedures that define color coordinates. Only after that identification can independent boundary and discrimination measurements test Eq.~\eqref{eq:bound-intro} with its intended empirical meaning. Existing measurements may be used if their stimulus classes, viewing regimes, coordinates and scales match the identification. Control directions address confinement separately. These requirements do not select the cylinder or the effect body by mathematical analogy alone.
 
 \section{Conclusion}
 The magenta gap motivates a response-side description of hue closure that distinguishes physical spectral stimuli from the cyclic organization of color. Inserting a purple interval into an auxiliary compactified spectral arc gives a resolved hue circle; collapsing that circle at zero chromatic radius gives a color body with an achromatic axis. These constructions provide the setting for a proposed reachability metric, without determining its signature.
 
 For a prescribed hue-dependent bicone and explicit metric calibration, nullity and positive spatial definiteness imply a coordinate-covariant bound on the angular variation of the ceiling. The diagonal realization requires strict inequality, while regular equality can occur with a radial--angular cross-term. Cone-fundamental calculations illustrate compatibility with a specified metric convention. Independent discrimination calibration and a model of admissible optical controls remain necessary to establish empirical boundary constraints and physiological confinement.
+
+The same symmetric body admits an established two-level effect representation, but effect magnitude, opponent contrast and bounded-reflectance signal height are distinct quantities. The certified object-color point supplies a definite limit: its boundary cannot be null for any Lorentzian metric that makes adding white timelike there. This constrains a proposed signal-to-geometry identification without deciding the geometry of perception. A stimulus encoding and an operational readout remain necessary to turn either representation into a perceptual model.
 
 \appendix
 \section{Scope of the regular extension}
@@ -398,18 +556,62 @@ This is stronger than requiring a correction merely to be $O(r^2)$: $r^2f(\theta
 
 There is a direct obstruction at the achromatic boundary tips for nonconstant $\alpha$. Along the boundary, $C=\alpha(\theta)^2$. Approaching $(0,\pm T)$ at different hues gives different limits for the coefficient of $\dd z^2$. The stipulated calibration therefore does not generally extend continuously to those tips. The regular Cartesian core concerns the open interior axis, not the closure including the anisotropic achromatic poles. No global smoothness or removable-singularity claim at those poles is required for the local compatibility theorem.
 
+\section{Why the full Fisher identification fails on an edge}
+\label{app:full-fisher}
+The angular identification leaves $A$ and $D$ available for the construction. Suppose instead that the whole spatial block is $cG$, with a single constant $c>0$ and $G$ the simplex Fisher tensor. At a fixed height on an open boundary sheet, let a nontrivial straight edge segment lie in the simplex interior $l,m,1-l-m>0$. Let its outward normal be $\nu$ and its equation $\nu\cdot(p-w)=d>0$, where $p=(l,m)$ and $w$ is white. Put $e_r=(p-w)/r$. The spatial conormal of $F=r-R$ is $\nu/(\nu\cdot e_r)$, since its radial component is one. The calibrated null condition therefore requires
+\begin{equation}
+ c=\frac{\nu^\mathsf{T}G^{-1}\nu}{(\nu\cdot e_r)^2}
+   =\frac{r^2\nu^\mathsf{T}\Sigma(p)\nu}{d^2},\qquad
+ \Sigma(p)=\operatorname{diag}(l,m)-pp^\mathsf{T}.
+ \label{eq:full-fisher-edge}
+\end{equation}
+Parameterize the nontrivial edge by $p(t)=p_0+tv$. Since $\nu\cdot p$ is constant, $\nu^\mathsf{T}\Sigma(p)\nu=\nu_l^2l+\nu_m^2m-(\nu\cdot p)^2$ is affine in $t$ and strictly positive in the simplex interior. Meanwhile $r^2=|p(t)-w|^2$ is a quadratic with positive leading coefficient. Their product has degree two or three and cannot be constant on an interval. Thus no common scale makes this full Fisher block compatible with the straight edge. This rejects the stronger identification for the stated model, not the angular-only theorem or a measured human discrimination tensor.
+
+\section{Paired carriers and color-sensitive readout}
+\label{app:paired-readout}
+The effect algebra alone does not determine how two paired state spaces encode color. Let $u:H_1\to H_2$ be an isometry between complex Hilbert spaces, $P=uu^*$, and identify the active space $H_1\oplus uH_1$ with $\mathbb C^2\otimes H_1$. On it set $J=\sigma_z\otimes I$, $R=\sigma_x\otimes I$, $Q=\sigma_y\otimes I$, and $E=\tfrac12[(1+\zeta)I+\xi R+\eta Q]$. For
+\begin{equation}
+ V_\varphi\psi=2^{-1/2}(\psi\oplus e^{i\varphi}u\psi)
+ \label{eq:paired-graph}
+\end{equation}
+direct multiplication gives
+\begin{equation}
+ V_\varphi^*EV_\varphi
+ =\tfrac12(1+\zeta+\xi\cos\varphi+\eta\sin\varphi)I.
+ \label{eq:paired-phase-statistics}
+\end{equation}
+For a fixed graph phase these effects have statistics independent of the normalized input $\psi$. Identifying hue with the sector phase would therefore require additional preparation or control data. The indefinite form defined by $J$ vanishes on the aligned graph, $V_0^*JV_0=0$; restricting that form does not supply a nondegenerate color metric.
+
+Internal color-sensitive observables can instead be paired without changing the graph. For any effect $0\leq F\leq I$ on $H_1$,
+\begin{equation}
+ V_0^*\operatorname{diag}(F,uFu^*)V_0=F.
+ \label{eq:paired-internal-effect}
+\end{equation}
+These probabilities can vary with the input state. A stimulus encoding and a physically justified measurement family must still select $F$. An internal two-level family may itself have the effect bicone; its geometry does not identify hue with the sector coordinate.
+
+Paired preparations also leave the readout on $\ker u^*$ undetermined. All effects $uFu^*+D$ with $0\leq D\leq I-P$ have the same compression $u^*(uFu^*+D)u=F$. They remain indistinguishable for preparations and dynamics confined to $uH_1$; justified dynamics mixing that range with its complement can distinguish them. Static paired probabilities therefore do not assign chimerical colors to the complement, and a proper convex preparation image need not generate any such linear complement.
+
 \begin{backmatter}
 \bmsection{Acknowledgments}
-The original manuscript records the use of Claude Opus 4.8, Gemini 3.1 Deep Think, and GPT-5.5 Pro for mathematical and computational stress tests and feedback on structure and exposition. OpenAI ChatGPT/Codex assisted with the present condensation, audit, and revision of the numerical code (session of 28 September 2026). The numerical figure is generated by the accompanying Python script from the supplied cone-fundamental arrays; no synthetic experimental observations are introduced.
+The original manuscript records the use of Claude Opus 4.8, Gemini 3.1 Deep Think, and GPT-5.5 Pro for mathematical and computational stress tests and feedback on structure and exposition. OpenAI ChatGPT/Codex assisted with the September condensation and numerical-code revision and with the November consolidation, proofs and exact-arithmetic certificate. Claude assisted with independent computational reproductions and review. The numerical figure is generated by Python code from the supplied cone-fundamental arrays; no synthetic experimental observations are introduced. Computational checks support the stated mathematical model and do not constitute psychophysical validation.
 \bmsection{Disclosures}
 The author is affiliated with Alpha Omega Lattice Corporation. No physiological or psychophysical measurements are reported in this article.
 \bmsection{Data availability}
-The cone-fundamental input arrays, calculation script, machine-readable results, and figure-generation code used in this revision accompany the manuscript in its reproducibility archive. The original project materials are available at \url{https://github.com/AlphaOmega-Institute/magenta-gap}. The revised archive identifies the normalization and numerical conventions used for the results reported here.
+Code and input data are available at \url{https://github.com/AlphaOmega-Institute/magenta-gap}. The September numerical illustration uses the archived \texttt{recompute} package on the \path{claude/corrected-bound-calculation} branch, commit \texttt{a0282ae}. The continuum certificate and its exact input are in \path{research/object-colour}; the finite effect-algebra checks are in \path{research/colour-interface}, preserved at commit \texttt{cb997e8}. The certificate input CSV has SHA-256
+\begin{center}\scriptsize\ttfamily
+144fc58d2f3b01cd8ce5ae765199fd1a2af6\\
+58b7bea7a540aa3cea6bb9d02c40
+\end{center}
+where the two lines concatenate. The arguments and assumptions used in this article are stated here; the code and rational enclosures permit reproduction of the specified computation. The historical July manuscript remains separately archived.
 \end{backmatter}
 
-\begin{thebibliography}{12}
+\begin{thebibliography}{16}
 \bibitem{Krantz1975} D. H. Krantz, ``Color measurement and color theory: I. Representation theorem for Grassmann structures,'' J. Math. Psychol. \textbf{12}, 283--303 (1975).
 \bibitem{Resnikoff1974} H. L. Resnikoff, ``Differential geometry and color perception,'' J. Math. Biol. \textbf{1}, 97--131 (1974).
+\bibitem{Berthier2020} M. Berthier, ``Geometry of color perception. Part 2: perceived colors from real quantum states and Hering's rebit,'' J. Math. Neurosci. \textbf{10}, 14 (2020). \url{https://doi.org/10.1186/s13408-020-00092-x}
+\bibitem{BerthierProvenzi2022} M. Berthier and E. Provenzi, ``Quantum measurement and colour perception: theory and applications,'' Proc. R. Soc. A \textbf{478}, 20210508 (2022). \url{https://doi.org/10.1098/rspa.2021.0508}
+\bibitem{Koenderink2010} J. J. Koenderink, ``The prior statistics of object colors,'' J. Opt. Soc. Am. A \textbf{27}, 206--217 (2010). \url{https://doi.org/10.1364/JOSAA.27.000206}
+\bibitem{Logvinenko2025} A. D. Logvinenko, B. Funt, and P. Bastani, ``The object-color solid,'' J. Vis. \textbf{25}(2), 2, 1--33 (2025). \url{https://doi.org/10.1167/jov.25.2.2}
 \bibitem{Shevell2003} S. K. Shevell, ed., \emph{The Science of Color}, 2nd ed. (Elsevier, 2003).
 \bibitem{Fairchild2013} M. D. Fairchild, \emph{Color Appearance Models}, 3rd ed. (Wiley, 2013).
 \bibitem{Bujack2022} R. Bujack, E. Teti, J. Miller, et al., ``The non-Riemannian nature of perceptual color space,'' Proc. Natl. Acad. Sci. USA \textbf{119}, e2119753119 (2022).
@@ -422,3 +624,4 @@ The cone-fundamental input arrays, calculation script, machine-readable results,
 \bibitem{Crane1983} H. D. Crane and T. P. Piantanida, ``On seeing reddish green and yellowish blue,'' Science \textbf{221}, 1078--1080 (1983).
 \end{thebibliography}
 \end{document}
+

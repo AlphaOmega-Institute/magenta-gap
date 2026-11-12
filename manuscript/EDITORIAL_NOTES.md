@@ -56,3 +56,32 @@ Two DOI errors in the earlier material were identified: Resnikoff (1974) is `10.
 Before submission, the author should accept or revise the substantive corrections, check the code and results, verify every retained claim and citation, and confirm the data-access statement. Funding and conflicts must be supplied from actual facts; none should be inferred from silence. Verify the reported AI tool names, versions, model identifiers, sources and uses, including the original manuscript's metadata. The assistance included audit and code development as well as editing, and should not be described as grammar assistance alone. The figure caption records code assistance; no new physiological measurements are claimed. Final disclosure and publisher-policy decisions remain the author's responsibility.
 
 The current session identifies the assistance as OpenAI ChatGPT/Codex; an exact deployment/model version was not exposed and has not been guessed. The revised code and results accompany this package; they have not been published to the original project repository. The affiliation statement is retained as a fact, not treated as a completed declaration of all financial interests or funding.
+
+---
+
+## Consolidation of 12 November 2026
+
+This section updates the historical notes above. The source remains the shorter September manuscript, now revised for author and Claude review. The July JMP source is unchanged. The revision retains the conditional angular compatibility theorem, equality counterexample, diagonal construction, original numerical table and three figures. It does not select a new physiological geometry or claim an empirical colour realization.
+
+### Incorporated mathematics and scope
+
+- **Section 3.C:** the standard real two-level effect bicone, with its eigenvalue proof and Berthier (2020)/Berthier–Provenzi (2022) attribution. Effect magnitude, opponent contrast and bounded-reflectance signal height are separated. The existing cylinder/spindle distinction is preserved. The altered-colour tip incompatibility is stated conditionally, with an illustrative recalibration; no claim that the effect approach excludes altered colours is retained.
+- **Section 5.C:** chromatic-only rescaling at fixed height calibration is distinguished from whole-metric rescaling. The Poisson calculation shows why photon number scales both information components. A possible common calibration of measured angular and height sensitivities is stated as an additional bridge, with its constant-ratio condition and resulting inequality.
+- **Section 6:** a coordinate-free conormal obstruction including metric cross-terms; a supporting-normal proposition for at least two independent genuine reflectance transitions; and the bounded-reflectance model with certified root and point enclosures. Differentiability is asserted at the certified point, not on a smooth neighbourhood. The 390–830 nm continuum reflectance model is explicitly different from the earlier 390–700 nm additive hull. Sampled hue percentages are not used.
+- **Appendix B:** the exact polynomial obstruction to identifying the whole spatial block with a common multiple of the simplex Fisher tensor on a nontrivial open straight edge segment in the simplex interior. Singular edges where that tensor is undefined are outside the proof. The angular-only construction remains intact.
+- **Appendix C:** the paired-carrier definitions and compression calculation are stated directly. Fixed sector effects have input-independent statistics on one aligned graph; internal effects can carry varying content. Paired statistics do not fix an effect on the orthogonal complement. A convex reachability restriction is distinguished from a linear defect.
+
+The abstract, introduction, discussion and conclusion now reflect both the established algebraic connection and the certified negative result. The stimulus domain is described as an admissible set, since bounded reflectances are not a cone. Hyperbolic rotations are not asserted to preserve a radial half-plane. Four prior-art references were added, with the supporting claims checked in the primary texts. The three-dimensional effect family is not presented as new algebra.
+
+The separate September cubic object-colour theorem and the exploratory Hilbert-gamut comparison are not inserted. Their distinct model assumptions would require a separate decision about scope. No LG/TAUM manuscript changes are made by this draft.
+
+### Verification and reproducibility
+
+- The exact continuum certificate rerun is byte-identical to the committed JSON at `cb997e8`.
+- All 11 colour-interface regression checks pass.
+- The preserved independent branch `claude/independent-colour-checks` at `581ff68` changes only its new research directory. All 24 executions complete, and their scientific output matches the preserved output at printed precision. Most scripts print results rather than assert pass/fail conditions; they are not certified numerical proofs. Runtime and absolute-warning-path differences were excluded from the comparison.
+- The revised TeX compiles with pdfLaTeX/latexmk to 11 pages. It has no undefined references or citations, no LaTeX errors and no overfull boxes. Four underfull-line notices remain; page images were inspected for layout. The local incomplete TeX configuration was repaired using installed format sources and standard font maps. The manuscript requires no runtime-specific paths.
+- All existing figure and layout-support files match their repository blobs. The original numerical table is unchanged. The text and bibliography remain in one TeX file; no companion note is needed to follow the arguments. Code and data locations are supplied for computational reproduction.
+
+The original import source, PDF and provenance remain in Git history at `cb997e8`. The import checksum in `PROVENANCE.json` is historical, not the checksum of the newly revised source. The working filename retains the September date for continuity. This is an author-review draft, not a new submission or a frozen DOI version.
+

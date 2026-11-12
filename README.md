@@ -7,17 +7,17 @@ Two versions are available for shared review:
 | Version | Source | PDF | Status |
 | --- | --- | --- | --- |
 | Long JMP manuscript (July 2026, 51 pages) | [TeX](manuscript/jmp/Magenta_Gap_JMP.tex) | [Original PDF](manuscript/jmp/Magenta_Gap_JMP.pdf) | Full development; verified recovered source, with the original claims retained. |
-| Shorter September 28 revision | [TeX](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex) | [Archived PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf) | Later condensation incorporating mathematical and numerical corrections. |
+| September revision, consolidated November 12 | [TeX](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex) | [Built PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf) | Author-review draft incorporating the effect algebra, calibration distinctions and certified object-colour obstruction. |
 
 The [JMP provenance and build notes](manuscript/jmp/README.md) document the two small edits needed to match the original PDF. The [September notes](manuscript/README.md) document the shorter revision. These versions serve different review purposes; adding the long manuscript does not reverse the September corrections.
 
 **The pipeline description and numerical results below are historical.** The September revision distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
 
-The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). The manuscript imports do not merge that branch. The recent Hilbert-geometry and Berthier–Provenzi discussion is ongoing work and is not incorporated in either manuscript.
+The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). The November consolidation does not merge that branch. The September manuscript now incorporates the effect-body comparison with Berthier–Provenzi, its calibration limits and the certified object-colour obstruction. It does not select a new physiological geometry or incorporate the exploratory Hilbert-gamut comparison. The July source remains unchanged.
 
 The separate [September object-colour research notes](research/object-colour/README.md) are now available for the continuum-versus-discrete reconciliation. They contain the cubic-contact proof and its audit, and do not modify either manuscript or establish the Lorentzian interpretation.
 
-The [colour-interface algebra and calibration record](research/colour-interface/README.md) now preserves the effect-bicone connection, its fixed-bridge limitation, defect-readout scope, and the three distinct height conventions. It includes 11 executable checks and a manuscript integration plan; these additions do not revise either manuscript.
+The [colour-interface algebra and calibration record](research/colour-interface/README.md) preserves the effect-bicone connection, its fixed-bridge limitation, defect-readout scope, and the three distinct height conventions. Its 11 executable checks support the algebra now stated directly in the September manuscript. The record itself retains the status at the time it was written; the [manuscript notes](manuscript/README.md) describe the subsequent consolidation.
 
 ## Historical pipeline documentation
 
@@ -107,4 +107,5 @@ MIT
       journal = {Preprint},
       year    = {2026}
     }
+
 
