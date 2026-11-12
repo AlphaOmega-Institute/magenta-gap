@@ -85,3 +85,13 @@ The separate September cubic object-colour theorem and the exploratory Hilbert-g
 
 The original import source, PDF and provenance remain in Git history at `cb997e8`. The import checksum in `PROVENANCE.json` is historical, not the checksum of the newly revised source. The working filename retains the September date for continuity. This is an author-review draft, not a new submission or a frozen DOI version.
 
+### Follow-up to Claude's review of `748df23` (12 November 2026)
+
+The transition-normal proposition now requires **two of** the transition response vectors to be independent, allowing additional transitions in the same supporting plane. The complement map `rho -> 1-rho` is stated explicitly: it sends `a -> W-a` and, in the declared affine chart, `(x,y,z) -> (-x,-y,-z)`. A common ceiling on both polar tangent cones therefore requires `alpha(theta+pi)=alpha(theta)`. This is necessary for matching those cones, not a derivation of the separable bicone or same-hue mirror symmetry.
+
+All four citation locators are moved into the prose, bibliography entries follow first-citation order, and redundant equation-name prefixes are removed to respect the class's definition of `eqref`. The cylinder/spindle sentence now cites both the ambient quotient and the ordinary image.
+
+The full-Fisher appendix clarifies that `p`, `r` and `d` belong to the selected slice. Its formula already applies at any fixed open-sheet height because `R_z^2/C=1`. Moving to another slice generally changes the Fisher tensor through `p`; it is not merely multiplication of the entire expression by a constant. The nonconstancy proof applies independently on each regular straight slice.
+
+The updated PDF remains 11 pages. A fresh build has no errors, unresolved references/citations or overfull boxes; the same four cosmetic underfull-line notices remain. Checks on extracted PDF text find no doubled equation names or locators inside citation brackets. The bibliography order and all labels were checked, and the rendered pages inspected. No numerical values, certificate code or inputs were changed by this follow-up.
+

@@ -38,7 +38,7 @@ The September editorial notes retain their historical wording, including stateme
 
 ## Provenance
 
-Imported from `Magenta_Gap_JOSAA_Source_and_Calculations_2026-09-28.zip`. Its TeX is identical to the separately supplied `Magenta_Gap_JOSAA_2026-09-28.tex`.
+Imported from `Magenta_Gap_JOSAA_Source_and_Calculations_2026-09-28.zip`. At import, its TeX was identical to the separately supplied `Magenta_Gap_JOSAA_2026-09-28.tex`; the current source includes the November consolidation and review corrections recorded in the editorial notes.
 
 Original imported TeX SHA-256 (historical, not the revised file):
 
