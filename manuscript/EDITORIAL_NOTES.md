@@ -114,6 +114,12 @@ The PDF still has 20 pages and builds without warnings or unresolved references.
 
 ### Review and merge of the corrected calculation archive (12 November 2026)
 
-The `recompute/` directory from `claude/corrected-bound-calculation` at `a0282ae` is now incorporated into `main`. An isolated rerun reproduces the JSON results byte for byte, all 10 CSVs, four NPZ array sets and three PNG figures. The manuscript's numerical table agrees with those results. An independent half-space formulation also reproduces the boundary radii, angular slopes and Fisher quadratic forms. No calculation defect was found.
+The `recompute/` directory from `claude/corrected-bound-calculation` at `a0282ae` is now incorporated into `main`. In the merge-review environment, the JSON, CSV and PNG files reproduced byte for byte, and the NPZ arrays matched exactly. The manuscript's numerical table agrees with those results. An independent half-space formulation also reproduces the boundary radii, angular slopes and Fisher quadratic forms. No calculation defect was found.
 
 Only the archive README changes: the 616–700 nm edge, rather than both final edges, lies entirely on the tabulated S=0 boundary; the intersection formulas are analytic but evaluated in floating point; and the old repository-status sentence is explicitly historical. Code, inputs, license notice and numerical outputs are preserved. This import does not replace the historical top-level pipeline, merge the independent-checks branch, alter the manuscript's mathematics or calibrate its Fisher metric.
+
+### Cross-platform reproduction review (12 November 2026)
+
+Claude’s independent Linux runs with Python 3.11.18 and 3.12.3 reproduced the 10 CSV and four NPZ files byte for byte and the numerical JSON contents; the JSON recorded the different Python version. The PNGs differed along rendered text and line edges while retaining the same plotted data. The byte-identity statements above are therefore explicitly scoped to the merge-review environment. Cross-platform reproduction of the calculation does not require identical rasterization. These qualifications change no calculated values, inputs or stored outputs.
+
+The manuscript data statement now points to `recompute/` and its pinned source commit `a0282ae`, already reachable from `main`, rather than depending on the continued existence of the source branch. The rebuilt PDF remains 20 pages with no warnings or unresolved references.

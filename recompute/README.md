@@ -160,4 +160,6 @@ been established.
 
 The `recompute/` archive was incorporated into `main` on November 12, 2026, from commit `a0282ae23d11c102550c88a9f44a8e2a99f99211`. Code, input data and stored numerical outputs are unchanged. The README corrections identify the S=0 edge accurately, distinguish analytic formulas from exact arithmetic, and mark the original repository-status sentence as historical.
 
-A fresh isolated run reproduced `bound_results.json` byte for byte, all 10 CSVs, all four NPZ array sets, and all three PNG figures. An independent half-space calculation agreed with the reported intersections, slopes and Fisher quadratic forms. These checks establish reproducibility of the stated numerical model, not physiological calibration or a continuum certificate.
+In the merge-review environment, `bound_results.json`, all 10 CSVs and all three PNG figures reproduced byte for byte, and the four NPZ archives contained identical arrays. An independent half-space calculation agreed with the reported intersections, slopes and Fisher quadratic forms. These checks establish reproducibility of the stated numerical model, not physiological calibration or a continuum certificate.
+
+Claude’s independent Linux runs reproduced the CSV and NPZ files byte for byte and the same numerical JSON results; the recorded Python version differed. The regenerated PNGs differed along rendered text and line edges while preserving the plotted data. PNG byte identity is therefore a result of the tested rendering environment, not a cross-platform reproducibility guarantee.
