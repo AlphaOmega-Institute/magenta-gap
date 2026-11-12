@@ -1,18 +1,19 @@
 # magenta-gap
 
-## Current manuscript — work in progress
+## Manuscripts — work in progress
 
-The September 28, 2026 author-review draft is now available in [`manuscript/`](manuscript/):
+Two versions are available for shared review:
 
-- [TeX source](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex)
-- [Archived PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf)
-- [Build instructions and provenance](manuscript/README.md)
+| Version | Source | PDF | Status |
+| --- | --- | --- | --- |
+| Long JMP manuscript (July 2026, 51 pages) | [TeX](manuscript/jmp/Magenta_Gap_JMP.tex) | [Original PDF](manuscript/jmp/Magenta_Gap_JMP.pdf) | Full development; verified recovered source, with the original claims retained. |
+| Shorter September 28 revision | [TeX](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex) | [Archived PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf) | Later condensation incorporating mathematical and numerical corrections. |
 
-The manuscript source is imported unchanged. Its figures and layout support are included. The PDF is the copy from the September source archive, not a new build.
+The [JMP provenance and build notes](manuscript/jmp/README.md) document the two small edits needed to match the original PDF. The [September notes](manuscript/README.md) document the shorter revision. These versions serve different review purposes; adding the long manuscript does not reverse the September corrections.
 
-**The pipeline description and numerical results below are historical.** The current draft distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
+**The pipeline description and numerical results below are historical.** The September revision distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
 
-The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). This manuscript import does not merge that branch. The recent Hilbert-geometry and Berthier–Provenzi discussion is ongoing work and is not incorporated in this draft.
+The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). The manuscript imports do not merge that branch. The recent Hilbert-geometry and Berthier–Provenzi discussion is ongoing work and is not incorporated in either manuscript.
 
 ## Historical pipeline documentation
 

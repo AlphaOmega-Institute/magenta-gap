@@ -1,4 +1,6 @@
-# The Magenta Gap — shared working manuscript
+# The Magenta Gap — September revision
+
+The longer July JMP manuscript is available separately in [`jmp/`](jmp/), with its verified recovered TeX and original 51-page PDF. The files in this directory remain the shorter September revision.
 
 This is the September 28, 2026 author-review draft, imported on November 11, 2026. It is work in progress, not a claim of submission readiness or a frozen publication.
 
