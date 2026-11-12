@@ -95,3 +95,13 @@ The full-Fisher appendix clarifies that `p`, `r` and `d` belong to the selected 
 
 The updated PDF remains 11 pages. A fresh build has no errors, unresolved references/citations or overfull boxes; the same four cosmetic underfull-line notices remain. Checks on extracted PDF text find no doubled equation names or locators inside citation brackets. The bibliography order and all labels were checked, and the rendered pages inspected. No numerical values, certificate code or inputs were changed by this follow-up.
 
+
+### Canonical single-manuscript format (12 November 2026)
+
+The reviewed mathematical revision at `51b37d5` is merged into `main`. The subsequent presentation-only commit renames the active source and PDF to `Magenta_Gap.tex` and `Magenta_Gap.pdf`, adopts the standard 11-point single-column `article` class, and removes the former Optica class and unused support/shim files from the current tree. All of those old files remain recoverable at `51b37d5`. The July source and original PDF stay byte-identical in `jmp/`, now explicitly marked as a frozen historical archive. There is one active manuscript.
+
+The conversion moves the abstract into the standard document body, replaces class-specific backmatter headings, restores 25 explicit equation-name prefixes, and clarifies the forward reference to the object-color chart. It retains the complete assistance disclosure. The three appendices remain in the same source; no companion paper or note is required. No new venue or perceptual realization is selected.
+
+An independent source comparison confirms that all 50 displayed mathematical environments, 286 inline math fragments, 70 labels, 46 reference calls, 18 citation calls, the numerical table, all captions, and the 16-entry bibliography are unchanged. After normalizing the stated formatting edits and forward-reference wording, the document body is identical. The three figure files match the reviewed Git blobs.
+
+The canonical PDF builds to 20 pages with no warnings, undefined references/citations, overfull boxes or underfull notices. All pages were rendered and inspected. The continuum certificate again reproduces byte for byte and the 11 colour-interface checks pass. The standard packages used by the source require no custom class, compatibility shim or runtime-specific path; the three external figure PDFs remain the only project assets needed alongside the TeX source.

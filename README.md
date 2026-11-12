@@ -1,23 +1,26 @@
 # magenta-gap
 
-## Manuscripts — work in progress
+## Working manuscript
 
-Two versions are available for shared review:
+There is one active, venue-neutral manuscript:
 
-| Version | Source | PDF | Status |
-| --- | --- | --- | --- |
-| Long JMP manuscript (July 2026, 51 pages) | [TeX](manuscript/jmp/Magenta_Gap_JMP.tex) | [Original PDF](manuscript/jmp/Magenta_Gap_JMP.pdf) | Full development; verified recovered source, with the original claims retained. |
-| September revision, consolidated November 12 | [TeX](manuscript/Magenta_Gap_JOSAA_2026-09-28.tex) | [Built PDF](manuscript/Magenta_Gap_JOSAA_2026-09-28.pdf) | Author-review draft incorporating the effect algebra, calibration distinctions and certified object-colour obstruction. |
+- [Magenta_Gap.tex](manuscript/Magenta_Gap.tex) — complete text, arguments and bibliography.
+- [Magenta_Gap.pdf](manuscript/Magenta_Gap.pdf) — the current build.
+- [Build and provenance notes](manuscript/README.md) and [editorial history](manuscript/EDITORIAL_NOTES.md).
 
-The [JMP provenance and build notes](manuscript/jmp/README.md) document the two small edits needed to match the original PDF. The [September notes](manuscript/README.md) document the shorter revision. These versions serve different review purposes; adding the long manuscript does not reverse the September corrections.
+This is a public work in progress. The corrected September text and the reviewed November additions form the working manuscript. The mathematical revision was merged at `51b37d5`; the subsequent standard-article conversion changes presentation, not the arguments or numerical data. The existing AI-assistance disclosure is retained. No submission venue or new perceptual encoding is selected.
 
-**The pipeline description and numerical results below are historical.** The September revision distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
+The [July 2026 manuscript](manuscript/jmp/README.md) is a **frozen historical archive**, with its recovered source and original 51-page PDF. It is not a second active paper, and its superseded claims are not the current conclusions. The reviewed Optica-format source and PDF remain available in [Git history at `51b37d5`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/51b37d506dee66de9228a1ee2c0e81aa7a193488/manuscript).
 
-The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). The November consolidation does not merge that branch. The September manuscript now incorporates the effect-body comparison with Berthier–Provenzi, its calibration limits and the certified object-colour obstruction. It does not select a new physiological geometry or incorporate the exploratory Hilbert-gamut comparison. The July source remains unchanged.
+## Calculations and scope
 
-The separate [September object-colour research notes](research/object-colour/README.md) are now available for the continuum-versus-discrete reconciliation. They contain the cubic-contact proof and its audit, and do not modify either manuscript or establish the Lorentzian interpretation.
+**The pipeline description and numerical results below are historical.** The current manuscript distinguishes the general non-strict compatibility bound from the strict diagonal construction, uses the attainable convex hull, and leaves the discrimination scale uncalibrated. It does not treat the Fisher illustration or the older MacAdam comparison as independent physiological validation.
 
-The [colour-interface algebra and calibration record](research/colour-interface/README.md) preserves the effect-bicone connection, its fixed-bridge limitation, defect-readout scope, and the three distinct height conventions. Its 11 executable checks support the algebra now stated directly in the September manuscript. The record itself retains the status at the time it was written; the [manuscript notes](manuscript/README.md) describe the subsequent consolidation.
+The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/a0282ae23d11c102550c88a9f44a8e2a99f99211/recompute). That branch remains unmerged. The [independent colour checks](https://github.com/AlphaOmega-Institute/magenta-gap/tree/581ff6880effe636dfd32b781375b7a82d2d741c/research/independent-checks) are preserved separately; they are numerical reproductions, not certificates.
+
+The [object-colour research record](research/object-colour/README.md) contains the continuum certificate, cubic-contact proof and audit. The current manuscript incorporates the certified null-boundary obstruction, but not the separate cubic theorem or exploratory Hilbert-gamut comparison. It states the needed mathematical arguments directly.
+
+The [colour-interface algebra and calibration record](research/colour-interface/README.md) preserves the effect-bicone connection, fixed-bridge limitation, defect-readout scope and three distinct height conventions. Its 11 executable checks support the algebra incorporated into the working manuscript. Historical research notes retain their original status statements; the [manuscript notes](manuscript/README.md) describe the consolidation.
 
 ## Historical pipeline documentation
 

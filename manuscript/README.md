@@ -1,50 +1,43 @@
-# The Magenta Gap — September revision
+# The Magenta Gap — canonical working manuscript
 
-The longer July JMP manuscript is available separately in [`jmp/`](jmp/), with its verified recovered TeX and original 51-page PDF. The files in this directory remain the shorter September revision.
+[`Magenta_Gap.tex`](Magenta_Gap.tex) is the sole active manuscript, with a matching [`Magenta_Gap.pdf`](Magenta_Gap.pdf). It uses the standard LaTeX `article` class in a single-column format and remains a public work in progress. A venue-specific layout can be applied later without maintaining a second scientific text.
 
-This is the September 28, 2026 author-review draft, imported on November 11 and consolidated on November 12, 2026. It remains work in progress, not a claim of submission readiness or a frozen publication. The dated filename is retained so the shared TeX has one version history.
+The reviewed mathematical revision was merged at `51b37d5`. The format conversion retains its complete arguments, three appendices, 16 bibliography entries, numerical table, three figures and assistance disclosure. It restores explicit equation-name prefixes previously supplied by the Optica class and clarifies one forward reference. No perceptual encoding or new empirical claim is added.
 
-- [TeX source](Magenta_Gap_JOSAA_2026-09-28.tex): the revised self-contained text and bibliography.
-- [PDF](Magenta_Gap_JOSAA_2026-09-28.pdf): a fresh build of the revised source.
-- [Editorial notes](EDITORIAL_NOTES.md): the original September notes followed by the November consolidation record.
-
-The TeX contains the complete text, mathematical arguments and bibliography. The three existing figure PDFs and layout support files are included. The effect-bicone algebra, three height conventions, conditional altered-colour constraint, paired-carrier readout limitation and certified object-colour obstruction are now incorporated. The exploratory Hilbert-gamut comparison and the separate cubic object-colour theorem are not inserted. No new perceptual encoding or geometry is selected.
+The [July manuscript in `jmp/`](jmp/) is a frozen historical baseline, not a second active paper. Its source and original PDF are unchanged. The reviewed Optica-format September/November text, PDF and former class/support files remain recoverable in [Git history at `51b37d5`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/51b37d506dee66de9228a1ee2c0e81aa7a193488/manuscript).
 
 ## Build
 
-Run from this directory with pdfLaTeX and latexmk installed:
+Run from this directory with a complete TeX installation providing pdfLaTeX, latexmk and the standard packages named in the preamble:
 
 ```sh
-latexmk -pdf -interaction=nonstopmode -halt-on-error Magenta_Gap_JOSAA_2026-09-28.tex
+latexmk -pdf -interaction=nonstopmode -halt-on-error Magenta_Gap.tex
 ```
 
-The November draft is freshly compiled and its pages are visually checked. The original import's missing-format build limitation was resolved locally using the installed TeX sources and standard font maps; no local runtime paths are required by the manuscript source. A complete TeX installation can use the command above.
+For Overleaf, upload `Magenta_Gap.tex` and the three figure PDFs below, set `Magenta_Gap.tex` as the main document, and select pdfLaTeX. The arguments and bibliography are in the TeX source; no external companion note, BibTeX database, custom class or local compatibility shim is required.
 
-The package retains the prior Optica length-check layout, including local compatibility shims `algorithm.sty`, `algpseudocode.sty`, and `multibib.sty`. These cover unused interfaces loaded by the class, not full replacements for the standard packages. The original source-archive documentation describes their provenance; they may be replaced by the standard packages on a complete TeX installation.
+- `fig1_magenta_gap.pdf`
+- `fig3_spindle.pdf`
+- `fisher_bound_convex_hull.pdf`
+
+The former Optica class and its unused support/shim files are removed from the current working tree. They remain in Git history. The canonical PDF is freshly built and visually inspected; the verification record is in [EDITORIAL_NOTES.md](EDITORIAL_NOTES.md).
 
 ## Calculations and scope
 
-The corrected calculation archive is already available on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/a0282ae23d11c102550c88a9f44a8e2a99f99211/recompute), including its code, input arrays, results, and numerical figure. It has not been merged into `main` by this import. The top-level scripts on `main` are the older pipeline.
+The paper distinguishes conditional null-boundary compatibility, an exact effect-algebra connection, and a certified obstruction for one separately specified bounded-reflectance model. Its Fisher illustration uses an uncalibrated convention. The stimulus encoding, report procedures and physical controls needed for a perceptual realization remain open.
 
-The manuscript distinguishes:
+The corrected calculation archive is on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/a0282ae23d11c102550c88a9f44a8e2a99f99211/recompute), including code, input arrays, results and the numerical figure. It remains unmerged; the repository's top-level scripts are the older pipeline.
 
-- a conditional null-boundary compatibility theorem;
-- a numerical illustration using a conventionally scaled Fisher metric;
-- the additional calibration and control assumptions needed for a physiological interpretation.
-
-The November consolidation also records a different, continuum bounded-reflectance model. Its exact certificate is in `research/object-colour/`, and the effect-algebra checks are in `research/colour-interface/`. The original September numerical table and figure are unchanged. The separate independent reproduction archive remains on `claude/independent-colour-checks` at `581ff68`; all 24 executions were reviewed and their scientific output reproduced. Most of those scripts print numerical checks rather than assert formal pass/fail conditions.
-
-The September editorial notes retain their historical wording, including statements about what had not yet been published at that time; the appended November section records the present changes.
+The exact continuum certificate is in [`research/object-colour/`](../research/object-colour/), and the 11 effect-algebra checks are in [`research/colour-interface/`](../research/colour-interface/). The original September numerical table and figure remain unchanged. The independent reproduction archive is preserved on [`claude/independent-colour-checks`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/581ff6880effe636dfd32b781375b7a82d2d741c/research/independent-checks); all 24 executions were reviewed and their scientific output reproduced. Most of those scripts print numerical checks rather than assert formal pass/fail conditions.
 
 ## Provenance
 
-Imported from `Magenta_Gap_JOSAA_Source_and_Calculations_2026-09-28.zip`. At import, its TeX was identical to the separately supplied `Magenta_Gap_JOSAA_2026-09-28.tex`; the current source includes the November consolidation and review corrections recorded in the editorial notes.
+The working manuscript descends from `Magenta_Gap_JOSAA_Source_and_Calculations_2026-09-28.zip`, imported November 11, followed by the November 12 consolidation and review. The original imported TeX and PDF remain recoverable at `cb997e8`.
 
-Original imported TeX SHA-256 (historical, not the revised file):
+Original imported TeX SHA-256 (historical, not the current file):
 
 ```text
 1198503e699c84206342c52c2561ee9d9ba6e081e3481ff5c647e53364f3dabe
 ```
 
-The original imported source and PDF remain recoverable at commit `cb997e8`. `PROVENANCE.json` records that import and is not a checksum manifest for the revised files. Git history records the November edits. The July manuscript, research certificate and input data are unchanged by this revision.
-
+`PROVENANCE.json` records that import and is not a checksum manifest for the current files. The editorial notes retain their historical wording and append subsequent decisions and verification. Git history preserves the rename from the dated source to the canonical filename.

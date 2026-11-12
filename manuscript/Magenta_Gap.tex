@@ -1,15 +1,23 @@
 % Editorial condensation of Magenta_Gap_MSS(1).pdf (July 2026).
 % See EDITORIAL_NOTES.md for substantive corrections and source provenance.
-% Consolidation draft, 12 November 2026: effect algebra, calibration and
-% a certified obstruction for a separately specified object-colour model.
-\documentclass[9pt,twocolumn,twoside]{opticajnl}
-\journal{opticajournal}
-\setboolean{shortarticle}{false}
-\setboolean{displaycopyright}{false}
-\doi{}
+% Canonical working manuscript, 12 November 2026.
+% Mathematical text consolidated from the September revision through 51b37d5.
+% Standard article conversion preserves the reviewed arguments and data.
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{graphicx,booktabs,microtype}
-\usepackage{courier}
+\usepackage{authblk}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\renewcommand{\Affilfont}{\small}
+\setlength{\affilsep}{0.75em}
+\date{Working draft --- 12 November 2026}
 \hypersetup{pdftitle={Magenta gap: a geometric reachability model of nonspectral hue and color gamut boundaries},pdfauthor={Alexander Yiannopoulos}}
 \theoremstyle{plain}
 \newtheorem{proposition}{Proposition}
@@ -20,11 +28,12 @@
 \author[1,*]{Alexander Yiannopoulos}
 \affil[1]{A$\lvert\Omega\rangle$ Institute, Alpha Omega Lattice Corporation, 3724 Laurel Street, Suite 108, New Orleans, Louisiana, USA}
 \affil[*]{ayianno@ao.institute}
+
+\begin{document}
+\maketitle
 \begin{abstract}
 Monochromatic stimuli are ordered by wavelength, whereas hue includes a nonspectral purple closure. We model this closure by inserting a purple interval into a compactified spectral arc, then incorporate the resulting hue circle into a color body with an achromatic quotient. For a prescribed boundary and an explicitly calibrated indefinite metric, nullity bounds the angular variation of the saturation ceiling; a diagonal construction requires strict inequality. The symmetric body also has a standard two-level effect representation, without identifying effect magnitude with opponent contrast. A separate bounded-reflectance signal model supplies a certified boundary point with a unique tangent plane containing the achromatic direction. At that point no Lorentzian metric making this direction timelike can make the boundary null, even with cross-terms. The results separate conditional geometric compatibility from the encoding, calibration and controls required for a perceptual realization.
 \end{abstract}
-\begin{document}
-\maketitle
 
 \section{Introduction}
 \label{sec:introduction}
@@ -150,7 +159,7 @@ Hyperbolic rotations preserve the split form on the containing signed plane; the
 
 The minus sign distinguishes the luminosity direction in the chosen reachability model. A null displacement is not asserted to be a zero perceptual difference. Likewise, a spacelike displacement is not inherently inaccessible: ordinary isoluminant changes have $\dd z=0$ and positive spatial norm. These facts prevent the metric alone from serving as a physiological rule for permitted transitions.
 
-Work on non-Riemannian color differences further illustrates why a local discrimination model and a global appearance-distance model must be distinguished \cite{Bujack2022}. It does not supply affirmative evidence for the indefinite metric in \eqref{eq:baseline}. Our metric requires its own justification through the boundary and control assumptions described below.
+Work on non-Riemannian color differences further illustrates why a local discrimination model and a global appearance-distance model must be distinguished \cite{Bujack2022}. It does not supply affirmative evidence for the indefinite metric in Eq.~\eqref{eq:baseline}. Our metric requires its own justification through the boundary and control assumptions described below.
 
 For a fixed ordinary regime $a_0$, write
 \begin{equation}
@@ -179,13 +188,13 @@ Since $(\xi R_0+\eta Q_0)^2=r_e^2I$, the eigenvalues are $(1+\zeta\pm r_e)/2$. H
  0\leq E\leq I\quad\Longleftrightarrow\quad r_e+|\zeta|\leq1.
  \label{eq:effect-bicone}
 \end{equation}
-A unitary change of basis identifies this three-dimensional family with real symmetric two-by-two effects. It is a slice of the four-dimensional complex-qubit effect space. Setting $\xi=x/(\kappa T)$, $\eta=y/(\kappa T)$ and $\zeta=z/T$ gives the symmetric body in \eqref{eq:bicone}. Its two sheets are $\det E=0$ and $\det(I-E)=0$.
+A unitary change of basis identifies this three-dimensional family with real symmetric two-by-two effects. It is a slice of the four-dimensional complex-qubit effect space. Setting $\xi=x/(\kappa T)$, $\eta=y/(\kappa T)$ and $\zeta=z/T$ gives the symmetric body in Eq.~\eqref{eq:bicone}. Its two sheets are $\det E=0$ and $\det(I-E)=0$.
 
 An effect assigns probabilities $\operatorname{Tr}(\rho E)$ to states $\rho$; it is not itself a state vector. Identifying effects with perceived colors is an additional model choice. Nor does the matrix representation identify the optical image with the entire effect body. Conjugation by $J$ reverses $(\xi,\eta)$, complementation $E\mapsto I-E$ reverses all three coordinates, and their composition reverses $\zeta$ alone. These symmetries of the ideal body do not imply the same symmetries for a preparation image.
 
-Three height meanings must be distinguished. The opponent interpretation uses a centered white/black activation, with extrema describing focal-versus-surround contrast. In \eqref{eq:colour-effect}, the height is $\zeta=2a_3-1$, where $a_3=\operatorname{Tr}(E)/2$ is effect magnitude; its proposed relation to luminance (Sec.~5.3 of Ref.~\cite{BerthierProvenzi2022}) does not calibrate opponent contrast. In the object-color example of Sec.~\ref{sec:object-obstruction}, height is a centered sum of white-normalized cone catches under bounded reflectance. Perfectly absorbing and perfectly reflecting surfaces fix that example's endpoints. Reusing a height coordinate does not identify these quantities.
+Three height meanings must be distinguished. The opponent interpretation uses a centered white/black activation, with extrema describing focal-versus-surround contrast. In Eq.~\eqref{eq:colour-effect}, the height is $\zeta=2a_3-1$, where $a_3=\operatorname{Tr}(E)/2$ is effect magnitude; its proposed relation to luminance (Sec.~5.3 of Ref.~\cite{BerthierProvenzi2022}) does not calibrate opponent contrast. In the object-color example of Sec.~\ref{sec:object-obstruction}, height is a centered sum of white-normalized cone catches under bounded reflectance. Perfectly absorbing and perfectly reflecting surfaces fix that example's endpoints. Reusing a height coordinate does not identify these quantities.
 
-The ambient cylinder in \eqref{eq:quotient} and the ordinary image in \eqref{eq:image} are distinct; the model assigns the latter a spindle-like boundary. The cylinder permits chromatic variation at its height extremes. An effect bicone has tips instead. If ordinary black and white are identified with those tips, and a shared cross-regime calibration places an altered chromatic appearance at either of the same extreme heights, \eqref{eq:effect-bicone} excludes that appearance. This is a conditional incompatibility of those identifications, not a measured location of a chimerical color.
+The ambient cylinder in Eq.~\eqref{eq:quotient} and the ordinary image in Eq.~\eqref{eq:image} are distinct; the model assigns the latter a spindle-like boundary. The cylinder permits chromatic variation at its height extremes. An effect bicone has tips instead. If ordinary black and white are identified with those tips, and a shared cross-regime calibration places an altered chromatic appearance at either of the same extreme heights, Eq.~\eqref{eq:effect-bicone} excludes that appearance. This is a conditional incompatibility of those identifications, not a measured location of a chimerical color.
 
 For example, the illustrative point $(r_e,\zeta)=(1/2,-1)$ has eigenvalues $-1/4,1/4$ and is not an effect. A uniform recalibration
 \begin{equation}
@@ -228,10 +237,10 @@ Suppose a compact radial-graph body has boundary $r=R(\theta,z)$ for $-T\leq z\l
 \begin{proof}
 For the stated fixed hue, $R$ has a positive interior maximum in $z$. If the graph is differentiable there, $R_z=0$. With $F=r-R$, the conormal is $\dd F=(1,-R_\theta,0)$. Because the inverse spatial block is positive definite, $g^{-1}(\dd F,\dd F)>0$, contradicting nullity.
 \end{proof}
-The proposition uses the radial-graph and metric hypotheses. It forces a failure of differentiability somewhere if the entire boundary is to remain null; it does not locate that failure at an isoluminant equator for an arbitrary body. \eqref{eq:bicone} supplies that location through symmetry. The achromatic tips are separate singular points of the boundary graph.
+The proposition uses the radial-graph and metric hypotheses. It forces a failure of differentiability somewhere if the entire boundary is to remain null; it does not locate that failure at an isoluminant equator for an arbitrary body. Eq.~\eqref{eq:bicone} supplies that location through symmetry. The achromatic tips are separate singular points of the boundary graph.
 
 \subsection{Hue-dependent ceiling and general spatial block}
-Let $\alpha(\theta)>0$ be smooth and periodic, and prescribe \eqref{eq:boundary-intro}. On either open sheet, away from the ridge and tips, consider
+Let $\alpha(\theta)>0$ be smooth and periodic, and prescribe Eq.~\eqref{eq:boundary-intro}. On either open sheet, away from the ridge and tips, consider
 \begin{equation}
  \dd s^2=A\,\dd r^2+2D\,\dd r\,\dd\theta+B\,\dd\theta^2-C\,\dd z^2,
  \label{eq:metric}
@@ -250,7 +259,7 @@ The original model fixes the luminosity coefficient on the boundary by
 \end{equation}
 Since $R_z=\mp\alpha$ on the two sheets, $R_z^2/C=1$. This calibration is essential. Without it, the null condition relates the same spatial expression to a different luminosity factor and need not yield the bound below.
 
-Multiplying \eqref{eq:null-general} by $\Delta$ gives
+Multiplying Eq.~\eqref{eq:null-general} by $\Delta$ gives
 \begin{equation}
  B+2DR_\theta+AR_\theta^2=\Delta.
  \label{eq:null-calibrated}
@@ -265,7 +274,7 @@ Thus every regular spatial block satisfying the calibrated null condition obeys 
  \beta(\theta,z)=\frac{\sqrt{B(R(\theta,z),\theta,z)}}{R(\theta,z)},
  \label{eq:beta}
 \end{equation}
-and using $R_\theta=(\alpha'/\alpha)R$ proves \eqref{eq:bound-intro}. The result is a necessary compatibility condition for the specified boundary, calibration, and spatial metric. It is not a restriction imposed by signature alone on every possible choice of color coordinates and metric.
+and using $R_\theta=(\alpha'/\alpha)R$ proves Eq.~\eqref{eq:bound-intro}. The result is a necessary compatibility condition for the specified boundary, calibration, and spatial metric. It is not a restriction imposed by signature alone on every possible choice of color coordinates and metric.
 
 The independence from the displayed coefficient $D$ does not make the result invariant under arbitrary changes mixing $r$, $\theta$, and $z$. Such changes may alter the boundary graph, the absence of temporal cross-terms, or the calibration. For a pure hue change $\psi=\psi(\theta)$, however,
 \begin{equation}
@@ -280,7 +289,7 @@ Both sides transform identically. This is the precise reparameterization covaria
 \subsection{Regular diagonal construction}
 \begin{theorem}[Diagonal boundary compatibility]
 \label{thm:diagonal}
-In the radial--angular diagonal ansatz $D=0$, with $B>0$ and calibration~\eqref{eq:calibration}, a finite positive boundary value of $A$ satisfying nullity exists if and only if $R_\theta^2<B$. It is uniquely given by
+In the radial--angular diagonal ansatz $D=0$, with $B>0$ and calibration~Eq.~\eqref{eq:calibration}, a finite positive boundary value of $A$ satisfying nullity exists if and only if $R_\theta^2<B$. It is uniquely given by
 \begin{equation}
  A=\frac{B}{B-R_\theta^2}
  =\left[1-\left(\frac{\alpha'}{\alpha\beta}\right)^2\right]^{-1}.
@@ -288,7 +297,7 @@ In the radial--angular diagonal ansatz $D=0$, with $B>0$ and calibration~\eqref{
 \end{equation}
 \end{theorem}
 \begin{proof}
-\eqref{eq:null-calibrated} with $D=0$ is $B+AR_\theta^2=AB$. Solving gives \eqref{eq:diagonal}. Its denominator is positive precisely under the strict inequality. Equality gives no finite solution; a negative denominator gives $A<0$.
+Eq.~\eqref{eq:null-calibrated} with $D=0$ is $B+AR_\theta^2=AB$. Solving gives Eq.~\eqref{eq:diagonal}. Its denominator is positive precisely under the strict inequality. Equality gives no finite solution; a negative denominator gives $A<0$.
 \end{proof}
 
 The diagonal condition is a restriction of the model, not a harmless coordinate simplification that necessarily preserves the specified $R$, $B$, and $C$. In the general spatial block, equality in the non-strict bound can be regular. At a point, take
@@ -296,7 +305,7 @@ The diagonal condition is a restriction of the model, not a harmless coordinate 
  R_\theta=1,\quad B=1,\quad D=-1,\quad A=2.
  \label{eq:equality}
 \end{equation}
-Then $\Delta=1$, \eqref{eq:null-calibrated} holds, and all coefficients are finite, despite $R_\theta^2=B$. The divergence in \eqref{eq:diagonal} therefore describes failure of a finite diagonal realization. It does not establish a universal geometric horizon or a removable coordinate singularity.
+Then $\Delta=1$, Eq.~\eqref{eq:null-calibrated} holds, and all coefficients are finite, despite $R_\theta^2=B$. The divergence in Eq.~\eqref{eq:diagonal} therefore describes failure of a finite diagonal realization. It does not establish a universal geometric horizon or a removable coordinate singularity.
 
 On a compact patch of an open sheet where the strict inequality has a positive margin, the diagonal boundary data extend smoothly to a collar and remain positive by continuity. They may be interpolated toward a Cartesian core using a cutoff that vanishes on a neighborhood of the interior achromatic axis. Positivity of the spatial block is preserved by convex interpolation of positive-definite spatial tensors, while the temporal coefficient remains negative. The construction is local away from the ridge and achromatic boundary tips; Appendix~\ref{app:extension} records its scope.
 
@@ -308,7 +317,7 @@ For the ordinary image to be a forward-invariant reachable set, an additional st
 \end{equation}
 on each smooth sheet, with corresponding conditions for every active boundary constraint at a ridge. Suitable regularity and evolution hypotheses would be needed to turn this tangency condition into a full invariance theorem.
 
-Raising the conormal with the metric does not derive \eqref{eq:non-egress}. If $n^\mu=g^{\mu\rho}\partial_\rho F$, then for every vector $v$,
+Raising the conormal with the metric does not derive Eq.~\eqref{eq:non-egress}. If $n^\mu=g^{\mu\rho}\partial_\rho F$, then for every vector $v$,
 \begin{equation}
  g_{\mu\nu}n^\mu v^\nu
  =g_{\mu\nu}g^{\mu\rho}\partial_\rho F\,v^\nu
@@ -317,7 +326,7 @@ Raising the conormal with the metric does not derive \eqref{eq:non-egress}. If $
 \end{equation}
 The metric cancels. The condition concerns the controls and the boundary, independently of signature. Moreover, $\operatorname{im}\dd\Phi_a$ is a linear space when $\Phi_a$ is differentiated on an unconstrained smooth domain: if it contains $v$, it contains $-v$. Requiring non-egress for both would force $v(F)=0$. A useful one-sided condition must therefore concern the admissible controls, including any saturation constraints, rather than the entire unconstrained differential image throughout a collar.
 
-Opponent-channel saturation is a possible physiological source of such control restrictions. It is not established here. Since ordinary isoluminant optical changes are spacelike in the model, nullity alone supplies no causal confinement argument. The established result is the compatibility constraint in \eqref{eq:square}; physiological non-egress remains a separate hypothesis.
+Opponent-channel saturation is a possible physiological source of such control restrictions. It is not established here. Since ordinary isoluminant optical changes are spacelike in the model, nullity alone supplies no causal confinement argument. The established result is the compatibility constraint in Eq.~\eqref{eq:square}; physiological non-egress remains a separate hypothesis.
 
 \section{Numerical model and calibration}
 \label{sec:numerics}
@@ -336,7 +345,7 @@ Let $E_i$ be the integrated response of cone $i$ to equal-energy illumination ov
 \end{equation}
 and then normalize their sum to obtain $(l,m,s)$. Equal-energy white is now $(1/3,1/3,1/3)$. In the raw-fundamental comparison, the cone functions are left unchanged and white is their actual integrated chromaticity. Centering raw fundamentals on the barycenter without first rescaling them would combine two different conventions.
 
-In either convention define $x=l-l_w$, $y=m-m_w$, $r=(x^2+y^2)^{1/2}$, and $\theta=\operatorname{atan2}(y,x)$. Set $T=1$ for this illustration, so the equatorial radial profile is $\alpha(\theta)$; for another $T$, it is $R_{\mathrm{eq}}/T$ and its logarithmic angular derivative is unchanged. This is a colorimetric radius in the declared chart, not a direct measurement of perceived saturation. Its use in \eqref{eq:boundary-intro} supplies the equatorial profile of the assumed separable boundary; the calculation does not test its full dependence on luminosity.
+In either convention define $x=l-l_w$, $y=m-m_w$, $r=(x^2+y^2)^{1/2}$, and $\theta=\operatorname{atan2}(y,x)$. Set $T=1$ for this illustration, so the equatorial radial profile is $\alpha(\theta)$; for another $T$, it is $R_{\mathrm{eq}}/T$ and its logarithmic angular derivative is unchanged. This is a colorimetric radius in the declared chart, not a direct measurement of perceived saturation. Its use in Eq.~\eqref{eq:boundary-intro} supplies the equatorial profile of the assumed separable boundary; the calculation does not test its full dependence on luminosity.
 
 The simplex Fisher metric \cite{Rao1945,Amari2016} has
 \begin{equation}
@@ -352,7 +361,7 @@ It is positive definite for $l,m,s>0$. For the fixed-radius angular direction, $
 \end{equation}
 The modeled identification $B=B_{\mathrm{disc}}$ then supplies $\beta=\sqrt{B_{\mathrm{disc}}}/r$. This uses the angular component at fixed radius. It is not the metric pullback along the gamut curve, whose tangent also contains $\alpha'(\theta)$.
 
-Normalized cone coordinates alone do not establish a multinomial perceptual noise law. \eqref{eq:fisher} is a tractable information-geometric choice, not an independently calibrated discrimination tensor. Its statistical interpretation and overall scale would require a measurement model, specified luminance, and an integration window. The Fisher form is imposed separately in the raw and balanced conventions, rather than transporting one fixed tensor between them. The comparison therefore changes the metric identification as well as the coordinates; it is not a test of the coordinate covariance of one unchanged tensor.
+Normalized cone coordinates alone do not establish a multinomial perceptual noise law. Eq.~\eqref{eq:fisher} is a tractable information-geometric choice, not an independently calibrated discrimination tensor. Its statistical interpretation and overall scale would require a measurement model, specified luminance, and an integration window. The Fisher form is imposed separately in the raw and balanced conventions, rather than transporting one fixed tensor between them. The comparison therefore changes the metric identification as well as the coordinates; it is not a test of the coordinate covariance of one unchanged tensor.
 
 \subsection{Recalculation and numerical scope}
 The convex hull has 188 vertices in both conventions. Its short-to-long mixture edge joins the retained 410 and 700~nm vertices; additional edges bridge smaller nonconvex portions of the tabulated locus. The earlier 390--700~nm endpoint chord and the entire monochromatic arc therefore do not describe the outer attainable boundary. In particular, the near-403~nm feature discussed below is interior to the mixture hull.
@@ -384,7 +393,7 @@ Sampled $c_*$ & 0.3761 & 0.4028\\
 \bottomrule
 \end{tabular}
 \smallskip
-\parbox{\linewidth}{\footnotesize $u=|\alpha'/\alpha|$; 101 samples per open edge of the 188-vertex hull. Retention uses finite $\beta(c=1)<10$. The sampled $c_*$ is defined in \eqref{eq:scale}. Neither the grid nor the filter establishes an all-hue physiological bound.}
+\parbox{\linewidth}{\footnotesize $u=|\alpha'/\alpha|$; 101 samples per open edge of the 188-vertex hull. Retention uses finite $\beta(c=1)<10$. The sampled $c_*$ is defined in Eq.~\eqref{eq:scale}. Neither the grid nor the filter establishes an all-hue physiological bound.}
 \end{table}
 
 Every retained edge sample satisfies the strict diagonal condition at the chosen scale (Table~\ref{tab:bound}). Figure~\ref{fig:numerical} shows the corresponding angular profiles. These results are evidence of compatibility for the sampled model, not a fitted or independently verified law of human discrimination.
@@ -463,12 +472,12 @@ Here $\rho$ is any measurable reflectance, and equal-energy illumination is incl
 \end{equation}
 It is attained by choosing $\rho=1$ where $n\cdot c>0$ and $\rho=0$ where $n\cdot c<0$. This pointwise rule is independent of any perceptual metric.
 
-Replacing $\rho$ by $1-\rho$ sends $a$ to $W-a$, so $\mathcal O$ is centrally symmetric. In the chart of \eqref{eq:object-chart}, this is $(x,y,z)\mapsto(-x,-y,-z)$; its radial boundary therefore obeys
+Replacing $\rho$ by $1-\rho$ sends $a$ to $W-a$, so $\mathcal O$ is centrally symmetric. In the chart introduced below in Eq.~\eqref{eq:object-chart}, this is $(x,y,z)\mapsto(-x,-y,-z)$; its radial boundary therefore obeys
 \begin{equation}
  R_{\mathcal O}(\theta,z)=R_{\mathcal O}(\theta+\pi,-z).
  \label{eq:object-complement}
 \end{equation}
-The upper polar tangent cone is the reflection of the lower. A boundary with one ceiling $\alpha$ on both sheets, as in \eqref{eq:boundary-intro}, can match both polar tangent cones in this chart only if $\alpha(\theta+\pi)=\alpha(\theta)$. This necessary condition does not establish the separable bicone form. Central symmetry alone does not imply height reflection at fixed hue.
+The upper polar tangent cone is the reflection of the lower. A boundary with one ceiling $\alpha$ on both sheets, as in Eq.~\eqref{eq:boundary-intro}, can match both polar tangent cones in this chart only if $\alpha(\theta+\pi)=\alpha(\theta)$. This necessary condition does not establish the separable bicone form. Central symmetry alone does not imply height reflection at fixed hue.
 
 \begin{proposition}[Two independent transition vectors]
 \label{prop:transition-normal}
@@ -533,19 +542,19 @@ The model separates three questions that can otherwise become conflated. The fir
 
 The topological construction is deliberately modest. The compactification and insertion describe the target organization, not a new physical operation on electromagnetic wavelengths. The full cone of spectral stimuli already includes mixtures capable of inducing purples. Accordingly, nonspectrality does not pose an obstruction to physical causation. The explanatory task is to specify the response map and the viewing conditions under which its hue organization is represented by the proposed circle. A topological model by itself does not identify the relevant neural mechanism.
 
-The metric calculation gives a conditional result with a definite mathematical content. Once the boundary form, the lack of temporal cross-terms, the calibration $C=\alpha^2$, and the angular coefficient $B$ have been prescribed, \eqref{eq:square} supplies a necessary inequality. In the diagonal ansatz, strict inequality is sufficient for finite positive boundary data and a local regular collar. The construction is flexible: it neither singles out a unique interior metric nor selects the angular metric from cone fundamentals. This limits what a successful numerical illustration can establish.
+The metric calculation gives a conditional result with a definite mathematical content. Once the boundary form, the lack of temporal cross-terms, the calibration $C=\alpha^2$, and the angular coefficient $B$ have been prescribed, Eq.~\eqref{eq:square} supplies a necessary inequality. In the diagonal ansatz, strict inequality is sufficient for finite positive boundary data and a local regular collar. The construction is flexible: it neither singles out a unique interior metric nor selects the angular metric from cone fundamentals. This limits what a successful numerical illustration can establish.
 
 There are distinct aspects of the ridge claim. Within the symmetric bicone, the ridge at $z=0$ is an exact feature of the assumed boundary. Proposition~\ref{prop:ridge} gives a broader obstruction to a differentiable, everywhere-null radial envelope. Proposition~\ref{prop:timelike-conormal} permits cross-terms and applies to the certified point of the separately specified signal solid. Thus an everywhere-null boundary with adding white timelike is already excluded for that model; a future discrimination measurement is not needed to establish this mathematical limitation. None of these results shows that every perceptual color solid has an isoluminant ridge.
 
 The reachability interpretation introduces another independent task. Altered adaptation can change color appearance \cite{Shevell2003,Fairchild2013}, and chimerical-color demonstrations motivate comparisons between ordinary and altered response regimes \cite{Churchland2005}. Those demonstrations do not measure the metric or establish the location of an exterior state in the coordinates used here. Reports of reddish green and yellowish blue under special viewing conditions \cite{Crane1983} address a related but distinct phenomenon and should not be treated as interchangeable evidence for every proposed chimerical state.
 
-To test non-egress, an experiment or physiological model would need to identify admissible controls near the candidate boundary and determine whether outward velocities remain available. \eqref{eq:identity} makes clear why invoking a null normal cannot substitute for that task. A successful control model could support a reachability interpretation without making ordinary optical motion globally causal in the Lorentzian sense. The geometry would still organize the compatibility question rather than supply the biological control law.
+To test non-egress, an experiment or physiological model would need to identify admissible controls near the candidate boundary and determine whether outward velocities remain available. Eq.~\eqref{eq:identity} makes clear why invoking a null normal cannot substitute for that task. A successful control model could support a reachability interpretation without making ordinary optical motion globally causal in the Lorentzian sense. The geometry would still organize the compatibility question rather than supply the biological control law.
 
 The two signal calculations have different domains. Section~\ref{sec:numerics} uses an additive mixture hull and a modeled angular information metric. Section~\ref{sec:object-obstruction} permits all bounded reflectances against a specified continuous response density. Neither measures an individual's appearance boundary or discrimination tensor. Straight mixture edges are meaningful for the additive stimulus model; the absence of a monochromatic correlate does not imply that nonspectral gamut boundaries are undefined in color science.
 
 The effect representation adds an algebraic comparison, not a physiological derivation. An ordinary preparation image can be a proper convex subset of a carrier while spanning it linearly. Its excluded colors then describe a convex reachability restriction, not an adjoint-kernel defect. For example, a linear or affine encoding that keeps three collinear signal points distinct cannot send all three to distinct pure chromatic states on a round disk: a line intersects the circle in at most two points. This constraint applies only to encodings with those assumptions. The tabulated long-wavelength chromaticities with $S=0$ supply collinear examples, but the exact zeros belong to the declared input table.
 
-The remaining realization task is to specify the stimulus and adaptation encoding, the observer-state carrier, and the observables or report procedures that define color coordinates. Only after that identification can independent boundary and discrimination measurements test \eqref{eq:bound-intro} with its intended empirical meaning. Existing measurements may be used if their stimulus classes, viewing regimes, coordinates and scales match the identification. Control directions address confinement separately. These requirements do not select the cylinder or the effect body by mathematical analogy alone.
+The remaining realization task is to specify the stimulus and adaptation encoding, the observer-state carrier, and the observables or report procedures that define color coordinates. Only after that identification can independent boundary and discrimination measurements test Eq.~\eqref{eq:bound-intro} with its intended empirical meaning. Existing measurements may be used if their stimulus classes, viewing regimes, coordinates and scales match the identification. Control directions address confinement separately. These requirements do not select the cylinder or the effect body by mathematical analogy alone.
 
 \section{Conclusion}
 The magenta gap motivates a response-side description of hue closure that distinguishes physical spectral stimuli from the cyclic organization of color. Inserting a purple interval into an auxiliary compactified spectral arc gives a resolved hue circle; collapsing that circle at zero chromatic radius gives a color body with an achromatic axis. These constructions provide the setting for a proposed reachability metric, without determining its signature.
@@ -599,19 +608,17 @@ These probabilities can vary with the input state. A stimulus encoding and a phy
 
 Paired preparations also leave the readout on $\ker u^*$ undetermined. All effects $uFu^*+D$ with $0\leq D\leq I-P$ have the same compression $u^*(uFu^*+D)u=F$. They remain indistinguishable for preparations and dynamics confined to $uH_1$; justified dynamics mixing that range with its complement can distinguish them. Static paired probabilities therefore do not assign chimerical colors to the complement, and a proper convex preparation image need not generate any such linear complement.
 
-\begin{backmatter}
-\bmsection{Acknowledgments}
+\section*{Acknowledgments}
 The original manuscript records the use of Claude Opus 4.8, Gemini 3.1 Deep Think, and GPT-5.5 Pro for mathematical and computational stress tests and feedback on structure and exposition. OpenAI ChatGPT/Codex assisted with the September condensation and numerical-code revision and with the November consolidation, proofs and exact-arithmetic certificate. Claude assisted with independent computational reproductions and review. The numerical figure is generated by Python code from the supplied cone-fundamental arrays; no synthetic experimental observations are introduced. Computational checks support the stated mathematical model and do not constitute psychophysical validation.
-\bmsection{Disclosures}
+\section*{Disclosures}
 The author is affiliated with Alpha Omega Lattice Corporation. No physiological or psychophysical measurements are reported in this article.
-\bmsection{Data availability}
+\section*{Data availability}
 Code and input data are available at \url{https://github.com/AlphaOmega-Institute/magenta-gap}. The September numerical illustration uses the archived \texttt{recompute} package on the \path{claude/corrected-bound-calculation} branch, commit \texttt{a0282ae}. The continuum certificate and its exact input are in \path{research/object-colour}; the finite effect-algebra checks are in \path{research/colour-interface}, preserved at commit \texttt{cb997e8}. The certificate input CSV has SHA-256
 \begin{center}\scriptsize\ttfamily
 144fc58d2f3b01cd8ce5ae765199fd1a2af6\\
 58b7bea7a540aa3cea6bb9d02c40
 \end{center}
 where the two lines concatenate. The arguments and assumptions used in this article are stated here; the code and rational enclosures permit reproduction of the specified computation. The historical July manuscript remains separately archived.
-\end{backmatter}
 
 \begin{thebibliography}{16}
 \bibitem{Krantz1975} D. H. Krantz, ``Color measurement and color theory: I. Representation theorem for Grassmann structures,'' J. Math. Psychol. \textbf{12}, 283--303 (1975).

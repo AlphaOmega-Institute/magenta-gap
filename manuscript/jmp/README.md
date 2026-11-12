@@ -1,11 +1,11 @@
-# The Magenta Gap — long JMP manuscript
+# The Magenta Gap — frozen July 2026 archive
 
-This directory contains the long July 2026 manuscript for shared review alongside the [shorter September revision](../README.md).
+This directory preserves the July 2026 manuscript as a historical baseline. It is frozen and is not a second active paper. The sole working manuscript is [`../Magenta_Gap.tex`](../Magenta_Gap.tex), with its [current PDF](../Magenta_Gap.pdf) and [build notes](../README.md).
 
 - [Magenta_Gap_JMP.tex](Magenta_Gap_JMP.tex): recovered editable source, matched to the original 51-page PDF.
 - [Magenta_Gap_JMP.pdf](Magenta_Gap_JMP.pdf): the original manuscript PDF, preserved byte for byte.
 
-The manuscript is a working research text. Its July claims and numerical results are preserved here; this import does not apply the later scientific corrections documented in the September revision. The recent Hilbert-geometry discussion is not incorporated.
+Its July claims and numerical results are preserved unchanged, including claims corrected in the later revision. They should not be read as the current conclusions. The archive may inform later framing, but ongoing corrections belong only in the canonical working manuscript. The recent Hilbert-geometry discussion is not incorporated.
 
 ## Source recovery
 
@@ -41,3 +41,4 @@ Imported November 11, 2026.
 | Original saved TeX paste, before the two edits | `036a4ccdb5618f194372a148aa7d147faccfb512cc791aad62f460697e90a28a` |
 | Recovered TeX in this directory | `bb85dba3c42039732efe2971919476d66af92460abbe5f82b752f0bcabbd778d` |
 | Original PDF in this directory | `4ce1bcf9e9f3c798604b24d401954f43aab7faf12f2de03da305eaccd063e8b6` |
+
