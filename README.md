@@ -15,6 +15,8 @@ The [JMP provenance and build notes](manuscript/jmp/README.md) document the two 
 
 The corresponding corrected calculations are on [`claude/corrected-bound-calculation`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/claude/corrected-bound-calculation/recompute). The manuscript imports do not merge that branch. The recent Hilbert-geometry and Berthier–Provenzi discussion is ongoing work and is not incorporated in either manuscript.
 
+The separate [September object-colour research notes](research/object-colour/README.md) are now available for the continuum-versus-discrete reconciliation. They contain the cubic-contact proof and its audit, and do not modify either manuscript or establish the Lorentzian interpretation.
+
 ## Historical pipeline documentation
 
 Numerical verification of the Lorentzian gamut bound, companion code for:
