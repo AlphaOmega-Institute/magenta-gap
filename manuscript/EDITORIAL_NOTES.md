@@ -111,3 +111,9 @@ The canonical PDF builds to 20 pages with no warnings, undefined references/cita
 The diagonal theorem now says "the calibration of Eq. (22)". The calculation branch name in the data statement is set as one unbreakable text span so the PDF can be copied without a mid-word line break. `PROVENANCE.json` now explicitly identifies itself as the historical September import record, links its original commit, and points to the canonical working source. Its original filenames and eight-page count are retained as historical facts. The source artwork for Figure 1 remains unchanged; its label-size variation does not impede readability.
 
 The PDF still has 20 pages and builds without warnings or unresolved references. Its updated data-availability page was rendered and checked, and extracted text contains the full branch name on one line. No equations, numerical values, figure files or scientific claims changed.
+
+### Review and merge of the corrected calculation archive (12 November 2026)
+
+The `recompute/` directory from `claude/corrected-bound-calculation` at `a0282ae` is now incorporated into `main`. An isolated rerun reproduces the JSON results byte for byte, all 10 CSVs, four NPZ array sets and three PNG figures. The manuscript's numerical table agrees with those results. An independent half-space formulation also reproduces the boundary radii, angular slopes and Fisher quadratic forms. No calculation defect was found.
+
+Only the archive README changes: the 616–700 nm edge, rather than both final edges, lies entirely on the tabulated S=0 boundary; the intersection formulas are analytic but evaluated in floating point; and the old repository-status sentence is explicitly historical. Code, inputs, license notice and numerical outputs are preserved. This import does not replace the historical top-level pipeline, merge the independent-checks branch, alter the manuscript's mathematics or calibrate its Fisher metric.
