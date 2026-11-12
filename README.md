@@ -17,6 +17,8 @@ The corresponding corrected calculations are on [`claude/corrected-bound-calcula
 
 The separate [September object-colour research notes](research/object-colour/README.md) are now available for the continuum-versus-discrete reconciliation. They contain the cubic-contact proof and its audit, and do not modify either manuscript or establish the Lorentzian interpretation.
 
+The [colour-interface algebra and calibration record](research/colour-interface/README.md) now preserves the effect-bicone connection, its fixed-bridge limitation, defect-readout scope, and the three distinct height conventions. It includes 11 executable checks and a manuscript integration plan; these additions do not revise either manuscript.
+
 ## Historical pipeline documentation
 
 Numerical verification of the Lorentzian gamut bound, companion code for:
@@ -105,3 +107,4 @@ MIT
       journal = {Preprint},
       year    = {2026}
     }
+
