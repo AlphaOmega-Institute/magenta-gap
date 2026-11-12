@@ -73,21 +73,41 @@ The certificate bounds `c_L-c_S` strictly below zero at the first root and stric
 
 ## Consequence for the metric model
 
-For every metric of the form
+Let \(W\) denote the fixed achromatic **direction** (the white catch vector in the affine signal space), and let \(n\) be the nonzero supporting conormal at the certified point. The exact geometric fact is
+
+\[
+n(W)=0.
+\]
+
+In the displayed coordinates the linear part of the coordinate map sends this direction to \((0,0,2)\); the affine white point itself has coordinates \((0,0,1)\). The unique tangent plane therefore contains the achromatic direction.
+
+For **any** Lorentzian metric of signature \((2,1)\) for which that direction is timelike at this point,
+
+\[
+g(W,W)<0\quad\Longrightarrow\quad g^{-1}(n,n)>0.
+\]
+
+Indeed, if \(n^\sharp=g^{-1}n\), then \(g(n^\sharp,W)=n(W)=0\). The orthogonal complement of a timelike vector in a Lorentzian space is positive definite. Since \(n^\sharp\) is nonzero, its squared norm is positive.
+
+Thus the boundary cannot be null there. The previously stated class
 
 \[
 g=G_{ab}\,dx^a dx^b-C\,dz^2,\qquad G>0,\quad C>0,
 \]
 
-with no spatial–height cross-terms, the squared inverse-metric norm of this normal is
+is a special case. **Adding spatial–height cross-terms cannot remove the obstruction while the achromatic direction remains timelike.** Making the boundary null would require that direction to be null or spacelike there, a necessary rather than sufficient change.
 
-\[
-g^{-1}(n,n)=(G^{-1})_{yy}>0.
-\]
+The result is independent of the choice of a valid linear height functional, as long as height variation at fixed linear chromatic coordinates remains parallel to \(W\). It is also unchanged by any mere coordinate transformation when the metric, direction, and conormal are transported together. Holding projective chromaticity fixed instead varies intensity along the current catch vector, generally not along \(W\). Declaring that different direction timelike changes the geometric identification; it is not a coordinate-only escape.
 
-Hence the boundary at this point is not null. No finite-difference smoothness test, linear-programming tolerance, or sampled percentage of the hue circle enters this conclusion.
+No finite-difference smoothness test, linear-programming tolerance, or sampled percentage of the hue circle enters this conclusion. A nonlinear response model or a perceptual identification requires separate analysis. The calculation neither changes nor refutes the conditional bicone compatibility theorem.
 
-This is an obstruction for this response model in these specified coordinates and metric class. Allowing spatial–height cross-terms changes the hypothesis. A nonlinear response model or a perceptual identification requires separate analysis. The calculation neither changes nor refutes the conditional bicone compatibility theorem.
+## Complementarity and classical full colours
+
+The certified transition-vector signs prove more than approximate coplanarity. Their transformed vectors have opposite nonzero chromatic \(x\) components and positive height components. A positive combination therefore lies along the positive achromatic direction. Consequently the two spectral response directions are complementary relative to this model's white. This follows exactly from the existing interval certificate; a floating-point residual is unnecessary.
+
+This construction belongs to the classical study of Ostwald's full colours or semichromes and Schrödinger optimal colours. Koenderink, *The prior statistics of object colors*, JOSA A **27**, 206–217 (2010), p. 213, relates the tangent plane's parallelism to the achromatic axis to complementary transition wavelengths: https://doi.org/10.1364/JOSAA.27.000206. Koenderink, van Doorn and Gegenfurtner, *RGB Colors and Ecological Optics* (2021), discuss the complementary-band definition and the semichrome locus in Sections 4–5: https://doi.org/10.3389/fcomp.2021.630370.
+
+These references identify the classical construction; they are not used to impose a universal two-transition restriction. Modern object-colour analysis allows additional transitions. The normal-uniqueness criterion needs at least two independent genuine transitions and permits more. The particular verified interpolation-model point and its use to test the manuscript's metric identification are the scope of this certificate, with no claim that full colours or their supporting-plane geometry are new.
 
 ## Verification and scope
 

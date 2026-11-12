@@ -13,7 +13,7 @@ The Markdown contents are preserved as read from the archived notes. `PROVENANCE
 
 ## Continuum boundary certificate
 
-The [continuum rim certificate](Continuum_Rim_Certificate.md) gives an explicit non-null boundary point in the full 390–830 nm interpolation model. It uses two independent genuine reflectance transitions to prove uniqueness of a horizontal supporting normal. The criterion needs at least two independent transitions; a third does not invalidate it.
+The [continuum rim certificate](Continuum_Rim_Certificate.md) gives an explicit non-null boundary point in the full 390–830 nm interpolation model. It uses two independent genuine reflectance transitions to prove uniqueness of a supporting normal that annihilates the achromatic direction. The boundary is therefore non-null for every Lorentzian metric that keeps that direction timelike, including metrics with spatial–height cross-terms. The criterion needs at least two independent transitions; a third does not invalidate it. The note also records the classical full-colour attribution.
 
 Run from the repository root:
 
