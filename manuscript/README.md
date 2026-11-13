@@ -4,7 +4,9 @@
 
 The reviewed mathematical revision was merged at `51b37d5`. The format conversion retains its complete arguments, three appendices, 16 bibliography entries, numerical table, three figures and assistance disclosure. It restores explicit equation-name prefixes previously supplied by the Optica class and clarifies one forward reference. No perceptual encoding or new empirical claim is added.
 
-The November 13 conceptual-restoration draft expands the Introduction and Discussion around the transformation problem: relating stimulus distributions, observer state and context to organized color appearance. It restores the motivation in corrected form, with sourced blackness/afterimage examples and a qualitative luminosity-threshold comparison. It keeps stimulus gamut, appearance target and regime-specific image distinct. The draft has 22 pages and 22 references; all 50 displayed equations, theorem/proof environments, table and figure files remain unchanged from `5c4d9e6`. It introduces no new psychophysical data or completed encoding model. This revision is prepared for review before merging.
+The November 13 conceptual-restoration draft expands the Introduction and Discussion around the transformation problem: relating stimulus distributions, observer state and context to organized color appearance. It restores the motivation in corrected form, with sourced blackness/afterimage examples and a qualitative luminosity-threshold comparison. It keeps stimulus gamut, appearance target and regime-specific image distinct. The initial draft at `cee2c7b` had 22 pages and 22 references, with its mathematical content and figure files unchanged from `5c4d9e6`.
+
+The follow-up restores the separate color-body/achromatic-quotient figure, the bee-purple comparison, and the ten historical and philosophical references omitted from July, adding Chittka's color-hexagon paper for the bee example. The current draft has 24 pages, four figures and 33 references. All 50 displayed equations, theorem/proof environments and the numerical table are unchanged. It incorporates Claude's standalone figure repairs from `e07eb71`, removing cropped-away July text, and retains the drawing sources. It introduces no new psychophysical data or completed encoding model. This revision is prepared for review before merging.
 
 The [July manuscript in `jmp/`](jmp/) is a frozen historical baseline, not a second active paper. Its source and original PDF are unchanged. The reviewed Optica-format September/November text, PDF and former class/support files remain recoverable in [Git history at `51b37d5`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/51b37d506dee66de9228a1ee2c0e81aa7a193488/manuscript).
 
@@ -16,11 +18,14 @@ Run from this directory with a complete TeX installation providing pdfLaTeX, lat
 latexmk -pdf -interaction=nonstopmode -halt-on-error Magenta_Gap.tex
 ```
 
-For Overleaf, upload `Magenta_Gap.tex` and the three figure PDFs below, set `Magenta_Gap.tex` as the main document, and select pdfLaTeX. The arguments and bibliography are in the TeX source; no external companion note, BibTeX database, custom class or local compatibility shim is required.
+For Overleaf, upload `Magenta_Gap.tex` and the four figure PDFs below, set `Magenta_Gap.tex` as the main document, and select pdfLaTeX. The arguments and bibliography are in the TeX source; no external companion note, BibTeX database, custom class or local compatibility shim is required.
 
 - `fig1_magenta_gap.pdf`
+- `fig2_color_body.pdf`
 - `fig3_spindle.pdf`
 - `fisher_bound_convex_hull.pdf`
+
+The three conceptual figures also have standalone TikZ sources beside their PDFs. Those sources are optional for the manuscript build; rebuilding them requires the standard `standalone` class and the packages listed in each figure source. Keep `\noindent` at the start of the abstract in subsequent revisions.
 
 The former Optica class and its unused support/shim files are removed from the current working tree. They remain in Git history. The canonical PDF is freshly built and visually inspected; the verification record is in [EDITORIAL_NOTES.md](EDITORIAL_NOTES.md).
 
