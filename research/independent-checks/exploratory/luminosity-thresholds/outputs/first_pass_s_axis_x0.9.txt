@@ -1,0 +1,132 @@
+== convention test: black-body locus in this MacLeod-Boynton scaling
+   T=  3000 K   l=0.7380  s=0.3387
+   T=  5000 K   l=0.7094  s=0.7686
+   T=  6500 K   l=0.6997  s=1.0089
+   T= 10000 K   l=0.6890  s=1.3580
+   T= 20000 K   l=0.6803  s=1.7232
+
+== Exp1.csv: illuminant 6500 K, white at l=0.6997 s=1.0089; conditions ['Natural', 'Reverse', 'Flat', 'Slope plus', 'Slope minus']
+   test l=0.6720 s=1.9990  limit=0.5044 of white =  17.65 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6780 s=1.7880  limit=0.5640 of white =  19.74 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6900 s=1.2880  limit=0.7832 of white =  27.41 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7000 s=1.0380  limit=0.9719 of white =  34.02 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7100 s=0.7970  limit=0.9376 of white =  32.81 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7190 s=0.5930  limit=0.8815 of white =  30.85 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7300 s=0.4510  limit=0.8110 of white =  28.39 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7390 s=0.5280  limit=0.7537 of white =  26.38 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7530 s=0.6630  limit=0.6700 of white =  23.45 cd/m2  transitions=2 partial-bin fraction=0.0045
+   KK  Natural     r=+0.911  setting/limit: min=1.42 median=1.72 max=1.85  setting/white: 0.85-1.60
+   KK  Reverse     r=+0.948  setting/limit: min=1.56 median=1.76 max=1.94  setting/white: 0.88-1.61
+   KK  Flat        r=+0.890  setting/limit: min=1.46 median=1.77 max=1.97  setting/white: 0.87-1.73
+   KK  Slope plus  r=+0.878  setting/limit: min=1.46 median=1.69 max=1.98  setting/white: 0.85-1.53
+   KK  Slope minus r=+0.966  setting/limit: min=1.46 median=1.70 max=1.79  setting/white: 0.88-1.47
+   MI  Natural     r=+0.958  setting/limit: min=1.18 median=1.32 max=1.44  setting/white: 0.67-1.24
+   MI  Reverse     r=+0.976  setting/limit: min=1.42 median=1.56 max=1.61  setting/white: 0.79-1.49
+   MI  Flat        r=+0.927  setting/limit: min=1.23 median=1.35 max=1.55  setting/white: 0.72-1.27
+   MI  Slope plus  r=+0.921  setting/limit: min=1.30 median=1.41 max=1.72  setting/white: 0.72-1.30
+   MI  Slope minus r=+0.956  setting/limit: min=1.31 median=1.44 max=1.61  setting/white: 0.73-1.36
+   TM  Natural     r=+0.653  setting/limit: min=0.98 median=1.10 max=1.50  setting/white: 0.76-1.09
+   TM  Reverse     r=+0.793  setting/limit: min=1.21 median=1.33 max=1.68  setting/white: 0.85-1.29
+   TM  Flat        r=+0.889  setting/limit: min=1.16 median=1.32 max=1.61  setting/white: 0.81-1.24
+   TM  Slope plus  r=+0.850  setting/limit: min=1.17 median=1.34 max=1.60  setting/white: 0.81-1.30
+   TM  Slope minus r=+0.709  setting/limit: min=1.10 median=1.22 max=1.67  setting/white: 0.82-1.24
+   YK  Natural     r=+0.830  setting/limit: min=1.17 median=1.25 max=1.69  setting/white: 0.84-1.17
+   YK  Reverse     r=+0.941  setting/limit: min=1.47 median=1.65 max=1.83  setting/white: 0.90-1.50
+   YK  Flat        r=+0.891  setting/limit: min=1.26 median=1.40 max=1.78  setting/white: 0.88-1.23
+   YK  Slope plus  r=+0.932  setting/limit: min=1.32 median=1.48 max=1.78  setting/white: 0.85-1.38
+   YK  Slope minus r=+0.750  setting/limit: min=1.30 median=1.35 max=1.82  setting/white: 0.89-1.38
+   mean over observers and conditions, setting/limit by chromaticity: 1.62 1.66 1.58 1.35 1.41 1.40 1.41 1.45 1.53
+   correlation of that mean with the limit: +0.973
+
+== Exp2_3000K.csv: illuminant 3000 K, white at l=0.7380 s=0.3387; conditions ['Natural', 'Reverse', 'Flat']
+   test l=0.7085 s=0.6573  limit=0.5151 of white =  18.03 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7167 s=0.4764  limit=0.7109 of white =  24.88 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7244 s=0.4646  limit=0.7289 of white =  25.51 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7255 s=0.3642  limit=0.9300 of white =  32.55 cd/m2  transitions=4 partial-bin fraction=0.0045
+   test l=0.7356 s=0.3886  limit=0.8715 of white =  30.50 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7398 s=0.3230  limit=0.9902 of white =  34.66 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7417 s=0.2873  limit=0.9809 of white =  34.33 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7495 s=0.2623  limit=0.9367 of white =  32.79 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7542 s=0.2390  limit=0.9102 of white =  31.86 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7646 s=0.1573  limit=0.8511 of white =  29.79 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7695 s=0.1920  limit=0.8226 of white =  28.79 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7796 s=0.1759  limit=0.7671 of white =  26.85 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7869 s=0.1717  limit=0.7287 of white =  25.51 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.8061 s=0.2130  limit=0.6328 of white =  22.15 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.8135 s=0.2050  limit=0.5989 of white =  20.96 cd/m2  transitions=2 partial-bin fraction=0.0045
+   KS  Natural     r=+0.810  setting/limit: min=1.07 median=1.39 max=1.79  setting/white: 0.66-1.65
+   KS  Reverse     r=+0.817  setting/limit: min=0.99 median=1.22 max=1.58  setting/white: 0.70-1.30
+   KS  Flat        r=+0.949  setting/limit: min=1.27 median=1.31 max=1.56  setting/white: 0.78-1.30
+   KK  Natural     r=+0.527  setting/limit: min=1.27 median=1.47 max=2.42  setting/white: 0.83-1.33
+   KK  Reverse     r=+0.428  setting/limit: min=1.18 median=1.48 max=2.42  setting/white: 0.89-1.32
+   KK  Flat        r=+0.593  setting/limit: min=1.30 median=1.53 max=2.35  setting/white: 0.87-1.41
+   NT  Natural     r=+0.662  setting/limit: min=0.64 median=0.99 max=1.59  setting/white: 0.41-1.08
+   NT  Reverse     r=+0.742  setting/limit: min=0.84 median=1.05 max=1.61  setting/white: 0.50-1.09
+   NT  Flat        r=+0.623  setting/limit: min=0.84 median=1.04 max=1.56  setting/white: 0.50-1.07
+   YK  Natural     r=+0.712  setting/limit: min=0.98 median=1.20 max=1.93  setting/white: 0.62-1.18
+   YK  Reverse     r=+0.762  setting/limit: min=1.04 median=1.14 max=1.56  setting/white: 0.68-1.10
+   YK  Flat        r=+0.638  setting/limit: min=1.06 median=1.15 max=1.86  setting/white: 0.73-1.16
+   mean over observers and conditions, setting/limit by chromaticity: 1.85 1.47 1.54 1.25 1.40 1.22 1.18 1.20 1.19 1.20 1.18 1.22 1.21 1.15 1.14
+   correlation of that mean with the limit: +0.762
+
+== Exp2_6500K.csv: illuminant 6500 K, white at l=0.6997 s=1.0089; conditions ['Natural', 'Reverse', 'Flat']
+   test l=0.6727 s=1.8516  limit=0.5446 of white =  19.06 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6820 s=1.3486  limit=0.7480 of white =  26.18 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6884 s=1.3702  limit=0.7362 of white =  25.77 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6939 s=1.0971  limit=0.9196 of white =  32.19 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6971 s=1.1444  limit=0.8815 of white =  30.85 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7026 s=0.9557  limit=0.9825 of white =  34.39 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7076 s=0.8913  limit=0.9510 of white =  33.29 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7121 s=0.7942  limit=0.9240 of white =  32.34 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7166 s=0.7279  limit=0.8953 of white =  31.33 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7213 s=0.7564  limit=0.8636 of white =  30.23 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7309 s=0.6066  limit=0.8031 of white =  28.11 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7410 s=0.5801  limit=0.7405 of white =  25.92 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7524 s=0.5934  limit=0.6743 of white =  23.60 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7578 s=0.7433  limit=0.6426 of white =  22.49 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7677 s=0.7089  limit=0.5923 of white =  20.73 cd/m2  transitions=2 partial-bin fraction=0.0045
+   KS  Natural     r=+0.923  setting/limit: min=1.10 median=1.28 max=1.59  setting/white: 0.71-1.38
+   KS  Reverse     r=+0.860  setting/limit: min=1.15 median=1.32 max=1.56  setting/white: 0.77-1.24
+   KS  Flat        r=+0.882  setting/limit: min=1.11 median=1.27 max=1.50  setting/white: 0.69-1.19
+   KK  Natural     r=+0.815  setting/limit: min=1.33 median=1.55 max=1.89  setting/white: 0.96-1.37
+   KK  Reverse     r=+0.811  setting/limit: min=1.37 median=1.60 max=1.97  setting/white: 1.01-1.41
+   KK  Flat        r=+0.689  setting/limit: min=1.31 median=1.55 max=2.00  setting/white: 1.03-1.33
+   NT  Natural     r=+0.934  setting/limit: min=0.82 median=0.99 max=1.08  setting/white: 0.53-1.01
+   NT  Reverse     r=+0.850  setting/limit: min=0.97 median=1.10 max=1.42  setting/white: 0.68-1.10
+   NT  Flat        r=+0.945  setting/limit: min=0.93 median=1.04 max=1.16  setting/white: 0.63-0.98
+   YK  Natural     r=+0.791  setting/limit: min=1.12 median=1.21 max=1.71  setting/white: 0.76-1.11
+   YK  Reverse     r=+0.865  setting/limit: min=1.17 median=1.25 max=1.67  setting/white: 0.80-1.19
+   YK  Flat        r=+0.658  setting/limit: min=1.05 median=1.28 max=1.73  setting/white: 0.80-1.15
+   mean over observers and conditions, setting/limit by chromaticity: 1.53 1.32 1.48 1.22 1.31 1.18 1.22 1.22 1.23 1.23 1.31 1.29 1.32 1.32 1.41
+   correlation of that mean with the limit: +0.947
+
+== Exp2_20000K.csv: illuminant 20000 K, white at l=0.6803 s=1.7232; conditions ['Natural', 'Reverse', 'Flat']
+   test l=0.6551 s=3.0619  limit=0.5626 of white =  19.69 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6646 s=2.2481  limit=0.7665 of white =  26.83 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6703 s=2.3281  limit=0.7401 of white =  25.90 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6775 s=1.8994  limit=0.9072 of white =  31.75 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6778 s=1.9426  limit=0.8870 of white =  31.05 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6837 s=1.6307  limit=0.9777 of white =  34.22 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6900 s=1.5660  limit=0.9340 of white =  32.69 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6929 s=1.3738  limit=0.9171 of white =  32.10 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.6973 s=1.2634  limit=0.8879 of white =  31.08 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7010 s=1.3269  limit=0.8603 of white =  30.11 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7108 s=1.0729  limit=0.7957 of white =  27.85 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7205 s=1.0490  limit=0.7309 of white =  25.58 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7313 s=1.3620  limit=0.6594 of white =  23.08 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7327 s=1.1025  limit=0.6544 of white =  22.91 cd/m2  transitions=2 partial-bin fraction=0.0045
+   test l=0.7413 s=1.2874  limit=0.6036 of white =  21.12 cd/m2  transitions=2 partial-bin fraction=0.0045
+   KS  Natural     r=+0.904  setting/limit: min=0.98 median=1.11 max=1.30  setting/white: 0.57-1.12
+   KS  Reverse     r=+0.830  setting/limit: min=1.01 median=1.18 max=1.35  setting/white: 0.58-1.13
+   KS  Flat        r=+0.856  setting/limit: min=1.00 median=1.21 max=1.39  setting/white: 0.58-1.20
+   KK  Natural     r=+0.532  setting/limit: min=1.03 median=1.31 max=1.75  setting/white: 0.58-1.20
+   KK  Reverse     r=+0.404  setting/limit: min=1.03 median=1.29 max=1.82  setting/white: 0.58-1.26
+   KK  Flat        r=+0.711  setting/limit: min=1.03 median=1.29 max=1.57  setting/white: 0.58-1.21
+   NT  Natural     r=+0.865  setting/limit: min=0.83 median=0.97 max=1.04  setting/white: 0.51-0.96
+   NT  Reverse     r=+0.896  setting/limit: min=0.84 median=0.97 max=1.16  setting/white: 0.56-0.94
+   NT  Flat        r=+0.825  setting/limit: min=0.88 median=0.97 max=1.16  setting/white: 0.54-0.95
+   YK  Natural     r=+0.753  setting/limit: min=0.98 median=1.19 max=1.57  setting/white: 0.59-1.12
+   YK  Reverse     r=+0.700  setting/limit: min=1.05 median=1.15 max=1.58  setting/white: 0.61-1.12
+   YK  Flat        r=+0.681  setting/limit: min=0.96 median=1.15 max=1.55  setting/white: 0.58-1.09
+   mean over observers and conditions, setting/limit by chromaticity: 1.01 0.98 1.03 1.01 1.06 1.06 1.15 1.17 1.18 1.19 1.20 1.27 1.34 1.35 1.42
+   correlation of that mean with the limit: +0.778

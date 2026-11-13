@@ -1,0 +1,102 @@
+====================================================================================================
+A. Conventions
+   authors' L' / ours (global scale removed), 400-700 nm: min 0.99692  median 1.00000  max 1.00331
+   authors' M' / ours (global scale removed), 400-700 nm: min 0.99577  median 1.00005  max 1.00407
+   authors' S' / ours (global scale removed), 400-700 nm: min 0.99605  median 1.00017  max 1.00317
+   black body  3000 K: ours l=0.73798 s=0.37632 | authors' file l=0.73797 s=0.37643 | s ratio 0.99970
+   black body  6500 K: ours l=0.69972 s=1.12096 | authors' file l=0.69971 s=1.12128 | s ratio 0.99972
+   black body 20000 K: ours l=0.68033 s=1.91468 | authors' file l=0.68031 s=1.91524 | s ratio 0.99971
+   stored optimal colours: 90301 rows = 2*C(301,2)+1 = 90301; stored white l=0.699616 s=1.117198
+   white from authors' locus x illuminant (linear    ), 400-700 sum: l=0.699621 s=1.117045  weighted distance to stored white 1.76e-04
+   white from authors' locus x illuminant (pchip     ), 400-700 sum: l=0.699616 s=1.117189  weighted distance to stored white 8.36e-06
+   white from authors' locus x illuminant (spline    ), 400-700 sum: l=0.699616 s=1.117198  weighted distance to stored white 8.25e-09
+   white from authors' locus x illuminant (planck6500), 400-700 sum: l=0.699616 s=1.117197  weighted distance to stored white 1.35e-06
+   -> using 'spline' interpolation of the authors' illuminant for the 'their conventions' optimisation
+====================================================================================================
+B. Authors' prediction rule and Experiment 1 data
+   distributions: repository ['Natural', 'Reverse', 'Flat', 'Red', 'Green'] = Zenodo ['Natural', 'Reverse', 'Flat', 'Slope plus', 'Slope minus'] (same order, identical numbers)
+   observer columns: repository key ['KK', 'YK', 'TM', 'MI']; the Zenodo CSV attaches these numbers to ['KK', 'MI', 'TM', 'YK']
+   NOTE the two public sources label two observers differently; the numbers are identical.
+        Below, observers carry the Zenodo CSV label, starred where the repository key differs.
+   test chromaticities: CSV versus repository differ by at most 0.0e+00
+   correlation, observer settings versus authors' nearest-sample prediction (rows observers, columns distributions):
+[[0.8387 0.8901 0.8349 0.8013 0.9052]
+ [0.9683 0.9754 0.9679 0.855  0.9813]
+ [0.7831 0.8939 0.9471 0.929  0.8298]
+ [0.9067 0.9609 0.9493 0.9416 0.8661]]
+   mean over 4 observers x 5 distributions: 0.9013   (paper reports 0.901)
+====================================================================================================
+C. Point-by-point: stored optimal colours versus constrained optimisation (limits relative to white)
+   columns: test l, s | nearest stored sample l, s, Y | LP(authors' conv.) at test | LP(authors' conv.) at the sample | LP(ours: 390-830, Planck) at test
+   0.6720 1.9990 | 0.6728 2.0004 0.5583 | 0.5587 | 0.5583 | 0.5606
+   0.6780 1.7880 | 0.6777 1.7906 0.6238 | 0.6247 | 0.6238 | 0.6268
+   0.6900 1.2880 | 0.6898 1.2866 0.8683 | 0.8674 | 0.8683 | 0.8703
+   0.7000 1.0380 | 0.6998 1.0377 0.9982 | 0.9976 | 0.9982 | 0.9980
+   0.7100 0.7970 | 0.7102 0.7986 0.9370 | 0.9381 | 0.9370 | 0.9389
+   0.7190 0.5930 | 0.7189 0.5946 0.8817 | 0.8813 | 0.8817 | 0.8821
+   0.7300 0.4510 | 0.7305 0.4471 0.8077 | 0.8106 | 0.8077 | 0.8114
+   0.7390 0.5280 | 0.7397 0.5279 0.7495 | 0.7535 | 0.7495 | 0.7543
+   0.7530 0.6630 | 0.7533 0.6760 0.6682 | 0.6702 | 0.6682 | 0.6711
+   LP at the stored sample's own chromaticity minus the stored luminance: min -0.00000 max +0.00000
+   LP(authors' conv.) at the test chromaticity / authors' nearest-sample prediction: min 0.9989 max 1.0053
+   LP(ours) / LP(authors' conv.) at the test chromaticity:                           min 1.0004 max 1.0034
+   LP(ours) / authors' nearest-sample prediction:                                    min 0.9998 max 1.0064
+   (solver failures in the random-sample check: 1, at a stored colour with s = 1.38e-05)
+   random stored optimal colours (n=374, luminance > 0.02): LP limit at their chromaticity minus stored luminance, relative: min -1.21e-08  median -1.65e-09  95th pct +7.07e-06  max +2.02e+00
+   fraction within 1e-3 relative: 0.968;  fraction where the LP exceeds the stored value by more than 1%: 0.027
+   the 10 stored colours beaten by more than 1% have s between 0 and 1.33e-05 and l between 0.891 and 0.956; the test chromaticities have l 0.672-0.753, s 0.451-1.999
+   (s = 0 is the region where the S fundamental is tabulated as zero; chromaticity is then one-dimensional and a
+    two-transition reflectance is not in general the brightest at its chromaticity.  This does not touch Experiment 1.)
+   mean correlation over 20 observer-distributions using authors' nearest sample   : 0.9013
+   mean correlation over 20 observer-distributions using LP, authors' conventions  : 0.9013
+   mean correlation over 20 observer-distributions using LP, our conventions       : 0.9016
+====================================================================================================
+D. One multiplicative factor per observer, against an additive offset and an affine fit
+   y = setting (cd/m2), m = 35 x predicted limit.  Weighted by the reported SE (20 repetitions).
+   chi2/dof uses those SEs only, so it also absorbs between-surround differences; read it comparatively.
+
+   --- model limits: authors' nearest-sample predictions
+   KK: multiplicative k=1.620+-0.006 chi2/dof= 11.49 rms= 4.65 | additive c=+13.48+-0.12 chi2/dof= 20.77 rms= 6.72 | affine a=1.729+-0.036 b= -2.44+-0.79 chi2/dof= 11.53 rms= 4.72
+       setting/limit by chromaticity (mean over 5 surrounds): 1.55 1.60 1.53 1.43 1.66 1.74 1.79 1.85 1.87
+       its SE across surrounds:                               0.01 0.02 0.03 0.02 0.03 0.06 0.03 0.04 0.04
+       deviation from k: -4% -1% -6% -12% +2% +7% +11% +14% +15%;  correlation of the ratio with l: +0.85, with the limit itself: -0.25;  spread of the ratio across chromaticities (max/min): 1.31
+   MI*: multiplicative k=1.370+-0.009 chi2/dof=  3.35 rms= 3.06 | additive c= +9.15+-0.22 chi2/dof=  5.49 rms= 3.60 | affine a=1.415+-0.043 b= -1.18+-1.08 chi2/dof=  3.40 rms= 3.08
+       setting/limit by chromaticity (mean over 5 surrounds): 1.30 1.37 1.35 1.32 1.42 1.35 1.34 1.38 1.47
+       its SE across surrounds:                               0.04 0.03 0.05 0.05 0.05 0.03 0.05 0.07 0.08
+       deviation from k: -5% +0% -1% -4% +4% -1% -2% +1% +7%;  correlation of the ratio with l: +0.64, with the limit itself: -0.05;  spread of the ratio across chromaticities (max/min): 1.13
+   TM: multiplicative k=1.348+-0.005 chi2/dof= 17.76 rms= 4.51 | additive c= +8.48+-0.12 chi2/dof=  9.31 rms= 3.39 | affine a=0.787+-0.028 b=+13.35+-0.64 chi2/dof=  8.13 rms= 3.15
+       setting/limit by chromaticity (mean over 5 surrounds): 1.46 1.44 1.35 1.22 1.20 1.14 1.18 1.19 1.31
+       its SE across surrounds:                               0.03 0.03 0.04 0.04 0.06 0.05 0.03 0.03 0.04
+       deviation from k: +8% +7% +0% -9% -11% -15% -13% -12% -2%;  correlation of the ratio with l: -0.66, with the limit itself: -0.72;  spread of the ratio across chromaticities (max/min): 1.27
+   YK*: multiplicative k=1.516+-0.004 chi2/dof= 24.84 rms= 5.11 | additive c=+12.36+-0.10 chi2/dof= 12.32 rms= 3.56 | affine a=0.935+-0.025 b=+13.87+-0.59 chi2/dof= 12.44 rms= 3.51
+       setting/limit by chromaticity (mean over 5 surrounds): 1.56 1.61 1.46 1.28 1.38 1.37 1.36 1.40 1.49
+       its SE across surrounds:                               0.02 0.02 0.06 0.05 0.07 0.05 0.05 0.08 0.07
+       deviation from k: +3% +6% -3% -15% -9% -10% -11% -8% -2%;  correlation of the ratio with l: -0.45, with the limit itself: -0.87;  spread of the ratio across chromaticities (max/min): 1.26
+   factor fitted separately for each observer (rows) and surround (columns):
+[[1.58   1.637  1.6103 1.7045 1.5861]
+ [1.2614 1.4651 1.3179 1.3865 1.3794]
+ [1.1721 1.4256 1.3825 1.3751 1.3537]
+ [1.3417 1.6205 1.4736 1.478  1.5417]]
+
+   --- model limits: LP, our conventions
+   KK: multiplicative k=1.614+-0.006 chi2/dof= 11.34 rms= 4.61 | additive c=+13.39+-0.12 chi2/dof= 20.68 rms= 6.72 | affine a=1.734+-0.036 b= -2.69+-0.79 chi2/dof= 11.33 rms= 4.67
+       setting/limit by chromaticity (mean over 5 surrounds): 1.54 1.59 1.53 1.43 1.65 1.74 1.79 1.84 1.86
+       its SE across surrounds:                               0.01 0.02 0.03 0.02 0.03 0.06 0.03 0.04 0.04
+       deviation from k: -4% -1% -5% -11% +2% +8% +11% +14% +15%;  correlation of the ratio with l: +0.86, with the limit itself: -0.23;  spread of the ratio across chromaticities (max/min): 1.30
+   MI*: multiplicative k=1.365+-0.008 chi2/dof=  3.34 rms= 3.05 | additive c= +9.06+-0.22 chi2/dof=  5.51 rms= 3.61 | affine a=1.421+-0.043 b= -1.43+-1.09 chi2/dof=  3.38 rms= 3.07
+       setting/limit by chromaticity (mean over 5 surrounds): 1.29 1.37 1.35 1.32 1.42 1.35 1.34 1.37 1.46
+       its SE across surrounds:                               0.04 0.03 0.05 0.05 0.05 0.03 0.05 0.07 0.08
+       deviation from k: -5% -0% -1% -4% +4% -1% -2% +1% +7%;  correlation of the ratio with l: +0.64, with the limit itself: -0.01;  spread of the ratio across chromaticities (max/min): 1.13
+   TM: multiplicative k=1.343+-0.005 chi2/dof= 17.56 rms= 4.48 | additive c= +8.39+-0.12 chi2/dof=  9.33 rms= 3.39 | affine a=0.788+-0.028 b=+13.27+-0.65 chi2/dof=  8.17 rms= 3.17
+       setting/limit by chromaticity (mean over 5 surrounds): 1.45 1.43 1.35 1.22 1.20 1.14 1.17 1.18 1.31
+       its SE across surrounds:                               0.03 0.03 0.04 0.04 0.06 0.05 0.03 0.03 0.04
+       deviation from k: +8% +7% +0% -9% -11% -15% -13% -12% -3%;  correlation of the ratio with l: -0.67, with the limit itself: -0.71;  spread of the ratio across chromaticities (max/min): 1.27
+   YK*: multiplicative k=1.510+-0.004 chi2/dof= 24.42 rms= 5.05 | additive c=+12.27+-0.10 chi2/dof= 12.30 rms= 3.55 | affine a=0.937+-0.025 b=+13.73+-0.59 chi2/dof= 12.44 rms= 3.51
+       setting/limit by chromaticity (mean over 5 surrounds): 1.56 1.60 1.46 1.28 1.38 1.37 1.35 1.39 1.48
+       its SE across surrounds:                               0.02 0.02 0.06 0.05 0.07 0.05 0.05 0.08 0.07
+       deviation from k: +3% +6% -3% -15% -9% -9% -11% -8% -2%;  correlation of the ratio with l: -0.46, with the limit itself: -0.86;  spread of the ratio across chromaticities (max/min): 1.25
+   factor fitted separately for each observer (rows) and surround (columns):
+[[1.5744 1.6303 1.6037 1.6986 1.5798]
+ [1.2575 1.4608 1.3138 1.382  1.3748]
+ [1.1682 1.4206 1.3773 1.3702 1.349 ]
+ [1.3372 1.6139 1.4684 1.473  1.5356]]

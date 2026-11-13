@@ -79,6 +79,12 @@ used. Scripts marked "none" below need no data.
 | `two_encoding_routes.py` | none | Sector-phase statistics do not depend on the input; paired effects do; defect extensions agree on paired states | Exact, on one random finite model |
 | `defect_extensions_and_altered_points.py` | none | Range-mixing dynamics separates defect extensions; illustrative altered-colour points against a bicone | Exact; the points are illustrative, not measured |
 
+## Exploratory work kept separately
+
+[`exploratory/luminosity-thresholds/`](exploratory/luminosity-thresholds/README.md) compares published luminosity-threshold
+measurements (Morimoto et al. 2021) with bounded-reflectance limits computed from the same cone table. It is exploratory,
+needs third-party files that are not stored here, is not run by `run_all.py`, and supports no manuscript claim.
+
 ## Statements corrected during the review
 
 Each affected script carries the correction in its header. In short:
