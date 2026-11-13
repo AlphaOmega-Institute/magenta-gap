@@ -1,6 +1,6 @@
 # The Magenta Gap — frozen July 2026 archive
 
-This directory preserves the July 2026 manuscript as a historical baseline. It is frozen and is not a second active paper. The sole working manuscript is [`../Magenta_Gap.tex`](../Magenta_Gap.tex), with its [current PDF](../Magenta_Gap.pdf) and [build notes](../README.md).
+This directory preserves the July 2026 manuscript as a historical baseline. It is frozen and is not a second active paper. The sole working manuscript is [`../../manuscript/Magenta_Gap.tex`](../../manuscript/Magenta_Gap.tex), with its [current PDF](../../manuscript/Magenta_Gap.pdf) and [build notes](../../manuscript/README.md).
 
 - [Magenta_Gap_JMP.tex](Magenta_Gap_JMP.tex): recovered editable source, matched to the original 51-page PDF.
 - [Magenta_Gap_JMP.pdf](Magenta_Gap_JMP.pdf): the original manuscript PDF, preserved byte for byte.
@@ -42,3 +42,5 @@ Imported November 11, 2026.
 | Recovered TeX in this directory | `bb85dba3c42039732efe2971919476d66af92460abbe5f82b752f0bcabbd778d` |
 | Original PDF in this directory | `4ce1bcf9e9f3c798604b24d401954f43aab7faf12f2de03da305eaccd063e8b6` |
 
+
+Moved from `manuscript/jmp/` during the November 13 repository cleanup. The July TeX and PDF are unchanged; only this navigation file was updated.

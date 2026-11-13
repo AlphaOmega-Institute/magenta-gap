@@ -141,15 +141,15 @@ The author should inspect the code, assumptions, and output before submission.
 
 Repository source inspected read-only on 2026-09-28:
 
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/main/step2_spectral_locus.py>
+- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step2_spectral_locus.py>
   (blob `7f583c09efb72cfbb80abd3e03d336357c77832a`): incorrect unbalanced E center.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/main/step3_close_and_sample.py>
+- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step3_close_and_sample.py>
   (blob `8cc513fb1abaa81efd1c707d8354691e8379604f`): 60-point endpoint chord and polar interpolation.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/main/step4_alpha_prime.py>
+- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step4_alpha_prime.py>
   (blob `b94b7a4b1e18e2741d346327dc531b93c5f865cb`): 1° central differences.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/main/step5_fisher_beta.py>
+- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step5_fisher_beta.py>
   (blob `a2cfd58ee4f30fe873ffb45f70d5288871de47ce`): metric interpolation and epsilon floor.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/main/fix1_purple_beta.py>
+- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/fix1_purple_beta.py>
   (blob `f8b0c43bf026a33c4a601760f76770248a959676`): direct purple metric correction.
 
 At the September 28, 2026 review, no changes were made to that repository; the calculation archive was subsequently preserved on `claude/corrected-bound-calculation`. The old MacAdam count is not carried
