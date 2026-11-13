@@ -85,6 +85,10 @@ used. Scripts marked "none" below need no data.
 measurements (Morimoto et al. 2021) with bounded-reflectance limits computed from the same cone table. It is exploratory,
 needs third-party files that are not stored here, is not run by `run_all.py`, and supports no manuscript claim.
 
+[`exploratory/linear-map/`](exploratory/linear-map/README.md) tests whether one fixed, injective linear map from spectra can
+reproduce the cone-response calculation and carry a two-level opponent factor. It reads only the repository's cone table,
+is exploratory, and supports no manuscript claim.
+
 ## Statements corrected during the review
 
 Each affected script carries the correction in its header. In short:

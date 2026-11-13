@@ -1,0 +1,30 @@
+1. Wavelengths with tabulated S = 0: 616-830 nm (215 samples); they lie on one line (max deviation 2.9e-17) and are 215 distinct points.
+   An ellipse meets a line in at most two points, so no linear image puts all of them on the rim.
+   The same holds without the exact zeros wherever the spectral locus is locally straight to within its
+   own curvature; the minimum-area ellipses below quantify how far inside the rim the lights sit.
+================================================================================================
+2a. Plane normalised by the sum of white-balanced cone catches (equal-energy white at the centroid)
+  -- free centre: largest radius 1.000007; white sits at radius 0.344; mixture gamut covers 45.8% of the disc
+     lights on the rim (pure states), nm: 416, 522, 703, 704
+     least pure monochromatic light between 420 and 680 nm: 600 nm, radius 0.522
+     radius by wavelength: 400:0.99  440:0.97  460:0.88  480:0.61  500:0.78  520:1.00  540:0.95  560:0.84  570:0.75  580:0.65  590:0.56  600:0.52  620:0.67  650:0.91  700:1.00
+     midpoint of the 400-700 nm mixture line: radius 0.50
+  -- centre at equal-energy white: largest radius 1.000002; white sits at radius 0.000; mixture gamut covers 33.1% of the disc
+     lights on the rim (pure states), nm: 414, 703, 704
+     least pure monochromatic light between 420 and 680 nm: 490 nm, radius 0.216
+     radius by wavelength: 400:0.99  440:0.96  460:0.85  480:0.44  500:0.40  520:0.67  540:0.65  560:0.58  570:0.53  580:0.49  590:0.47  600:0.51  620:0.71  650:0.93  700:1.00
+     midpoint of the 400-700 nm mixture line: radius 0.71
+     smallest radius on 400-700 nm: 490 nm (0.216)
+================================================================================================
+2b. Plane normalised by luminance (MacLeod-Boynton l, s), 390-700 nm
+  -- free centre: largest radius 1.000007; white sits at radius 0.561; mixture gamut covers 53.5% of the disc
+     lights on the rim (pure states), nm: 418, 486, 698, 699, 700
+     least pure monochromatic light between 420 and 680 nm: 585 nm, radius 0.536
+     radius by wavelength: 400:0.79  440:0.75  460:0.81  480:0.99  500:0.96  520:0.87  540:0.77  560:0.65  570:0.59  580:0.54  590:0.54  600:0.60  620:0.78  650:0.95  700:1.00
+     midpoint of the 400-700 nm mixture line: radius 0.50
+  -- centre at equal-energy white: largest radius 1.000003; white sits at radius 0.000; mixture gamut covers 32.6% of the disc
+     lights on the rim (pure states), nm: 418, 699, 700
+     least pure monochromatic light between 420 and 680 nm: 570 nm, radius 0.020
+     radius by wavelength: 400:0.87  440:0.82  460:0.69  480:0.63  500:0.52  520:0.40  540:0.28  560:0.12  570:0.02  580:0.14  590:0.30  600:0.47  620:0.75  650:0.94  700:1.00
+     midpoint of the 400-700 nm mixture line: radius 0.71
+     smallest radius on 400-700 nm: 570 nm (0.020)
