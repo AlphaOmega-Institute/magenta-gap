@@ -1,26 +1,29 @@
-# Object-colour research
+# Object-colour geometry
 
-These research notes are imported from the September 17 archive for shared review. They are separate from the July JMP manuscript and the September 28 condensation; neither manuscript is changed by this import.
-
-- [Proof and prior-art assessment](Magenta_Gap_Proof_and_Prior_Art_2026-09-17.md): the conditional continuum two-contact cubic relation, endpoint qualifications, discrete-versus-continuum warning, invariance scope, and prior-art limits.
-- [Proof audit and candidate measurement design](Magenta_Gap_Proof_Audit_and_Test_Design_2026-09-17.md): a dual lower bound, an endpoint counterexample, and numerical test-design estimates in specified spectral models.
-
-The result assumes two distinct interior quadratic supporting contacts and a bounded continuous-spectrum reflectance model. Endpoints require the stated extra conditions. A fixed wavelength grid changes the small-signal limit: exact cone contact can persist until bin capacities bind. Signal level is a white-normalized linear response, not assumed perceptual brightness.
-
-The notes do not establish a Lorentzian perceptual metric, a new empirical law, or priority for the cubic scaling mechanism. Their original numerical-script and package references are retained; the associated code archive has not been imported here. The supplementary audit is explicitly a further assistant check, not an external referee report.
-
-The Markdown contents are preserved as read from the archived notes. `PROVENANCE.json` records their filenames, source versions, byte lengths, and SHA-256 hashes.
+This folder contains an exact-arithmetic boundary certificate and two separate research notes on small-signal cubic contact.
 
 ## Continuum boundary certificate
 
-The [continuum rim certificate](Continuum_Rim_Certificate.md) gives an explicit non-null boundary point in the full 390–830 nm interpolation model. It uses two independent genuine reflectance transitions to prove uniqueness of a supporting normal that annihilates the achromatic direction. The boundary is therefore non-null for every Lorentzian metric that keeps that direction timelike, including metrics with spatial–height cross-terms. The criterion needs at least two independent transitions; a third does not invalidate it. The note also records the classical full-colour attribution.
+- [`Continuum_Rim_Certificate.md`](Continuum_Rim_Certificate.md): model, proof and attribution.
+- [`certify_continuum_rim.py`](certify_continuum_rim.py): executable rational-arithmetic verification.
+- [`continuum_rim_certificate.json`](continuum_rim_certificate.json): saved enclosing intervals and conclusions.
+- [`inputs/`](inputs/): cone-response table, its hash, interpolation convention and license.
 
-Run from the repository root:
+Run from the repository root; only the Python standard library is needed:
 
 ```sh
 python research/object-colour/certify_continuum_rim.py
 ```
 
-The script uses only the Python standard library. It builds the continuous PCHIP model from exact rational knot values and verifies the required signs and root enclosures with rational bounds. The [saved certificate](continuum_rim_certificate.json) records the verification. The [input notes](inputs/README.md) document the supplied table and its license.
+The certificate constructs a continuous PCHIP response density from the 390–830 nm table and proves that one boundary point has a unique tangent plane containing the achromatic direction. That boundary cannot be null for any Lorentzian metric keeping this direction timelike, including metrics with spatial–height cross-terms. At least two independent genuine reflectance transitions suffice for the uniqueness argument; additional transitions are allowed.
 
-This new certificate is separate from the still-unimported September numerical-code archive. It does not certify sampled percentages of the hue circle or identify a perceptual boundary. The manuscript files remain unchanged.
+The result concerns the declared bounded-reflectance signal model. It does not identify a perceptual boundary, certify a percentage of the hue circle, or assert a smooth neighborhood around the certified point. The current [manuscript](../../manuscript/Magenta_Gap.tex) includes the argument and its scope.
+
+## Cubic-contact research
+
+- [Two-contact proof and prior-art assessment](Magenta_Gap_Proof_and_Prior_Art_2026-09-17.md): the conditional cubic asymptotic, endpoint qualifications, invariance and discrete-versus-continuum distinction.
+- [Dual lower bound and endpoint counterexample](Magenta_Gap_Proof_Audit_and_Test_Design_2026-09-17.md): an independent lower-bound argument, a polynomial counterexample and candidate measurement calculations.
+
+These notes contain distinct mathematics beyond the current paper. The cubic result assumes two distinct interior quadratic supporting contacts in a bounded continuous-spectrum reflectance model. Endpoints require additional conditions; fixed wavelength bins change the small-signal limit. The signal coordinate is a white-normalized linear response, not measured perceptual brightness.
+
+The notes' auxiliary numerical scripts are not bundled here. [`recompute/`](../../recompute/) implements the paper's angular Fisher-bound illustration, not those cubic calculations. The notes establish no new empirical law or priority for the cubic scaling mechanism.

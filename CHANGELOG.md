@@ -5,10 +5,11 @@
 - Consolidated one venue-neutral manuscript with four figures, 33 references, and self-contained arguments and bibliography.
 - Restored observer-relative encoding, the transformation-problem discussion, historical context, and the color-body quotient figure. Replaced cropped figure PDFs with standalone vector drawings.
 - Clarified the fixed-reference signal statement and the relation between luminosity limits and the specified bounded-reflectance solid.
-- Kept the assistance disclosure explicit about proof development, code, computational checks and exposition. Removed drafting chronology from the paper and condensed repository documentation.
+- Kept the assistance disclosure explicit about text drafting and revision, proof development, code and computational checks. Removed drafting chronology from the paper and condensed repository documentation.
+- Removed redundant generated tables and plot variants from the current tree; retained reproducible code, inputs, reference summaries, manuscript figures and distinct proof notes. Supporting documentation describes the current calculations.
 - Earlier manuscripts, superseded scripts, import records and detailed editorial notes are preserved in [snapshot `5176130`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/51761306772c3b234ba65099afe46afc051cd394). Removing them from the current file tree does not rewrite their history.
 
-The reviewed scientific content before this final presentation cleanup is at [`44ee356`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/44ee356a315fdd20b3106f595b7ebfb5656e3d01). The cleanup changes no equations, proofs, figures, numerical values or calculation code.
+The reviewed scientific content before this final presentation cleanup is at [`44ee356`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/44ee356a315fdd20b3106f595b7ebfb5656e3d01). The cleanup changes no equations, proofs, figures, numerical values or calculation logic.
 
 ## 12 November 2026 — mathematical consolidation
 

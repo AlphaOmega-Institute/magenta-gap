@@ -15,8 +15,8 @@ The working paper has four figures and 33 references. Its assumptions, empirical
 
 | Location | Contents and status |
 | --- | --- |
-| [`recompute/`](recompute/) | Numerical calculation, pinned dependencies, input arrays and stored numerical outputs used by the paper. |
-| [`research/object-colour/`](research/object-colour/) | Exact-arithmetic continuum certificate, declared input table, and historical cubic-contact proof and audit. |
+| [`recompute/`](recompute/) | Numerical calculation, pinned dependencies, input arrays and a saved result summary used by the paper. |
+| [`research/object-colour/`](research/object-colour/) | Exact-arithmetic continuum certificate, declared input table, and cubic-contact proofs and endpoint analysis. |
 | [`research/colour-interface/`](research/colour-interface/) | Effect-algebra analysis and 11 executable checks. |
 | [Independent checks at `a3a947c`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/a3a947c0c27d76dcb4b5e57d7b1329791fc771e7/research/independent-checks) | Claude's reproductions and exploratory luminosity comparison; preserved on a separate branch, not merged into `main`. |
 

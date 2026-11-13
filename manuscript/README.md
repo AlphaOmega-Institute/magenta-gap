@@ -21,7 +21,7 @@ No companion note, BibTeX database, custom class or local compatibility shim is 
 
 ## Reproduction
 
-- [`../recompute/`](../recompute/): numerical calculation, pinned dependencies, input arrays and stored outputs. The manuscript cites the code and outputs at commit `a0282ae`.
+- [`../recompute/`](../recompute/): numerical calculation, pinned dependencies, input arrays and a saved result summary. The manuscript cites the code and outputs at commit `a0282ae`.
 - [`../research/object-colour/`](../research/object-colour/): exact-arithmetic continuum certificate and its declared input.
 - [`../research/colour-interface/`](../research/colour-interface/): effect-algebra analysis and 11 executable checks.
 

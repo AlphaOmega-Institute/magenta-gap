@@ -1,6 +1,6 @@
 # A certified non-null point of a continuum object-colour boundary
 
-This calculation addresses the continuum smoothness question raised during the November 2026 manuscript audit. It is a mathematical counterexample to an everywhere-null identification in a specified metric class, using a declared interpolation model of standard cone-response data. It is not an empirical identification of a perceptual boundary.
+This calculation gives a mathematical counterexample to an everywhere-null identification in a specified metric class, using a declared interpolation model of standard cone-response data. It is not an empirical identification of a perceptual boundary.
 
 ## Model
 
@@ -21,7 +21,7 @@ x=\tfrac29(2a_L-a_M-a_S),\qquad
 y=\tfrac29(-a_L+2a_M-a_S).
 \]
 
-These are the object-colour audit's normalized coordinates: `(x,y)/(1+z)` equals `(l-1/3,m-1/3)` away from black.
+In these normalized coordinates, `(x,y)/(1+z)` equals `(l-1/3,m-1/3)` away from black.
 
 ## The supporting-normal criterion
 
@@ -89,7 +89,7 @@ g(W,W)<0\quad\Longrightarrow\quad g^{-1}(n,n)>0.
 
 Indeed, if \(n^\sharp=g^{-1}n\), then \(g(n^\sharp,W)=n(W)=0\). The orthogonal complement of a timelike vector in a Lorentzian space is positive definite. Since \(n^\sharp\) is nonzero, its squared norm is positive.
 
-Thus the boundary cannot be null there. The previously stated class
+Thus the boundary cannot be null there. The block-diagonal class
 
 \[
 g=G_{ab}\,dx^a dx^b-C\,dz^2,\qquad G>0,\quad C>0,
@@ -117,4 +117,4 @@ The bundled input is finite, but the response model is a continuous piecewise-cu
 
 The published supporting-plane framework is described by Logvinenko, Funt and Bastani, *The object-color solid*, Journal of Vision 25(2):2 (2025), especially the pointwise optimization rule in Equations (5)–(7): https://doi.org/10.1167/jov.25.2.2. The normal-uniqueness argument above is an elementary consequence of that framework; no novelty claim is made.
 
-The September two-contact cubic theorem concerns supporting tangencies and a small-signal asymptotic. This certificate concerns the normal to the continuum solid at a finite-signal reflectance with genuine transitions. The two statements answer different questions.
+The separate [two-contact cubic theorem](Magenta_Gap_Proof_and_Prior_Art_2026-09-17.md) concerns supporting tangencies and a small-signal asymptotic. This certificate concerns the normal to the continuum solid at a finite-signal reflectance with genuine transitions. The two statements answer different questions.

@@ -1,4 +1,4 @@
-"""Recompute the original Fisher/gamut illustration with explicit conventions.
+"""Compute the Fisher/gamut illustration with explicit conventions.
 
 The input arrays are unchanged Colour 0.4.7 Stockman--Sharpe 2-degree cone
 fundamentals at 1-nm intervals, 390--830 nm. The primary boundary is the convex
@@ -7,7 +7,7 @@ are evaluated analytically. An additional control uses the entire spectral
 locus, interpolated piecewise linearly in Cartesian chromaticity and closed
 by its endpoint chord. Rays from the specified E white intersect each polygon.
 The Fisher metric is evaluated at the intersection itself, not interpolated
-from endpoint metric values. PCHIP controls resolve the original locus's
+from endpoint metric values. PCHIP controls resolve the spectral locus's
 narrow violet feature. No empirical observations are synthesized or fitted.
 
 The sampled inequality is a convention-dependent consistency calculation:

@@ -269,7 +269,7 @@ For $F=r-R(\theta,z)$, the null-conormal equation is
  \frac{B+2DR_\theta+AR_\theta^2}{\Delta}-\frac{R_z^2}{C}=0.
  \label{eq:null-general}
 \end{equation}
-The original model fixes the luminosity coefficient on the boundary by
+The model fixes the luminosity coefficient on the boundary by
 \begin{equation}
  C=\alpha(\theta)^2.
  \label{eq:calibration}
@@ -380,8 +380,8 @@ The modeled identification $B=B_{\mathrm{disc}}$ then supplies $\beta=\sqrt{B_{\
 
 Normalized cone coordinates alone do not establish a multinomial perceptual noise law. Eq.~\eqref{eq:fisher} is a tractable information-geometric choice, not an independently calibrated discrimination tensor. Its statistical interpretation and overall scale would require a measurement model, specified luminance, and an integration window. The Fisher form is imposed separately in the raw and balanced conventions, rather than transporting one fixed tensor between them. The comparison therefore changes the metric identification as well as the coordinates; it is not a test of the coordinate covariance of one unchanged tensor.
 
-\subsection{Recalculation and numerical scope}
-The convex hull has 188 vertices in both conventions. Its short-to-long mixture edge joins the retained 410 and 700~nm vertices; additional edges bridge smaller nonconvex portions of the tabulated locus. The earlier 390--700~nm endpoint chord and the entire monochromatic arc therefore do not describe the outer attainable boundary. In particular, the near-403~nm feature discussed below is interior to the mixture hull.
+\subsection{Numerical calculation and scope}
+The convex hull has 188 vertices in both conventions. Its short-to-long mixture edge joins the retained 410 and 700~nm vertices; additional edges bridge smaller nonconvex portions of the tabulated locus. A 390--700~nm endpoint chord together with the entire monochromatic arc therefore does not describe the outer attainable boundary. In particular, the near-403~nm feature discussed below is interior to the mixture hull.
 
 For a hull edge parameterized by $p(t)=p_0+tv$, where $p=(x,y)$ is centered on the chosen white, direct differentiation gives
 \begin{equation}
@@ -391,7 +391,7 @@ For a hull edge parameterized by $p(t)=p_0+tv$, where $p=(x,y)$ is centered on t
 \end{equation}
 This evaluates the angular slope within each open edge without finite-difference averaging across corners. We sample 101 interior points per edge, giving 18,988 points in each convention. At vertices, the ordinary derivative is not defined; the edge formulas describe the two one-sided limits. The finite sampling is not an interval certificate for all intervening points and does not assert a globally smooth ceiling for the polygon.
 
-The simplex metric is undefined when a cone coordinate is zero and grows large near such zeros. For continuity with the manuscript's diagnostic convention, the primary summaries retain finite points with $\beta<10$, evaluated at metric scale $c=1$. This is a computational filter, not a threshold defining physiological nondegeneracy. The supplied table has zero short-cone sensitivity from 616~nm onward, making explicit exclusion of singular values essential.
+The simplex metric is undefined when a cone coordinate is zero and grows large near such zeros. The primary summaries retain finite points with $\beta<10$, evaluated at metric scale $c=1$. This is a computational filter, not a threshold defining physiological nondegeneracy. The supplied table has zero short-cone sensitivity from 616~nm onward, making explicit exclusion of singular values essential.
 
 \begin{table}[t]
 \centering
@@ -422,7 +422,7 @@ Every retained edge sample satisfies the strict diagonal condition at the chosen
 \label{fig:numerical}
 \end{figure*}
 
-A control calculation explains why the boundary definition and differentiation method matter. On the original spectral-locus construction, a $1^\circ$ angular grid misses a narrow raw-normalization failure near 403~nm. Differentiating a PCHIP interpolation of the LMS functions resolves it: at 403.4~nm, $u\approx5.9852$ and $\beta\approx5.2312$, so $(u/\beta)^2\approx1.3091$. This feature is inside the attainable mixture hull and is therefore not a failure of the outer-boundary check in Table~\ref{tab:bound}. It is retained in the reproducibility archive to document why the coarse original-locus result cannot support an all-hue claim.
+A control calculation explains why the boundary definition and differentiation method matter. On the spectral arc closed by its endpoint chord, a $1^\circ$ angular grid misses a narrow raw-normalization failure near 403~nm. Differentiating a PCHIP interpolation of the LMS functions resolves it: at 403.4~nm, $u\approx5.9852$ and $\beta\approx5.2312$, so $(u/\beta)^2\approx1.3091$. This feature is inside the attainable mixture hull and is therefore not a failure of the outer-boundary check in Table~\ref{tab:bound}. This control illustrates why a coarse angular grid need not resolve the largest ratio.
 
 \subsection{Metric scale and a testable comparison}
 Writing $u=|\alpha'/\alpha|$, rescaling the chromatic metric $G\mapsto cG$ while holding $C=\alpha^2$ fixed gives $\beta\mapsto\sqrt c\,\beta$. On a fixed retained finite grid, strict compatibility is equivalent to
@@ -521,7 +521,7 @@ Black and white lie at $(0,0,-1)$ and $(0,0,1)$. The \emph{direction} $W$ is sen
  \label{eq:object-cost}
 \end{equation}
 
-The certificate treats the archived binary64 samples as exact rational data and constructs the PCHIP coefficients with rational arithmetic. Signs on the interpolation cells are certified by Bernstein-polynomial bounds, with subdivision where required; the two transition cells have derivative signs of fixed nonzero sign and their roots are enclosed by rational bisection. The cost has exactly two simple roots, with $q>0$ between them and $q<0$ outside. Outward-rounded enclosures are
+The certificate treats the supplied binary64 samples as exact rational data and constructs the PCHIP coefficients with rational arithmetic. Signs on the interpolation cells are certified by Bernstein-polynomial bounds, with subdivision where required; the two transition cells have derivative signs of fixed nonzero sign and their roots are enclosed by rational bisection. The cost has exactly two simple roots, with $q>0$ between them and $q<0$ outside. Outward-rounded enclosures are
 \begin{equation}
  \begin{aligned}
  486.8630809758&<\lambda_1<486.8630809761,\\
@@ -647,7 +647,7 @@ These probabilities can vary with the input state. A stimulus encoding and a phy
 Paired preparations also leave the readout on $\ker u^*$ undetermined. All effects $uFu^*+D$ with $0\leq D\leq I-P$ have the same compression $u^*(uFu^*+D)u=F$. They remain indistinguishable for preparations and dynamics confined to $uH_1$; justified dynamics mixing that range with its complement can distinguish them. Static paired probabilities therefore do not assign chimerical colors to the complement, and a proper convex preparation image need not generate any such linear complement.
 
 \section*{Acknowledgments}
-Claude Opus 4.8, Gemini 3.1 Deep Think, and GPT-5.5 Pro assisted with mathematical and computational stress tests and feedback on structure and exposition. OpenAI ChatGPT/Codex assisted with manuscript revision, proof development, numerical code, and the exact-arithmetic certificate; Claude also assisted with independent computational reproductions and review. The numerical figure is generated by Python code from the supplied cone-fundamental arrays; no synthetic experimental observations are introduced. Computational checks support the stated mathematical model and do not constitute psychophysical validation.
+Claude Opus 4.8, Gemini 3.1 Deep Think, and GPT-5.5 Pro assisted with mathematical and computational stress tests and feedback on structure and exposition. OpenAI ChatGPT/Codex assisted with drafting and revision of the text, proof development, numerical code, and the exact-arithmetic certificate; Claude also assisted with independent computational reproductions and review. The numerical figure is generated by Python code from the supplied cone-fundamental arrays; no synthetic experimental observations are introduced. Computational checks support the stated mathematical model and do not constitute psychophysical validation.
 \section*{Disclosures}
 The author is affiliated with Alpha Omega Lattice Corporation. No physiological or psychophysical measurements are reported in this article.
 \section*{Data availability}

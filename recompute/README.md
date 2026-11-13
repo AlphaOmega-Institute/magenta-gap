@@ -1,42 +1,39 @@
-# Corrected original gamut-bound illustration
+# Numerical gamut-bound calculation
 
-This calculation repairs the numerical illustration in Appendix A of the
-original Magenta Gap manuscript. It does **not** analyze the later cubic
-object-color-boundary theorem. No empirical discrimination data are fitted.
+This folder computes the paper's Fisher-metric compatibility illustration for a specified chromaticity gamut. It contains the calculation script, pinned dependencies, input arrays and the reference summary [`bound_results.json`](bound_results.json). It fits no empirical discrimination data and does not calculate the separate cubic-contact asymptotic.
 
-## Primary model and scope
+## Run
 
-Let `LMS.npy` contain the supplied Stockman–Sharpe 2-degree fundamentals from
-Colour Science 0.4.7, on the saved 390–830 nm, 1 nm grid. The raw E channel
-integrals, using the trapezoidal rule over that full grid, are
+From the repository root, in a Python environment compatible with the pinned packages:
+
+```sh
+python -m pip install -r recompute/requirements.txt
+python recompute/recompute_bound.py
+```
+
+The script reads `inputs/LMS.npy` and `inputs/wavelengths.npy`. It writes the result summary, ten CSVs, four diagnostic NPZs, and three figures in PDF, SVG and PNG formats into this folder. The generated tables and figure variants are ignored by Git; the reference JSON is tracked. A rerun may change its software-version metadata.
+
+The paper uses [`manuscript/fisher_bound_convex_hull.pdf`](../manuscript/fisher_bound_convex_hull.pdf). The other two figures, `fisher_bound_comparison` and `fisher_bound_sensitivity`, are spectral-arc diagnostics, not the primary gamut result. Rendered image bytes can vary by platform even when the plotted data agree.
+
+## Inputs and conventions
+
+The inputs are the Stockman–Sharpe 2-degree fundamentals supplied by Colour Science 0.4.7, sampled at 1 nm from 390 to 830 nm. Their SHA-256 hashes and software versions are recorded in the JSON; the [input license](inputs/COLOUR_SCIENCE_LICENSE.txt) is retained.
+
+The raw equal-energy channel integrals over that interval are
 
 ```
 L = 115.97840823; M = 94.82117898; S = 58.41945060.
 ```
 
-Thus E has raw chromaticity `(0.4307957163, 0.3522082976, 0.2169959861)`,
-not `(1/3,1/3,1/3)`. For the primary E-balanced convention, each sensitivity
-channel is divided by its own integral before chromaticities are formed.
-For the raw-channel control, channels remain unchanged and the polar origin
-is their actual integrated E chromaticity.
+Raw equal-energy white therefore has chromaticity `(0.4307957163, 0.3522082976, 0.2169959861)`. The E-balanced convention first divides each channel by its own integral, giving white at `(1/3,1/3,1/3)`. The raw-channel comparison uses the actual integrated white as its polar origin.
 
-For each convention the primary boundary is the convex hull of the 311
-normalized tabulated responses at 390–700 nm. This is the chromaticity gamut
-of arbitrary nonnegative mixtures of those tabulated stimuli. It is also the
-gamut for piecewise-linear interpolation of the *LMS responses* between those
-wavelengths: normalization maps each interpolated response to the corresponding
-chromaticity segment. It is a declared discretized stimulus model, not a claim
-about a measured surface-color solid or a full continuous human gamut.
+For each convention, the primary boundary is the convex hull of the 311 normalized responses at 390–700 nm. This is the gamut of nonnegative mixtures of those tabulated stimuli; piecewise-linear interpolation of the LMS responses gives the same hull. It is not a measured surface-color solid or a model of the entire continuous human gamut.
 
-The hull has 188 vertices in both conventions. Besides edges joining adjacent
-wavelength samples, it contains edges joining 410–700, 453–458, 599–616, and
-616–700 nm. The 616–700 nm edge lies on the tabulated S=0 boundary; the 599–616 nm edge meets that boundary at 616 nm. In particular,
-390–409 nm spectral samples lie inside this hull. The original assertion that
-the entire spectral locus itself was the gamut boundary was incorrect for
-these data.
+Both hulls have 188 vertices. Nonadjacent wavelength edges join 410–700, 453–458, 599–616 and 616–700 nm. The last edge lies on the tabulated S=0 boundary; the preceding edge meets it at 616 nm. The 390–409 nm samples lie inside the hull, so the spectral arc closed by its endpoint chord is a different boundary.
 
-The radial function is computed from analytic ray/segment intersection formulas evaluated in floating point. At a point
-`x = a + t d` on an open hull edge, with origin at E,
+## Method and reference results
+
+On each open hull edge, the radial slope is evaluated from analytic ray/segment formulas in floating point. For `x=a+td`, centered on white,
 
 \[
 u=|\alpha'/\alpha|=\frac{|x\cdot d|}{|\det(x,d)|},\qquad
@@ -44,122 +41,23 @@ u=|\alpha'/\alpha|=\frac{|x\cdot d|}{|\det(x,d)|},\qquad
 +\frac{(\sin\theta-\cos\theta)^2}{s}.
 \]
 
-No numerical differentiation is required for this open-edge calculation.
-The polygon has corners: no unique derivative is asserted there. Interior
-edge samples approach each endpoint from its own side, but do not constitute
-a theorem about corner smoothing or continuous extrema.
+There are 101 interior samples per edge, 18,988 in total. The fixed reporting subset is finite `beta(c=1)<10`. Corners have no unique angular derivative, and sampled extrema are not certified continuous extrema.
 
-## Results to use in the manuscript
-
-There are 101 points per open edge (`t=0.00001,…,0.99999`), 18,988 total.
-The *fixed* reporting subset is `beta(c=1)<10`. Table entries are sampled
-extrema, not certified continuous extrema.
-
-| Quantity | E-balanced channels | Raw channels, E center |
-|---|---:|---:|
+| Quantity | E-balanced | Raw, E-centered |
+| --- | ---: | ---: |
 | Retained points | 14,436 | 12,267 |
 | Points satisfying `u < beta` at c=1 | 14,436 | 12,267 |
 | Minimum `beta-u` | 1.008471 | 0.882087 |
-| Angle of minimum margin | −152.6914° | −156.7225° |
-| Maximum squared ratio `(u/beta)^2` | 0.3760819070 | 0.4028317754 |
-| Angle of maximum squared ratio | −147.1657° | −153.4432° |
-| Maximum retained u | 2.179950 | 1.925549 |
-| Retained beta range | 1.414425–9.999271 | 1.418761–9.999092 |
+| Sampled critical scale `max(u/beta)^2` | 0.3760819070 | 0.4028317754 |
 
-The 360-point angular grid also passes at c=1: 282/282 retained E-balanced
-samples and 255/255 raw-E samples. These counts describe the full hull, not
-the spectral subset alone. Primary results above use the more resolved
-open-edge checks, avoiding the original finite-difference issue.
+For `g_disc -> c g_disc`, beta becomes `sqrt(c) beta`. On the fixed sample set, strict compatibility holds exactly when `c` exceeds the sampled critical scale. The choice `c=1` and the cutoff `beta<10` are uncalibrated model conventions. S is tabulated as zero from 616 nm onward; the script represents the Fisher divergence as infinity without an epsilon floor.
 
-For `g_disc -> c g_disc`, beta becomes `sqrt(c) beta`. On the fixed retained
-sample set the strict inequality holds exactly when
+Assigning the simplex metric separately after channel balancing changes the metric model. The two columns are not coordinate transforms of one fixed physical tensor.
 
-\[
-c>c_*:=\max(u/\beta)^2.
-\]
+## Spectral-arc control
 
-Thus the sampled critical scales are 0.37608 and 0.40283. The choice c=1 is
-an **uncalibrated simplex-model convention**. The result shows compatibility
-under that convention; it does not establish a physiological inequality.
-The subset is held fixed when discussing c: otherwise rescaling would also
-change which points are reported. The cutoff beta<10 is a convenience for
-excluding singular tails; it is not a measured discrimination threshold.
-S is tabulated as exactly zero from 616 nm onward, and the script treats the
-corresponding Fisher divergence as infinity, without an arbitrary epsilon floor.
+An additional control closes the entire spectral arc by its 390–700 nm endpoint chord. A coarse 1-degree angular grid misses a narrow raw-channel feature. Analytic derivatives of a PCHIP interpolation of the LMS responses resolve it: at 403.4 nm, `u=5.9852316075`, `beta=5.2311889036`, and `(u/beta)^2=1.3090647100`. These points are inside the mixture hull, so this is not a failure of the primary hull calculation.
 
-E balancing changes the chromaticity model. Reassigning the canonical simplex
-metric after balancing is **not** merely transforming the same physical metric
-under a coordinate change. The two columns are distinct modeling conventions.
-The fixed Euclidean benchmark beta=1 also has a coherent tensor transformation;
-its numerical failure must not be called a failure of coordinate invariance.
+## Scope
 
-## Original-locus countercontrol
-
-The script also reproduces the original choice of the entire spectral arc
-plus the 390–700 nm endpoint chord, with corrected white points and direct
-metric evaluation. That radial curve is not the mixture-gamut hull.
-Coarse 1° central differences pass all retained spectral samples (170/170
-E-balanced and 145/145 raw-E), but hide a narrow violet feature.
-
-A 0.01 nm wavelength grid with PCHIP interpolation of the original LMS
-responses and analytic PCHIP derivatives finds a raw-E failure between
-401.60 and 404.78 nm. At 403.4 nm,
-
-```
-u = 5.9852316075; beta = 5.2311889036; (u/beta)^2 = 1.3090647100.
-```
-
-The corresponding E-balanced maximum squared ratio is 0.7217116474 and
-remains below one. The polygonal-locus control independently finds the raw
-failure. These points are inside the convex hull, so this does not contradict
-the primary hull result. It does show why the original table and a claim of
-normalization-independent, all-hue verification should not be retained.
-
-## Figures and reproducibility
-
-Run `python3 recompute_bound.py` from any directory. It reads the bundled
-unaltered inputs and writes `bound_results.json`, grid CSVs, diagnostic NPZs,
-and figures. Exact package versions and input SHA-256 hashes are in the JSON.
-
-Use `fisher_bound_convex_hull.pdf` or `.svg` as the main vector figure. It shows
-the primary E-balanced angular coefficients and the metric-scale ratios for
-both conventions. Pink shading marks hull edges joining nonadjacent sampled
-wavelengths; it is not a hue-perception classification. Values beta>=10 are
-omitted from the beta trace and the scale-ratio panel. Curves are displayed
-at 1° spacing; table maxima use the denser open-edge samples. The dotted line
-in the upper panel is the fixed Euclidean beta=1 benchmark.
-
-`fisher_bound_sensitivity.pdf` documents the original-locus narrow violet
-failure and is a diagnostic, not the primary gamut result.
-`fisher_bound_comparison.pdf` is an additional original-locus diagnostic.
-
-The corrected script and plots were prepared with ChatGPT/Codex code
-assistance. Figures are deterministic Matplotlib plots of computations from
-the supplied data; no generative raster imagery or synthesized measurements
-were used. Model/version metadata beyond the tool name should not be guessed.
-The author should inspect the code, assumptions, and output before submission.
-
-Repository source inspected read-only on 2026-09-28:
-
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step2_spectral_locus.py>
-  (blob `7f583c09efb72cfbb80abd3e03d336357c77832a`): incorrect unbalanced E center.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step3_close_and_sample.py>
-  (blob `8cc513fb1abaa81efd1c707d8354691e8379604f`): 60-point endpoint chord and polar interpolation.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step4_alpha_prime.py>
-  (blob `b94b7a4b1e18e2741d346327dc531b93c5f865cb`): 1° central differences.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/step5_fisher_beta.py>
-  (blob `a2cfd58ee4f30fe873ffb45f70d5288871de47ce`): metric interpolation and epsilon floor.
-- <https://github.com/AlphaOmega-Institute/magenta-gap/blob/44ee356a315fdd20b3106f595b7ebfb5656e3d01/fix1_purple_beta.py>
-  (blob `f8b0c43bf026a33c4a601760f76770248a959676`): direct purple metric correction.
-
-At the September 28, 2026 review, no changes were made to that repository; the calculation archive was subsequently preserved on `claude/corrected-bound-calculation`. The old MacAdam count is not carried
-forward as independent validation: no shared psychophysical metric scale has
-been established.
-
-## Incorporation into the working repository
-
-The `recompute/` archive was incorporated into `main` on November 12, 2026, from commit `a0282ae23d11c102550c88a9f44a8e2a99f99211`. Code, input data and stored numerical outputs are unchanged. The README corrections identify the S=0 edge accurately, distinguish analytic formulas from exact arithmetic, and mark the original repository-status sentence as historical.
-
-In the merge-review environment, `bound_results.json`, all 10 CSVs and all three PNG figures reproduced byte for byte, and the four NPZ archives contained identical arrays. An independent half-space calculation agreed with the reported intersections, slopes and Fisher quadratic forms. These checks establish reproducibility of the stated numerical model, not physiological calibration or a continuum certificate.
-
-Claude’s independent Linux runs reproduced the CSV and NPZ files byte for byte and the same numerical JSON results; the recorded Python version differed. The regenerated PNGs differed along rendered text and line edges while preserving the plotted data. PNG byte identity is therefore a result of the tested rendering environment, not a cross-platform reproducibility guarantee.
+The calculation establishes compatibility on the declared samples under the stated metric convention. It does not calibrate human discrimination, certify an all-hue inequality, or identify a perceptual boundary. The exact-arithmetic continuum certificate uses a different bounded-reflectance model and is documented in [`research/object-colour/`](../research/object-colour/).
