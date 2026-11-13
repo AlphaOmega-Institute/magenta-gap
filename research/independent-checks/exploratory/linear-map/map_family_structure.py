@@ -9,13 +9,15 @@ constraint.  w_c are the cone catches of the adapting white of condition c.
 Checks
   1. each A_c is injective; A_c* A_c is wavelength-diagonal; the polar
      isometry depends on the condition
-  2. dimension count per wavelength: output space, range of one map, joint
-     span of the ranges over all conditions, and what no condition reaches
+  2. dimension count at every wavelength: output space, range of one map,
+     and the joint span of the ranges over all conditions
   3. the matching rule obtained by equating normalised colour outputs is the
      geometric cone-gain rule, which composes consistently; the linear-gain
      interpolation does not
-  4. the selected observables commute on the joint span
-  5. a dark vector: when its image keeps one ray for every condition
+  4. the selected observables commute after compression to the joint
+     span, although the opponent observables do not preserve that span
+  5. a fixed ray for every condition: a grey example inside the existing
+     carrier, and a direct-sum extension with a no-absorption outcome
 
 Usage:  python map_family_structure.py TABLE_CSV
 Status: exploratory linear algebra on the binned table.  No generator,
@@ -59,18 +61,19 @@ print(f"   A_c* A_c = diag(sum_i w_i^-D a_i(lambda)) is positive for every condi
 print(f"   The polar isometry sends |lambda> to its normalised amplitude vector; across conditions the smallest overlap")
 print(f"   <u_0 lambda | u_c lambda> is {ov:.4f}, so the final support moves with the condition.")
 
-print("2. Dimensions per wavelength")
-k = int(np.argmin(np.abs(wl - 550)))
-stack = np.array([amp(c)[k] for c in range(len(whites))])
-print(f"   output space C^3 (x) C^2: 6;  range of one A_c: 1;  joint span of the ranges over conditions at 550 nm: "
-      f"{np.linalg.matrix_rank(stack)}")
+print("2. Dimensions at every wavelength")
 basis_reached = np.array([np.kron(np.eye(3)[i], v[i]) for i in range(3)])          # |i>|v_i>
 basis_never = np.array([np.kron(np.eye(3)[i], vperp[i]) for i in range(3)])        # |i>|v_i perp>
-print(f"   the joint span is spanned by the three vectors |i>|v_i>; its complement |i>|v_i-perp> (dimension "
-      f"{np.linalg.matrix_rank(basis_never)}) is orthogonal to every A_c (largest overlap "
-      f"{np.abs(basis_never @ basis_reached.T).max():.1e}).")
-print("   So Ker A_c* has dimension 5 per wavelength: 2 inside the joint span, which other conditions reach,")
-print("   and 3 outside it, which no condition in the family reaches.")
+rank = np.array([np.linalg.matrix_rank(np.array([amp(c)[k] for c in range(len(whites))])) for k in range(N)])
+print("   output space C^3 (x) C^2: 6;  range of one A_c: 1.  Joint span of the ranges over these conditions:")
+for r in sorted(set(rank), reverse=True):
+    ws = wl[rank == r]
+    print(f"      dimension {r} at {int(ws.min())}-{int(ws.max())} nm ({len(ws)} wavelengths): the 5-dimensional Ker A_c* splits into "
+          f"{r - 1} inside the joint span and {6 - r} outside it")
+print(f"   The smaller span is where the table has S = 0 ({int(wl[lms[:, 2] == 0].min())}-{int(wl[lms[:, 2] == 0].max())} nm): no gain activates a zero cone component.")
+print(f"   The vectors |i>|v_i-perp> are orthogonal to every A_c (largest overlap {np.abs(basis_never @ basis_reached.T).max():.1e}).")
+print("   'Inside the joint span' means a linear combination of preparations; it does not mean that one allowed")
+print("   preparation reaches that direction (amplitudes of every preparation are nonnegative).")
 
 print("3. Matching rule and its consistency")
 s1 = rng.uniform(0, 1, N)                                           # an arbitrary spectrum
@@ -100,21 +103,51 @@ print(f"   compressions of the three cone projections and two opponent observabl
 print(f"   (largest off-diagonal entry {off:.1e}), so their statistics on every A_c output are classical.")
 print(f"   On the full output space the opponent observables do not commute with each other: |[sz, sx]| = "
       f"{np.abs(ops[3] @ ops[4] - ops[4] @ ops[3]).max():.0f}.")
+Pi = basis_reached.T @ basis_reached
+leak = max(np.linalg.norm((np.eye(6) - Pi) @ O @ Pi, 2) for O in ops[3:])
+print(f"   They also do not preserve the joint span (largest norm of the part mapped outside it: {leak:.3f}). So the classical")
+print("   description covers these static statistics only; measurement-update operations, if available, could leave the span.")
 
-print("5. A dark vector and a fixed ground ray")
-y_grey = basis_reached.sum(axis=0) / np.sqrt(3)                        # equal amplitudes: central colour state
+print("5. A fixed ray for every condition")
 def gain_op(c): return np.kron(np.diag(whites[c] ** (-D / 2)), np.eye(2))
+par = lambda x, y: np.isclose(abs(x @ y), np.linalg.norm(x) * np.linalg.norm(y))
+y_grey = basis_reached.sum(axis=0) / np.sqrt(3)                        # equal amplitudes on the three |i>|v_i>
 ray = [gain_op(c) @ y_grey for c in range(len(whites))]
 ovl = min(abs(ray[0] @ r) / (np.linalg.norm(ray[0]) * np.linalg.norm(r)) for r in ray[1:])
-bl = []
-for r in ray:
-    M = r.reshape(3, 2); rho = M.T @ M; rho /= np.trace(rho)
-    bl.append(np.hypot(rho[0, 0] - rho[1, 1], 2 * rho[0, 1]))
-print(f"   Image of dark with equal amplitudes on the three |i>|v_i>: its colour state is the centre for balanced white,")
-print(f"   but the gains move it: ray overlap with the balanced case falls to {ovl:.4f}, colour radius up to {max(bl):.3f}.")
-print("   A fixed ground ray for every condition needs the dark image to be a common eigenvector of all gain operators.")
-single = np.kron(np.eye(3)[0], v[0])
-par = lambda x, y: np.isclose(abs(x @ y), np.linalg.norm(x) * np.linalg.norm(y))
-ok = all(par(gain_op(c) @ single, single) for c in range(len(whites))) and not all(par(gain_op(c) @ y_grey, y_grey) for c in range(len(whites)))
-print(f"   With distinct gains those are the vectors on a single register level (checked: {ok}), whose colour state is a rim")
-print("   state, or vectors on an extra register level that the gains leave alone.")
+print(f"   A vector with equal amplitudes on the three |i>|v_i> is moved by the gains (ray overlap falls to {ovl:.4f}).")
+# (a) a fixed grey ray inside the existing carrier (first reviewer's example): two wavelengths with S = 0,
+#     both on the S register level, with orthogonal two-level vectors
+k1, k2 = int(np.where(wl == 616)[0][0]), int(np.where(wl == 617)[0][0])
+assert lms[k1, 2] == 0 and lms[k2, 2] == 0
+e_S = np.eye(3)[2]
+y = np.zeros((N, 6))
+y[k1] = np.kron(e_S, [1.0, 0.0]) / np.sqrt(2); y[k2] = np.kron(e_S, [0.0, 1.0]) / np.sqrt(2)
+fixed = all(par((y @ gain_op(c).T).ravel(), y.ravel()) for c in range(len(whites)))
+M = y.reshape(N, 3, 2); rho = np.einsum("nik,nil->kl", M, M)
+prep_overlap = max(abs(amp(c)[k] @ (basis_reached @ y[k])) for c in range(len(whites)) for k in (k1, k2))
+pS = float((M[:, 2, :] ** 2).sum())
+print(f"   (a) inside the existing carrier: (|616>|S>|e1> + |617>|S>|e2>)/sqrt 2 keeps its ray under every gain: {fixed};")
+print(f"       reduced two-level state {rho.round(12).tolist()} (maximally mixed); overlap with every preparation {prep_overlap:.1e};")
+print(f"       but its S-channel probability is {pS:.1f}, so it is not a no-absorption state.")
+print(f"       The cone projections sum to the identity (deviation {np.abs(sum(ops[:3]) - np.eye(6)).max():.1e}), so every normalised")
+print("       state of this carrier registers in some channel.")
+# (b) direct-sum extension: one dark input ray and one output ray, untouched by adaptation
+a0 = 0.7
+worst = 0.0
+for c in range(len(whites)):
+    Ac = np.zeros((6 * N, N))
+    for k in range(N):
+        Ac[6 * k:6 * k + 6, k] = basis_reached.T @ amp(c)[k]
+    Ah = np.zeros((6 * N + 1, N + 1)); Ah[0, 0] = a0; Ah[1:, 1:] = Ac
+    d = np.zeros(N + 1); d[0] = 1; Om = np.zeros(6 * N + 1); Om[0] = 1
+    worst = max(worst, np.abs(Ah @ d - a0 * Om).max(), np.abs(Ah.T @ Om - a0 * d).max())
+    assert np.linalg.svd(Ah, compute_uv=False).min() > 0
+    # cone readouts extended by zero vanish on the added output ray; the defect is unchanged
+    for i in range(3):
+        Fi = np.zeros(6 * N + 1); Fi[1:] = np.tile(np.kron(np.eye(3)[i], np.ones(2)), N)
+        assert Om @ (Fi * Om) == 0
+    assert (6 * N + 1) - np.linalg.matrix_rank(Ah) == 6 * N - np.linalg.matrix_rank(Ac)
+print(f"   (b) direct sum with a dark input ray |d> and an output ray |Omega_d>, A-hat_c = a0 (+) A_c with a0 = {a0}:")
+print(f"       A-hat_c |d> = a0 |Omega_d> and A-hat_c* |Omega_d> = a0 |d> for every condition (largest deviation {worst:.1e});")
+print("       each A-hat_c is injective; all three cone readouts vanish on |Omega_d>; the dimension of Ker A-hat_c* equals")
+print("       that of Ker A_c*, so the added pair creates no further defect.")

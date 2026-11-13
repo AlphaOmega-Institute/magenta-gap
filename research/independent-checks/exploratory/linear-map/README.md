@@ -146,18 +146,24 @@ the centring filter. It is a candidate realization; equating model states with a
 - For each condition a linear, injective map, so `ax:physical-presentability` (Ker A = 0) holds. A_c*A_c is
   wavelength-diagonal and positive, and the polar isometry, hence the final support, depends on the condition.
 - A nonzero Ker A_c*, so `ax:strict-phenomenal-excess` holds formally. Per wavelength the output space has dimension 6
-  and the range dimension 1. Of the 5 remaining dimensions, 2 lie in the joint span of the ranges of all conditions and
-  3 are reached by no condition in the family.
-- Three positive cone observables and two opponent observables whose statistics on every output are classical.
+  and the range dimension 1. From 390 to 615 nm the joint span of the ranges of all conditions has dimension 3, so the
+  5 remaining dimensions split into 2 inside that span and 3 outside. From 616 to 830 nm, where the table has S = 0, the
+  joint span has dimension 2 and the split is 1 and 4: no gain activates a zero cone component. "Inside the joint span"
+  means a linear combination of preparations, not a direction that one allowed preparation reaches.
+- Three positive cone observables and two opponent observables whose compressions to the joint span commute, so the
+  static statistics of these measurements on every output are classical. The opponent observables themselves do not
+  preserve that span. Whether measurement-update operations are available, and what they would do, is additional.
 
 **What remains additional:**
 
 - *Ground data.* The construction has no generators, algebras or ground vectors, so `ax:physical-vacuum`,
-  `ax:phenomenal-ground` and `ax:ground-bridge` are not addressed. There is one constraint: if a dark vector is added and
-  its image is to lie on one ray for every condition, that image must be a common eigenvector of all the gain operators.
-  With distinct gains that means a vector on a single register level, whose colour state is a rim state, or a vector on
-  an extra register level that the gains leave alone. An image with a central (grey) colour state built from the three
-  cone levels is moved by the gains, so the ground would then depend on the condition.
+  `ax:phenomenal-ground` and `ax:ground-bridge` are not addressed. A vector whose image is to lie on one ray for every
+  condition must be a common eigenvector of all the gain operators. A vector with equal amplitudes on the three cone
+  levels is not, and is moved by the gains. But an extra register level is not needed merely to obtain a fixed grey ray:
+  two wavelengths with S = 0, both on the S level and carrying orthogonal two-level vectors, give a fixed ray whose
+  reduced colour state is maximally mixed and which is orthogonal to every preparation. That ray has S-channel
+  probability one, so it is not a no-absorption state. (An earlier statement here that a single register level forces a
+  rim colour state overlooked entanglement with wavelength; the counterexample is the first reviewer's.)
 - *Dynamics.* None is specified, so a dynamically accessible defect is not defined. The 2 + 3 split above is a split by
   conditions, not by dynamics.
 - *LG's indefinite structure.* The two-level factor here is an ordinary positive-definite one. No relation to LG's
@@ -165,6 +171,23 @@ the centring filter. It is a candidate realization; equating model states with a
 - *The bridge to appearance*, the strength D, and any context beyond the adapting white.
 - *Complete output states.* The map keeps wavelength labels, so metamers differ as complete states. Whether those
   differences are phenomenal is an interpretation.
+
+### Candidate extension: a no-absorption pair
+
+The three cone projections sum to the identity on the output space, so every normalised output state registers in some
+channel and none has all three cone probabilities zero. An explicit no-absorption outcome therefore needs an added
+sector. The smallest one adds a dark input ray |d⟩ and an output ray |Ω_d⟩, left unchanged by adaptation:
+
+    Â_c = a₀ ⊕ A_c,   F̂_i = 0 ⊕ F_i,   a₀ > 0.
+
+Then Â_c|d⟩ = a₀|Ω_d⟩ and Â_c*|Ω_d⟩ = a₀|d⟩ for every condition, each Â_c is injective, all three cone readouts vanish
+on the added ray, and the added pair creates no further defect because it is paired. (This formulation is the first
+reviewer's; the script checks it.)
+
+What this does not supply: generators and cyclic algebras that would make the pair LG's physical and luminous grounds;
+an identification of "no incident light" with LG's physical vacuum, which LG does not itself make; or any statement
+about what darkness looks like. Extending the opponent readouts by zero gives neutral selected readings on the dark ray;
+that is not the same as a maximally mixed two-level state.
 
 ## Scope and corrections
 

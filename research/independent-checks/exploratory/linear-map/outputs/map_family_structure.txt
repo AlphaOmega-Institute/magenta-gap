@@ -3,11 +3,14 @@ Conditions: 6 adapting whites, strength D = 0.85.
    A_c* A_c = diag(sum_i w_i^-D a_i(lambda)) is positive for every condition, so each A_c is injective.
    The polar isometry sends |lambda> to its normalised amplitude vector; across conditions the smallest overlap
    <u_0 lambda | u_c lambda> is 0.9879, so the final support moves with the condition.
-2. Dimensions per wavelength
-   output space C^3 (x) C^2: 6;  range of one A_c: 1;  joint span of the ranges over conditions at 550 nm: 3
-   the joint span is spanned by the three vectors |i>|v_i>; its complement |i>|v_i-perp> (dimension 3) is orthogonal to every A_c (largest overlap 2.6e-17).
-   So Ker A_c* has dimension 5 per wavelength: 2 inside the joint span, which other conditions reach,
-   and 3 outside it, which no condition in the family reaches.
+2. Dimensions at every wavelength
+   output space C^3 (x) C^2: 6;  range of one A_c: 1.  Joint span of the ranges over these conditions:
+      dimension 3 at 390-615 nm (226 wavelengths): the 5-dimensional Ker A_c* splits into 2 inside the joint span and 3 outside it
+      dimension 2 at 616-830 nm (215 wavelengths): the 5-dimensional Ker A_c* splits into 1 inside the joint span and 4 outside it
+   The smaller span is where the table has S = 0 (616-830 nm): no gain activates a zero cone component.
+   The vectors |i>|v_i-perp> are orthogonal to every A_c (largest overlap 2.6e-17).
+   'Inside the joint span' means a linear combination of preparations; it does not mean that one allowed
+   preparation reaches that direction (amplitudes of every preparation are nonnegative).
 3. Matching rule and its consistency
    conditions 0->1: catches of the match from equal colour states versus geometric gain rule, max relative difference 5.6e-17
    conditions 2->4: catches of the match from equal colour states versus geometric gain rule, max relative difference 5.6e-17
@@ -18,9 +21,16 @@ Conditions: 6 adapting whites, strength D = 0.85.
    compressions of the three cone projections and two opponent observables to the joint span are all diagonal
    (largest off-diagonal entry 0.0e+00), so their statistics on every A_c output are classical.
    On the full output space the opponent observables do not commute with each other: |[sz, sx]| = 2.
-5. A dark vector and a fixed ground ray
-   Image of dark with equal amplitudes on the three |i>|v_i>: its colour state is the centre for balanced white,
-   but the gains move it: ray overlap with the balanced case falls to 0.9921, colour radius up to 0.173.
-   A fixed ground ray for every condition needs the dark image to be a common eigenvector of all gain operators.
-   With distinct gains those are the vectors on a single register level (checked: True), whose colour state is a rim
-   state, or vectors on an extra register level that the gains leave alone.
+   They also do not preserve the joint span (largest norm of the part mapped outside it: 1.000). So the classical
+   description covers these static statistics only; measurement-update operations, if available, could leave the span.
+5. A fixed ray for every condition
+   A vector with equal amplitudes on the three |i>|v_i> is moved by the gains (ray overlap falls to 0.9921).
+   (a) inside the existing carrier: (|616>|S>|e1> + |617>|S>|e2>)/sqrt 2 keeps its ray under every gain: True;
+       reduced two-level state [[0.5, 0.0], [0.0, 0.5]] (maximally mixed); overlap with every preparation 0.0e+00;
+       but its S-channel probability is 1.0, so it is not a no-absorption state.
+       The cone projections sum to the identity (deviation 0.0e+00), so every normalised
+       state of this carrier registers in some channel.
+   (b) direct sum with a dark input ray |d> and an output ray |Omega_d>, A-hat_c = a0 (+) A_c with a0 = 0.7:
+       A-hat_c |d> = a0 |Omega_d> and A-hat_c* |Omega_d> = a0 |d> for every condition (largest deviation 0.0e+00);
+       each A-hat_c is injective; all three cone readouts vanish on |Omega_d>; the dimension of Ker A-hat_c* equals
+       that of Ker A_c*, so the added pair creates no further defect.
