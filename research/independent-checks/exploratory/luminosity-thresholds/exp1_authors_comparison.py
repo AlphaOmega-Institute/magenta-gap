@@ -17,7 +17,8 @@ What it checks
     C. our constrained optimisation against their stored optimal colours,
        point by point
     D. one multiplicative factor per observer versus an additive offset and an
-       affine fit, with residuals by chromaticity
+       affine fit, with residuals by chromaticity; then a factor fitted within
+       each surround, and any settings that fall below the limit
 
 Status: exploratory and numerical.  Four observers.  Nothing here is a
 certificate, a calibration of a perceptual boundary, or a test of the
@@ -266,3 +267,11 @@ for nm, p in (("authors' nearest-sample predictions", pred_auth), ("LP, our conv
                       for i in range(len(obs_mat))])
     print("   factor fitted separately for each observer (rows) and surround (columns):")
     print(k_all)
+    c_all = np.array([[wls((WHITE_CD * p)[:, None], Y[:, i, j], 1 / SE[:, i, j])[3] / (Y.shape[0] - 1)
+                       for j in range(len(dist_mat))] for i in range(len(obs_mat))])
+    print("   chi2/dof of that separate fit (9 chromaticities, 8 dof); descriptive only, since it takes the reported SEs")
+    print("   as independent and complete:")
+    print(c_all)
+    below = [(obs_mat[i], dist_mat[j], float(test[c, 0]), float(Y[c, i, j] / (WHITE_CD * p[c])))
+             for i in range(len(obs_mat)) for j in range(len(dist_mat)) for c in range(Y.shape[0]) if Y[c, i, j] < WHITE_CD * p[c]]
+    print(f"   settings below the limit: {len(below)} of {Y.size}" + "".join(f"; {o} {d} at l={l:.3f}: ratio {r:.3f}" for o, d, l, r in below))

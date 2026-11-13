@@ -76,27 +76,41 @@ random, 96.8% agree with the optimisation to 10⁻³; ten are beaten by more tha
 is the region where the S fundamental is tabulated as zero, the same flat face recorded in
 `../../flat_face_counterexample.py`. It does not touch Experiment 1.
 
-**Thresholds lie above the computed limit.** Median setting ÷ limit is 1.38 in Experiment 1 and 1.16–1.23 in Experiment 2,
-with per-observer medians from about 0.95 to 1.7.
+**Thresholds generally lie above the computed limit.** Median setting ÷ limit is 1.38 in Experiment 1 and 1.16–1.23 in
+Experiment 2, with per-observer medians from about 0.95 to 1.7. Some settings fall below it: 2 of 180 in Experiment 1
+(ratios 0.98 and 0.99, one observer, natural surround), and more in Experiment 2.
 
-**One multiplicative factor per observer is not supported uniformly** (Experiment 1, authors' predictions, weighted by
-the reported standard errors):
+**One multiplier per observer, shared across surrounds, fails at the scale of the reported repetition error**
+(Experiment 1, authors' predictions, weighted by the reported standard errors). Only proportional, additive and affine
+rules were tested; nothing here speaks to other rules.
 
 | Observer | Factor | χ²/dof, factor | χ²/dof, additive offset | χ²/dof, affine | Affine slope, intercept (cd/m²) | Setting ÷ limit across chromaticities |
 | --- | --- | --- | --- | --- | --- | --- |
 | KK | 1.62 | 11.5 | 20.8 | 11.5 | 1.73, −2.4 | 1.43–1.87, rising with L/(L+M) |
-| MI* | 1.37 | 3.4 | 5.5 | 3.4 | 1.42, −1.2 | 1.30–1.47 |
+| MI (Zenodo) / YK (repository) | 1.37 | 3.4 | 5.5 | 3.4 | 1.42, −1.2 | 1.30–1.47 |
 | TM | 1.35 | 17.8 | 9.3 | 8.1 | 0.79, +13.4 | 1.14–1.46, lowest near white |
-| YK* | 1.52 | 24.8 | 12.3 | 12.4 | 0.94, +13.9 | 1.28–1.61, lowest near white |
+| YK (Zenodo) / MI (repository) | 1.52 | 24.8 | 12.3 | 12.4 | 0.94, +13.9 | 1.28–1.61, lowest near white |
 
 A factor fits better than an offset for two observers and worse for the other two. Systematic dependence on chromaticity
-remains for three of the four. Every χ²/dof is far above one, so no one-parameter model describes the data within the
-reported repetition error; the standard errors do not include differences between surrounds, which move the fitted factor
-by 8–22% depending on the observer.
+remains for three of the four. The standard errors do not include differences between surrounds, which move the fitted
+factor by 8–22% depending on the observer.
+
+Fitting a separate multiplier within each surround (nine chromaticities, eight degrees of freedom) separates the two
+effects. For the MI/YK profile in the second row, four surrounds give χ²/dof of 0.97–1.25 and the fifth gives 5.9, so a
+multiplier describes most of that observer's individual conditions well. For the other three profiles χ²/dof is between
+4.3 and 31 in every surround.
+
+χ²/dof is used here as a descriptive measure of misfit. Reading it as a formal rejection would need the independence
+and completeness of the reported standard errors to be checked, which has not been done.
+
+The first reviewer independently recomputed the nine limits from the authors' data and reconstructed cone responses and
+reports a mean correlation of 0.90128, consistent with the 0.9013 above.
 
 **The two public sources label two observers differently.** The Zenodo CSV and the repository's `LT_Data.mat` hold
 identical numbers for Experiment 1, but the second and fourth observer columns carry the labels MI and YK in one and YK
-and MI in the other. Observers above carry the Zenodo label, starred where the repository key differs.
+and MI in the other. Both mappings are kept above, and in the outputs the Zenodo label is starred where the repository
+key differs. The discrepancy does not affect any number here; it does prevent attaching those two profiles to particular
+initials.
 
 ## Corrections to earlier readings
 
@@ -110,6 +124,9 @@ and MI in the other. Observers above carry the Zenodo label, starred where the r
   that the physical limit depends on a coordinate choice.
 - High correlation does not establish proportionality: adding a constant to every prediction leaves the correlation
   unchanged.
+- *"Thresholds lie above the limit."* Generally, not always; see above.
+- *"No simple observer-specific rule connects the two."* Too broad. Three particular rules were tested, and a multiplier
+  does describe some individual conditions.
 
 ## What this does not show
 

@@ -77,6 +77,13 @@ D. One multiplicative factor per observer, against an additive offset and an aff
  [1.2614 1.4651 1.3179 1.3865 1.3794]
  [1.1721 1.4256 1.3825 1.3751 1.3537]
  [1.3417 1.6205 1.4736 1.478  1.5417]]
+   chi2/dof of that separate fit (9 chromaticities, 8 dof); descriptive only, since it takes the reported SEs
+   as independent and complete:
+[[ 9.0649 14.9617  7.2642 21.8372  4.312 ]
+ [ 0.9728  1.2523  1.1454  5.9024  1.0907]
+ [16.6304 13.0509  6.9072  5.9899 22.953 ]
+ [20.172   4.9406 21.3817  9.3594 30.6386]]
+   settings below the limit: 2 of 180; TM Natural at l=0.710: ratio 0.993; TM Natural at l=0.719: ratio 0.983
 
    --- model limits: LP, our conventions
    KK: multiplicative k=1.614+-0.006 chi2/dof= 11.34 rms= 4.61 | additive c=+13.39+-0.12 chi2/dof= 20.68 rms= 6.72 | affine a=1.734+-0.036 b= -2.69+-0.79 chi2/dof= 11.33 rms= 4.67
@@ -100,3 +107,10 @@ D. One multiplicative factor per observer, against an additive offset and an aff
  [1.2575 1.4608 1.3138 1.382  1.3748]
  [1.1682 1.4206 1.3773 1.3702 1.349 ]
  [1.3372 1.6139 1.4684 1.473  1.5356]]
+   chi2/dof of that separate fit (9 chromaticities, 8 dof); descriptive only, since it takes the reported SEs
+   as independent and complete:
+[[ 8.9034 14.829   7.1868 21.5329  4.1455]
+ [ 1.0091  1.241   1.1414  5.8044  1.1132]
+ [16.3456 12.8564  6.8122  5.8647 22.6706]
+ [19.8403  4.6379 20.8126  9.0271 30.3241]]
+   settings below the limit: 2 of 180; TM Natural at l=0.710: ratio 0.991; TM Natural at l=0.719: ratio 0.983
