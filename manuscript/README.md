@@ -4,6 +4,8 @@
 
 The reviewed mathematical revision was merged at `51b37d5`. The format conversion retains its complete arguments, three appendices, 16 bibliography entries, numerical table, three figures and assistance disclosure. It restores explicit equation-name prefixes previously supplied by the Optica class and clarifies one forward reference. No perceptual encoding or new empirical claim is added.
 
+The November 13 conceptual-restoration draft expands the Introduction and Discussion around the transformation problem: relating stimulus distributions, observer state and context to organized color appearance. It restores the motivation in corrected form, with sourced blackness/afterimage examples and a qualitative luminosity-threshold comparison. It keeps stimulus gamut, appearance target and regime-specific image distinct. The draft has 22 pages and 22 references; all 50 displayed equations, theorem/proof environments, table and figure files remain unchanged from `5c4d9e6`. It introduces no new psychophysical data or completed encoding model. This revision is prepared for review before merging.
+
 The [July manuscript in `jmp/`](jmp/) is a frozen historical baseline, not a second active paper. Its source and original PDF are unchanged. The reviewed Optica-format September/November text, PDF and former class/support files remain recoverable in [Git history at `51b37d5`](https://github.com/AlphaOmega-Institute/magenta-gap/tree/51b37d506dee66de9228a1ee2c0e81aa7a193488/manuscript).
 
 ## Build
