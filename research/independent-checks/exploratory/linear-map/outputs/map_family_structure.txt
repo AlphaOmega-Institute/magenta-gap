@@ -1,0 +1,26 @@
+Conditions: 6 adapting whites, strength D = 0.85.
+1. Injectivity and polar part
+   A_c* A_c = diag(sum_i w_i^-D a_i(lambda)) is positive for every condition, so each A_c is injective.
+   The polar isometry sends |lambda> to its normalised amplitude vector; across conditions the smallest overlap
+   <u_0 lambda | u_c lambda> is 0.9879, so the final support moves with the condition.
+2. Dimensions per wavelength
+   output space C^3 (x) C^2: 6;  range of one A_c: 1;  joint span of the ranges over conditions at 550 nm: 3
+   the joint span is spanned by the three vectors |i>|v_i>; its complement |i>|v_i-perp> (dimension 3) is orthogonal to every A_c (largest overlap 2.6e-17).
+   So Ker A_c* has dimension 5 per wavelength: 2 inside the joint span, which other conditions reach,
+   and 3 outside it, which no condition in the family reaches.
+3. Matching rule and its consistency
+   conditions 0->1: catches of the match from equal colour states versus geometric gain rule, max relative difference 5.6e-17
+   conditions 2->4: catches of the match from equal colour states versus geometric gain rule, max relative difference 5.6e-17
+   geometric gains: there-and-back [1. 1. 1.]; composition 1->2->3 against 1->3 [1. 1. 1.]
+   linear    gains: there-and-back [1.0025 1.0132 1.0103]; composition 1->2->3 against 1->3 [0.9997 1.0174 1.0166]
+   example from review, D = 1/2, ratios (2,1,1), linear gains there-and-back: [1.125 1.    1.   ]
+4. Selected observables on the joint span
+   compressions of the three cone projections and two opponent observables to the joint span are all diagonal
+   (largest off-diagonal entry 0.0e+00), so their statistics on every A_c output are classical.
+   On the full output space the opponent observables do not commute with each other: |[sz, sx]| = 2.
+5. A dark vector and a fixed ground ray
+   Image of dark with equal amplitudes on the three |i>|v_i>: its colour state is the centre for balanced white,
+   but the gains move it: ray overlap with the balanced case falls to 0.9921, colour radius up to 0.173.
+   A fixed ground ray for every condition needs the dark image to be a common eigenvector of all gain operators.
+   With distinct gains those are the vectors on a single register level (checked: True), whose colour state is a rim
+   state, or vectors on an extra register level that the gains leave alone.

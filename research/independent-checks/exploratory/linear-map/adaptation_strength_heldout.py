@@ -2,8 +2,9 @@
 others, with the encoding held fixed.
 
 Same encoding, rules and matching criterion as adaptation_rules.py.  Each
-rule gets one strength parameter D between no adaptation (0) and the full
-transformation (1):
+rule gets one strength parameter D, with 0 meaning no adaptation and 1 the
+full transformation.  The search grid runs from 0.40 to 1.20; every fitted
+value lies inside it and below 1, and a grid on 0 to 1 gives the same output.
 
   R-lin   cone gains  D * (w2/w1) + (1 - D)          (the usual incomplete von Kries form)
   R-geo   cone gains  (w2/w1) ** D

@@ -13,6 +13,7 @@ python rebit_embedding.py          research/object-colour/inputs/stockman_sharpe
 python cone_register_and_trine.py  research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
 python adaptation_rules.py             DIRECTORY_WITH_THE_DAT_FILES
 python adaptation_strength_heldout.py  DIRECTORY_WITH_THE_DAT_FILES
+python map_family_structure.py         research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
 ```
 
 Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciPy 1.17.0.
@@ -23,6 +24,7 @@ Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciP
 | `rebit_embedding.py` | Approximate minimum-area ellipses enclosing the spectral chromaticities in two chromaticity planes, with free centre and with centre at white | `outputs/rebit_embedding.txt` |
 | `adaptation_rules.py` | Two ways an adapting condition could act on the colour state, their algebra, and their predictions for 654 corresponding-colour pairs | `outputs/adaptation_rules.txt` |
 | `adaptation_strength_heldout.py` | The same rules with one strength parameter each, fitted on some experiments and scored on others | `outputs/adaptation_strength_heldout.txt` |
+| `map_family_structure.py` | Linear algebra of the condition-dependent family of maps: injectivity, ranges, consistency of the matching rule, and the constraint on a ground correspondence | `outputs/map_family_structure.txt` |
 
 ## What the outputs show
 
@@ -113,6 +115,10 @@ The fitted strength for linear-gain reweighting is 0.92–0.94 for the 1000 lux 
 Braun and Fairchild (129 lux), and 0.56–0.68 for McCann (14–40 lux, strongly coloured illuminants). That ordering follows
 the recorded illuminance, but illuminance is confounded here with medium, method and illuminant.
 
+Two qualifications. The viewing conditions decide which experiments are grouped for fitting; they do not determine the
+strength through an established illuminance law. And the five-experiment comparison at 1000 lux is the strongest transfer
+test; the other three hold out phases within one study.
+
 The 25 phases are not 25 independent studies; several share observers, samples or apparatus. Corresponding-colour matches
 constrain which stimuli are equivalent across conditions. They do not identify the internal representation or where
 adaptation occurs physiologically.
@@ -121,6 +127,44 @@ This is a first pass. Every rule assumes complete adaptation, which several of t
 signals are Hunt–Pointer–Estévez with equal-energy normalisation, and CAT02 shows that the choice of sensors matters about
 as much as the difference between rule R and the centring filter. Rule F depends on the disc centre and on the choice of
 rim states; rule R does not. Only chromaticity is compared.
+
+## The working realization and its place in LG
+
+**Geometric gains are the form that fits a fixed map per condition.** The linear-gain interpolation is kept as a
+benchmark, but it does not compose: going from condition 1 to 2 and back does not return the starting colour (for strength
+1/2 and gain ratios 2, 1, 1 the round trip multiplies the first channel by 1.125). So it cannot come from equating the
+outputs of one fixed map assigned to each condition. The geometric rule composes exactly, and it is what the family
+
+    A_c = ( I ⊗ diag(w_{c,i}^(−D/2)) ⊗ I ) A
+
+gives when normalised colour outputs are equated across two conditions, with w_c the cone catches of the adapting white.
+(The distinction and this form of the family are the first reviewer's.) Its held-out error is 0.0119 against 0.0196 for
+the centring filter. It is a candidate realization; equating model states with appearance matches is an assumption.
+
+**What the family supplies**, stated against LG (`manuscripts/lg/LG_Master_Unified.tex` in AlphaOmega-Theory):
+
+- For each condition a linear, injective map, so `ax:physical-presentability` (Ker A = 0) holds. A_c*A_c is
+  wavelength-diagonal and positive, and the polar isometry, hence the final support, depends on the condition.
+- A nonzero Ker A_c*, so `ax:strict-phenomenal-excess` holds formally. Per wavelength the output space has dimension 6
+  and the range dimension 1. Of the 5 remaining dimensions, 2 lie in the joint span of the ranges of all conditions and
+  3 are reached by no condition in the family.
+- Three positive cone observables and two opponent observables whose statistics on every output are classical.
+
+**What remains additional:**
+
+- *Ground data.* The construction has no generators, algebras or ground vectors, so `ax:physical-vacuum`,
+  `ax:phenomenal-ground` and `ax:ground-bridge` are not addressed. There is one constraint: if a dark vector is added and
+  its image is to lie on one ray for every condition, that image must be a common eigenvector of all the gain operators.
+  With distinct gains that means a vector on a single register level, whose colour state is a rim state, or a vector on
+  an extra register level that the gains leave alone. An image with a central (grey) colour state built from the three
+  cone levels is moved by the gains, so the ground would then depend on the condition.
+- *Dynamics.* None is specified, so a dynamically accessible defect is not defined. The 2 + 3 split above is a split by
+  conditions, not by dynamics.
+- *LG's indefinite structure.* The two-level factor here is an ordinary positive-definite one. No relation to LG's
+  ground-plane operators or sector grading is established.
+- *The bridge to appearance*, the strength D, and any context beyond the adapting white.
+- *Complete output states.* The map keeps wavelength labels, so metamers differ as complete states. Whether those
+  differences are phenomenal is an interpretation.
 
 ## Scope and corrections
 
