@@ -1,0 +1,53 @@
+Algebra of the two rules
+   example: the filter diag(sqrt 2, sqrt(2/3)) gives cone gains [2.0, 1.0, 1.0]; balanced white goes to [0.25 0.  ] under reweighting and [0.5 0. ] under the filter
+   over 20000 random gain triples: a positive filter with those gains exists for 17283 and not for 2717;
+   it exists exactly when the reweighted white has radius at most 1/2, it is then unique, it sends white twice as far
+   as reweighting does, and it equals the same new weights placed on moved rim states (largest deviation 3.8e-15).
+
+37 files.  Columns: mean u'v' error of the predicted second chromaticity; 'out' = predictions that leave the receptor triangle.
+data set            n white shift |    none  R=vonK  F-white  out   F-gain  out |   CAT02
+Brene.p1.dat       12      0.0780 |  0.0707  0.0135   0.0309    5   0.1053   12 |  0.0098
+Brene.p10.dat      12      0.0000 | same white chromaticity; not an illuminant change, skipped
+Brene.p11.dat      12      0.0510 |  0.0456  0.0085   0.0179    0   0.0885    0 |  0.0114
+Brene.p12.dat      12      0.0483 |  0.0383  0.0140   0.0174    0   0.0889    0 |  0.0130
+Brene.p2.dat       12      0.0457 |  0.0385  0.0080   0.0236    5   0.0787    9 |  0.0101
+Brene.p3.dat       12      0.0462 |  0.0264  0.0166   0.0244    4   0.0843   10 |  0.0145
+Brene.p4.dat       12      0.0813 |  0.0593  0.0214   0.0298    4   0.1002   12 |  0.0137
+Brene.p5.dat       12      0.0000 | same white chromaticity; not an illuminant change, skipped
+Brene.p6.dat       11      0.0706 |  0.0737  0.0077   0.0314    4   0.1008   10 |  0.0109
+Brene.p7.dat       12      0.0000 | same white chromaticity; not an illuminant change, skipped
+Brene.p8.dat       12      0.0836 |  0.0634  0.0206   0.0310    5   0.1022   12 |  0.0130
+Brene.p9.dat       12      0.0842 |  0.0537  0.0303   0.0307    4   0.1045   12 |  0.0221
+CSAJ.10.dat         5      0.0000 | same white chromaticity; not an illuminant change, skipped
+CSAJ.1000.dat       5      0.0000 | same white chromaticity; not an illuminant change, skipped
+CSAJ.3000.dat       5      0.0000 | same white chromaticity; not an illuminant change, skipped
+CSAJ.50.dat         5      0.0000 | same white chromaticity; not an illuminant change, skipped
+CSAJ.da.dat        87      0.0820 |  0.0747  0.0103   0.0153    4   0.0837   87 |  0.0077
+Kuo.da.dat         40      0.1003 |  0.0857  0.0162   0.0238   13 no filter      |  0.0093
+Kuo.dt.dat         41      0.0438 |  0.0342  0.0106   0.0122    5   0.0447   14 |  0.0078
+RIT.1.dat          17      0.0324 |  0.0211  0.0067   0.0096    0   0.0300    0 |  0.0068
+RIT.2.dat          16      0.0324 |  0.0225  0.0143   0.0160    0   0.0363    0 |  0.0134
+RIT.3.dat          17      0.0656 |  0.0462  0.0212   0.0148    0   0.0488   12 |  0.0162
+RIT.4.dat          16      0.0656 |  0.0531  0.0138   0.0139    0   0.0510    8 |  0.0105
+Steve.10.dat        5      0.0000 | same white chromaticity; not an illuminant change, skipped
+Steve.1000.dat      5      0.0000 | same white chromaticity; not an illuminant change, skipped
+Steve.3000.dat      4      0.0000 | same white chromaticity; not an illuminant change, skipped
+Steve.50.dat        5      0.0000 | same white chromaticity; not an illuminant change, skipped
+helson.ca.dat      59      0.0854 |  0.0807  0.0116   0.0222   11   0.0874   59 |  0.0093
+lam.da.dat         58      0.0820 |  0.0763  0.0107   0.0214    8   0.0918   58 |  0.0072
+lutchi.da.dat      43      0.0967 |  0.0918  0.0090   0.0312   13   0.1094   43 |  0.0078
+lutchi.dd.dat      44      0.0280 |  0.0354  0.0109   0.0174    3   0.0254    8 |  0.0120
+lutchi.dw.dat      41      0.0650 |  0.0581  0.0184   0.0100    7   0.0629   27 |  0.0145
+mcan.b.dat         17      0.0767 |  0.0386  0.0385   0.0281    6   0.0909   17 |  0.0282
+mcan.g.dat         17      0.0942 |  0.0471  0.0478   0.0469    0   0.1547    0 |  0.0348
+mcan.grey.dat      17      0.0000 | same white chromaticity; not an illuminant change, skipped
+mcan.r.dat         17      0.1162 |  0.0880  0.0342   0.0259    0   0.0832    0 |  0.0318
+mcan.y.dat         17      0.1713 |  0.1256  0.0445   0.0747    0   0.1769    0 |  0.0453
+
+25 data sets with an illuminant change.
+   no adaptation                          pairs  654   mean 0.0633   median 0.0625   90th pct 0.0971
+   rule R (von Kries)                     pairs  654   mean 0.0158   median 0.0117   90th pct 0.0335
+   rule F-white                           pairs  654   mean 0.0222   median 0.0179   90th pct 0.0428
+   rule F-gain (where a filter exists)    pairs  614   mean 0.0806   median 0.0795   90th pct 0.1274
+   CAT02 benchmark                        pairs  654   mean 0.0128   median 0.0092   90th pct 0.0260
+   pairs where rule R is closer than F-white: 67.1%;  data sets where its mean is lower: 20 of 25

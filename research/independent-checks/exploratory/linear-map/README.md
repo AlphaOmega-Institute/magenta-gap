@@ -3,12 +3,15 @@
 **Status: exploratory and numerical. Nothing here is certified, fitted to appearance data, or used in a manuscript.**
 
 The question is whether one fixed, injective linear map from stimulus states to observer states can reproduce the
-cone-response calculation, and what a two-level (opponent) colour factor then requires. Both scripts read only
-`research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv`.
+cone-response calculation, what a two-level (opponent) colour factor then requires, and how an adapting condition could
+act on it. The first two scripts read only `research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv`. The third
+reads the corresponding-colour data of Luo and Rhodes (1999), [doi:10.5281/zenodo.3270903](https://doi.org/10.5281/zenodo.3270903):
+37 `.dat` files, 39,896 bytes. That record states no licence, so the files are not stored here.
 
 ```sh
 python rebit_embedding.py          research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
 python cone_register_and_trine.py  research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
+python adaptation_rules.py         DIRECTORY_WITH_THE_DAT_FILES
 ```
 
 Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciPy 1.17.0.
@@ -16,7 +19,8 @@ Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciP
 | Script | What it checks | Output |
 | --- | --- | --- |
 | `cone_register_and_trine.py` | One explicit map with three positive cone channels and a two-level opponent factor: injectivity, wavelength-diagonal pull-backs, the exact obstruction to a positive two-level S channel, and where lights sit in the state disc | `outputs/cone_register_and_trine.txt` |
-| `rebit_embedding.py` | Minimum-area ellipses enclosing the spectral chromaticities in two chromaticity planes, with free centre and with centre at white | `outputs/rebit_embedding.txt` |
+| `rebit_embedding.py` | Approximate minimum-area ellipses enclosing the spectral chromaticities in two chromaticity planes, with free centre and with centre at white | `outputs/rebit_embedding.txt` |
+| `adaptation_rules.py` | Two ways an adapting condition could act on the colour state, their algebra, and their predictions for 654 corresponding-colour pairs | `outputs/adaptation_rules.txt` |
 
 ## What the outputs show
 
@@ -49,9 +53,47 @@ least pure light is at 494 nm (radius 0.176), with a local minimum of 0.500 at 5
 light falls at 490, 570, 585 or 600 nm and lights cover 33–54% of the disc. Reproducing a measured saturation minimum by
 choosing among these is a constraint that could select an embedding, not a prediction.
 
+## Reweighting the register versus filtering the two-level factor
+
+An adapting condition can act on the colour state in two ways that give the same three cone outputs for every spectrum
+(the distinction and its first example are the first reviewer's):
+
+- **Rule R, reweight the cone register.** Multiply the three catches by gains; the three rim states stay fixed. With
+  gains equal to the reciprocal catches of the adapting white this is the classical von Kries rule.
+- **Rule F, filter the two-level factor.** Apply a positive operator to the two-level state and renormalise. The weights
+  change in the same way, and the rim states attached to the cone channels move as well.
+
+For given gains the filter is unique. It exists exactly when the reweighted white has radius at most 1/2, and it then
+sends white exactly twice as far as reweighting does. So knowing the cone gains does not determine the colour state.
+
+A corresponding-colour pair is two stimuli that look alike under two adapting conditions. Each rule predicts the second
+chromaticity from the first by equating colour states, which needs no calibration of hue or saturation. Mean error in
+CIE 1976 u′v′ over the 25 data sets with an illuminant change (654 pairs), assuming complete adaptation:
+
+| Rule | Mean | Median | Notes |
+| --- | --- | --- | --- |
+| No adaptation | 0.0633 | 0.0625 | |
+| R, von Kries gains | 0.0158 | 0.0117 | closer than F-white on 67% of pairs and in 20 of 25 data sets |
+| F, filter sending the adapting white to the centre | 0.0222 | 0.0179 | 101 predictions fall outside the receptor triangle |
+| F, filter reproducing the von Kries gains | 0.0806 | 0.0795 | 614 pairs; no such filter exists for one data set; worse than no adaptation |
+| CAT02 (benchmark) | 0.0128 | 0.0092 | |
+
+In this construction the data favour reweighting fixed opponent states. The filter that reproduces the cone gains
+overshoots and is clearly excluded; the filter that centres the white is intermediate.
+
+This is a first pass. Every rule assumes complete adaptation, which several of these experiments did not have. Cone
+signals are Hunt–Pointer–Estévez with equal-energy normalisation, and CAT02 shows that the choice of sensors matters about
+as much as the difference between rule R and the centring filter. Rule F depends on the disc centre and on the choice of
+rim states; rule R does not. Only chromaticity is compared.
+
 ## Scope and corrections
 
-- The construction with three rim states is fixed by the white balance. A different channel scaling gives a different disc.
+- White balance alone does not select the three rim states. Requiring three pure conditional states whose equal mixture is
+  the disc centre does, up to rotation and reflection. That is a modelling choice. A different channel scaling gives a
+  different disc.
+- The enclosing ellipses are approximate: the solver stops within about 10⁻⁵ of enclosing and the ellipse is then enlarged
+  to enclose. "On the rim" means within 10⁻⁴. An earlier remark that the collinearity obstruction also holds for a merely
+  locally straight locus was wrong and is removed; the obstruction uses the exact tabulated zeros.
 - Mixing is preserved by the map on unnormalised states. Normalising the output changes mixture weights.
 - Coherent superposition and incoherent mixture agree for the selected measurements only because the pulled-back
   observables are wavelength-diagonal here. An arbitrary linear map does not have that property.
