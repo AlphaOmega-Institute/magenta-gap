@@ -1,8 +1,11 @@
 Algebra of the two rules
    example: the filter diag(sqrt 2, sqrt(2/3)) gives cone gains [2.0, 1.0, 1.0]; balanced white goes to [0.25 0.  ] under reweighting and [0.5 0. ] under the filter
    over 20000 random gain triples: a positive filter with those gains exists for 17283 and not for 2717;
-   it exists exactly when the reweighted white has radius at most 1/2, it is then unique, it sends white twice as far
-   as reweighting does, and it equals the same new weights placed on moved rim states (largest deviation 3.8e-15).
+   it exists exactly when the reweighted white has radius at most 1/2 (rank one, hence not invertible, at exactly 1/2);
+   the positive filter is then unique (other filters with the same gains differ by an orthogonal factor); it sends white
+   twice as far as reweighting does and equals the same new weights on moved rim states (largest deviation 3.8e-15).
+   the filter that sends a white with cone proportions p_i to the centre has cone gains proportional to 1 - p_i
+   (largest deviation 1.7e-16); reweighting uses 1/p_i. The two agree only for balanced white.
 
 37 files.  Columns: mean u'v' error of the predicted second chromaticity; 'out' = predictions that leave the receptor triangle.
 data set            n white shift |    none  R=vonK  F-white  out   F-gain  out |   CAT02
@@ -50,4 +53,7 @@ mcan.y.dat         17      0.1713 |  0.1256  0.0445   0.0747    0   0.1769    0 
    rule F-white                           pairs  654   mean 0.0222   median 0.0179   90th pct 0.0428
    rule F-gain (where a filter exists)    pairs  614   mean 0.0806   median 0.0795   90th pct 0.1274
    CAT02 benchmark                        pairs  654   mean 0.0128   median 0.0092   90th pct 0.0260
+   no adaptation on the 614 pairs where the gain-matching filter exists: mean 0.06185
+   F-white predictions outside the receptor triangle: 101; of these, 101 have a negative CIE Z,
+   which no nonnegative light spectrum can produce.
    pairs where rule R is closer than F-white: 67.1%;  data sets where its mean is lower: 20 of 25

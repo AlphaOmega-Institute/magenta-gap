@@ -1,0 +1,57 @@
+25 phases with an illuminant change, 654 pairs.
+
+In-sample: one strength per rule over all phases
+   R-lin  best D = 0.89  mean error 0.01292   (at D = 0.85: 0.01319;  at full strength: 0.01577)
+   R-geo  best D = 0.85  mean error 0.01205   (at D = 0.85: 0.01205;  at full strength: 0.01577)
+   F      best D = 0.85  mean error 0.02009   (at D = 0.85: 0.02009;  at full strength: 0.02225)
+
+A. 1000 lux, 20% background: leave one experiment out (five experiments, eight phases)
+   held out CSAJ.da.dat        n= 87  R-lin D=0.94 err 0.0077  R-geo D=0.90 err 0.0070  F D=0.94 err 0.0142
+   held out helson.ca.dat      n= 59  R-lin D=0.93 err 0.0103  R-geo D=0.90 err 0.0096  F D=0.93 err 0.0216
+   held out Kuo & Luo          n= 81  R-lin D=0.94 err 0.0107  R-geo D=0.92 err 0.0099  F D=0.94 err 0.0166
+   held out lam.da.dat         n= 58  R-lin D=0.93 err 0.0094  R-geo D=0.90 err 0.0092  F D=0.92 err 0.0217
+   held out Lutchi             n=128  R-lin D=0.92 err 0.0123  R-geo D=0.89 err 0.0124  F D=0.91 err 0.0201
+   R-lin  held-out mean 0.01033  median 0.00868  (413 pairs)
+   R-geo  held-out mean 0.00992  median 0.00792  (413 pairs)
+   F      held-out mean 0.01861  median 0.01602  (413 pairs)
+   R-lin beats F in 5 of 5 held-out units; F predictions with negative Z at the fitted strengths: 53
+
+B. Breneman: leave one phase out (9 phases)
+   held out Brene.p1.dat       n= 12  R-lin D=0.80 err 0.0115  R-geo D=0.80 err 0.0113  F D=0.71 err 0.0312
+   held out Brene.p11.dat      n= 12  R-lin D=0.82 err 0.0072  R-geo D=0.80 err 0.0076  F D=0.72 err 0.0152
+   held out Brene.p12.dat      n= 12  R-lin D=0.82 err 0.0106  R-geo D=0.82 err 0.0097  F D=0.73 err 0.0092
+   held out Brene.p2.dat       n= 12  R-lin D=0.82 err 0.0059  R-geo D=0.81 err 0.0064  F D=0.72 err 0.0220
+   held out Brene.p3.dat       n= 12  R-lin D=0.83 err 0.0108  R-geo D=0.82 err 0.0120  F D=0.75 err 0.0165
+   held out Brene.p4.dat       n= 12  R-lin D=0.83 err 0.0094  R-geo D=0.82 err 0.0114  F D=0.74 err 0.0223
+   held out Brene.p6.dat       n= 11  R-lin D=0.80 err 0.0155  R-geo D=0.79 err 0.0155  F D=0.71 err 0.0348
+   held out Brene.p8.dat       n= 12  R-lin D=0.83 err 0.0080  R-geo D=0.82 err 0.0104  F D=0.73 err 0.0240
+   held out Brene.p9.dat       n= 12  R-lin D=0.84 err 0.0181  R-geo D=0.83 err 0.0193  F D=0.75 err 0.0209
+   R-lin  held-out mean 0.01074  median 0.00861  (107 pairs)
+   R-geo  held-out mean 0.01148  median 0.00864  (107 pairs)
+   F      held-out mean 0.02168  median 0.01719  (107 pairs)
+   R-lin beats F in 8 of 9 held-out units; F predictions with negative Z at the fitted strengths: 21
+
+B. Braun & Fairchild: leave one phase out (4 phases)
+   held out RIT.1.dat          n= 17  R-lin D=0.79 err 0.0060  R-geo D=0.78 err 0.0062  F D=0.83 err 0.0062
+   held out RIT.2.dat          n= 16  R-lin D=0.80 err 0.0117  R-geo D=0.79 err 0.0115  F D=0.82 err 0.0130
+   held out RIT.3.dat          n= 17  R-lin D=0.83 err 0.0113  R-geo D=0.82 err 0.0106  F D=0.79 err 0.0115
+   held out RIT.4.dat          n= 16  R-lin D=0.72 err 0.0095  R-geo D=0.72 err 0.0091  F D=0.76 err 0.0129
+   R-lin  held-out mean 0.00958  median 0.00774  (66 pairs)
+   R-geo  held-out mean 0.00933  median 0.00779  (66 pairs)
+   F      held-out mean 0.01084  median 0.00865  (66 pairs)
+   R-lin beats F in 4 of 4 held-out units; F predictions with negative Z at the fitted strengths: 0
+
+B. McCann: leave one phase out (4 phases)
+   held out mcan.b.dat         n= 17  R-lin D=0.66 err 0.0162  R-geo D=0.74 err 0.0197  F D=0.71 err 0.0171
+   held out mcan.g.dat         n= 17  R-lin D=0.68 err 0.0212  R-geo D=0.75 err 0.0263  F D=0.76 err 0.0253
+   held out mcan.r.dat         n= 17  R-lin D=0.56 err 0.0249  R-geo D=0.71 err 0.0136  F D=0.63 err 0.0218
+   held out mcan.y.dat         n= 17  R-lin D=0.61 err 0.0279  R-geo D=0.60 err 0.0473  F D=0.67 err 0.0577
+   R-lin  held-out mean 0.02253  median 0.01921  (68 pairs)
+   R-geo  held-out mean 0.02672  median 0.02297  (68 pairs)
+   F      held-out mean 0.03049  median 0.02296  (68 pairs)
+   R-lin beats F in 3 of 4 held-out units; F predictions with negative Z at the fitted strengths: 4
+
+All held-out pairs together
+   R-lin  mean 0.01159  median 0.00906  (654 pairs)
+   R-geo  mean 0.01186  median 0.00853  (654 pairs)
+   F      mean 0.01956  median 0.01570  (654 pairs)

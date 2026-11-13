@@ -105,15 +105,23 @@ for _ in range(20000):
     else:
         n_no += 1
 print(f"   over 20000 random gain triples: a positive filter with those gains exists for {n_ok} and not for {n_no};")
-print("   it exists exactly when the reweighted white has radius at most 1/2, it is then unique, it sends white twice as far")
-print(f"   as reweighting does, and it equals the same new weights placed on moved rim states (largest deviation {worst:.1e}).")
+print("   it exists exactly when the reweighted white has radius at most 1/2 (rank one, hence not invertible, at exactly 1/2);")
+print("   the positive filter is then unique (other filters with the same gains differ by an orthogonal factor); it sends white")
+print(f"   twice as far as reweighting does and equals the same new weights on moved rim states (largest deviation {worst:.1e}).")
+dev = 0.0
+for _ in range(2000):
+    pw = rng.dirichlet([2, 2, 2]); Sw = np.einsum("i,ijk->jk", pw, P)
+    gc = np.array([x @ np.linalg.inv(Sw) @ x for x in vvec])
+    dev = max(dev, np.abs(gc / gc.sum() - (1 - pw) / (1 - pw).sum()).max())
+print(f"   the filter that sends a white with cone proportions p_i to the centre has cone gains proportional to 1 - p_i")
+print(f"   (largest deviation {dev:.1e}); reweighting uses 1/p_i. The two agree only for balanced white.")
 print()
 
 names = sorted(p.name for p in DATA.glob("*.dat"))
 print(f"{len(names)} files.  Columns: mean u'v' error of the predicted second chromaticity; 'out' = predictions that leave the receptor triangle.")
 print(f"{'data set':16s} {'n':>4s} {'white shift':>11s} | {'none':>7s} {'R=vonK':>7s} {'F-white':>8s} {'out':>4s} {'F-gain':>8s} {'out':>4s} | {'CAT02':>7s}")
 tot = {k: [] for k in ("none", "R", "Fw", "Fg", "cat")}
-used = 0
+used = 0; negz = 0; out_total = 0; none_on_fg = []
 for name in names:
     w1, w2, x1, x2 = load(DATA / name)
     shift = float(np.hypot(*(uv(w1) - uv(w2))[0]))
@@ -135,6 +143,7 @@ for name in names:
     sig2 = sig2 / np.trace(sig2, axis1=1, axis2=2)[:, None, None]
     p2 = weights(sig2)
     out_w = int((p2.min(axis=1) < 0).sum())
+    negz += int(((p2 @ np.linalg.inv(HPE).T)[:, 2] < 0).sum()); out_total += out_w
     e["Fw"] = np.hypot(*(uv(p2 @ np.linalg.inv(HPE).T) - obs).T)
     # Rule F-gain: filters reproducing the von Kries gains 1/white
     G1, m1 = gain_filter(1 / lw1 * lw1.mean())
@@ -146,6 +155,7 @@ for name in names:
         pg = weights(sg)
         out_g = int((pg.min(axis=1) < 0).sum())
         e["Fg"] = np.hypot(*(uv(pg @ np.linalg.inv(HPE).T) - obs).T)
+        none_on_fg.append(e["none"])
         fg = f"{e['Fg'].mean():8.4f} {out_g:4d}"
     else:
         e["Fg"] = None
@@ -162,6 +172,9 @@ print(f"\n{used} data sets with an illuminant change.")
 for k, lab in (("none", "no adaptation"), ("R", "rule R (von Kries)"), ("Fw", "rule F-white"), ("Fg", "rule F-gain (where a filter exists)"), ("cat", "CAT02 benchmark")):
     allv = np.concatenate(tot[k])
     print(f"   {lab:38s} pairs {len(allv):4d}   mean {allv.mean():.4f}   median {np.median(allv):.4f}   90th pct {np.percentile(allv, 90):.4f}")
+print(f"   no adaptation on the {len(np.concatenate(none_on_fg))} pairs where the gain-matching filter exists: mean {np.concatenate(none_on_fg).mean():.5f}")
+print(f"   F-white predictions outside the receptor triangle: {out_total}; of these, {negz} have a negative CIE Z,")
+print("   which no nonnegative light spectrum can produce.")
 # paired comparison on the same pairs
 r, f = np.concatenate(tot["R"]), np.concatenate(tot["Fw"])
 print(f"   pairs where rule R is closer than F-white: {np.mean(r < f)*100:.1f}%;  data sets where its mean is lower: "

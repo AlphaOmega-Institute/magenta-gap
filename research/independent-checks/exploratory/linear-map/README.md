@@ -11,7 +11,8 @@ reads the corresponding-colour data of Luo and Rhodes (1999), [doi:10.5281/zenod
 ```sh
 python rebit_embedding.py          research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
 python cone_register_and_trine.py  research/object-colour/inputs/stockman_sharpe_2deg_390_830.csv
-python adaptation_rules.py         DIRECTORY_WITH_THE_DAT_FILES
+python adaptation_rules.py             DIRECTORY_WITH_THE_DAT_FILES
+python adaptation_strength_heldout.py  DIRECTORY_WITH_THE_DAT_FILES
 ```
 
 Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciPy 1.17.0.
@@ -21,6 +22,7 @@ Needs NumPy and SciPy. Stored outputs are from Python 3.11, NumPy 2.3.5 and SciP
 | `cone_register_and_trine.py` | One explicit map with three positive cone channels and a two-level opponent factor: injectivity, wavelength-diagonal pull-backs, the exact obstruction to a positive two-level S channel, and where lights sit in the state disc | `outputs/cone_register_and_trine.txt` |
 | `rebit_embedding.py` | Approximate minimum-area ellipses enclosing the spectral chromaticities in two chromaticity planes, with free centre and with centre at white | `outputs/rebit_embedding.txt` |
 | `adaptation_rules.py` | Two ways an adapting condition could act on the colour state, their algebra, and their predictions for 654 corresponding-colour pairs | `outputs/adaptation_rules.txt` |
+| `adaptation_strength_heldout.py` | The same rules with one strength parameter each, fitted on some experiments and scored on others | `outputs/adaptation_strength_heldout.txt` |
 
 ## What the outputs show
 
@@ -63,8 +65,14 @@ An adapting condition can act on the colour state in two ways that give the same
 - **Rule F, filter the two-level factor.** Apply a positive operator to the two-level state and renormalise. The weights
   change in the same way, and the rim states attached to the cone channels move as well.
 
-For given gains the filter is unique. It exists exactly when the reweighted white has radius at most 1/2, and it then
-sends white exactly twice as far as reweighting does. So knowing the cone gains does not determine the colour state.
+For given gains the positive filter is unique; other filters with the same gains differ from it by an orthogonal factor.
+It exists exactly when the reweighted white has radius at most 1/2, and is invertible, as the matching predictions need,
+only strictly below 1/2. It then sends white exactly twice as far as reweighting does. So knowing the cone gains does not
+determine the colour state.
+
+The filter that sends an adapting white with cone proportions p_i to the disc centre has cone gains proportional to
+1 − p_i, whereas reweighting uses 1/p_i. The two agree only for balanced white. So a filter cannot both reproduce the
+reciprocal cone gains and make the adapting white neutral; the two filtering rules below are different proposals.
 
 A corresponding-colour pair is two stimuli that look alike under two adapting conditions. Each rule predicts the second
 chromaticity from the first by equating colour states, which needs no calibration of hue or saturation. Mean error in
@@ -74,12 +82,40 @@ CIE 1976 u′v′ over the 25 data sets with an illuminant change (654 pairs), a
 | --- | --- | --- | --- |
 | No adaptation | 0.0633 | 0.0625 | |
 | R, von Kries gains | 0.0158 | 0.0117 | closer than F-white on 67% of pairs and in 20 of 25 data sets |
-| F, filter sending the adapting white to the centre | 0.0222 | 0.0179 | 101 predictions fall outside the receptor triangle |
-| F, filter reproducing the von Kries gains | 0.0806 | 0.0795 | 614 pairs; no such filter exists for one data set; worse than no adaptation |
+| F, filter sending the adapting white to the centre | 0.0222 | 0.0179 | 101 predicted matches have negative CIE Z, which no nonnegative light spectrum can produce |
+| F, filter reproducing the von Kries gains | 0.0806 | 0.0795 | 614 pairs; no such filter exists for one data set; no adaptation gives 0.0619 on the same pairs |
 | CAT02 (benchmark) | 0.0128 | 0.0092 | |
 
-In this construction the data favour reweighting fixed opponent states. The filter that reproduces the cone gains
-overshoots and is clearly excluded; the filter that centres the white is intermediate.
+**Conclusion as agreed in review.** Under the specified encoding and matching rule, cone-register reweighting describes
+these corresponding-colour data better than the two tested filtering rules. The white-centring filter also predicts
+physically unavailable matches for numerous samples. These results constrain the proposed realization without determining
+the full adaptation mechanism. The poor result for the gain-matching filter rejects the extra identification that
+reproducing the cone gains also implements the intended white adaptation, not filtering in general.
+
+### Strength fitted on some experiments, scored on others
+
+Each rule gets one strength parameter between no adaptation and the full transformation, and the encoding is held fixed.
+The viewing conditions recorded with the data define the held-out designs.
+
+| Held-out design | Pairs | Reweighting, linear gains | Reweighting, geometric gains | Centring filter |
+| --- | --- | --- | --- | --- |
+| 1000 lux, 20% background: leave one of five experiments out | 413 | 0.0103 | 0.0099 | 0.0186 |
+| Breneman: leave one of nine phases out | 107 | 0.0107 | 0.0115 | 0.0217 |
+| Braun and Fairchild: leave one of four phases out | 66 | 0.0096 | 0.0093 | 0.0108 |
+| McCann: leave one of four phases out | 68 | 0.0225 | 0.0267 | 0.0305 |
+| All held-out pairs | 654 | 0.0116 | 0.0119 | 0.0196 |
+
+Linear-gain reweighting has the lower error in 20 of the 22 held-out units. At the fitted strengths the centring filter
+still predicts a negative CIE Z for 78 pairs. In-sample, the best single strength is 0.89 (linear gains), 0.85 (geometric
+gains) and 0.85 (filter), with errors 0.0129, 0.0121 and 0.0201.
+
+The fitted strength for linear-gain reweighting is 0.92–0.94 for the 1000 lux experiments, about 0.8 for Breneman and for
+Braun and Fairchild (129 lux), and 0.56–0.68 for McCann (14–40 lux, strongly coloured illuminants). That ordering follows
+the recorded illuminance, but illuminance is confounded here with medium, method and illuminant.
+
+The 25 phases are not 25 independent studies; several share observers, samples or apparatus. Corresponding-colour matches
+constrain which stimuli are equivalent across conditions. They do not identify the internal representation or where
+adaptation occurs physiologically.
 
 This is a first pass. Every rule assumes complete adaptation, which several of these experiments did not have. Cone
 signals are Hunt–Pointer–Estévez with equal-energy normalisation, and CAT02 shows that the choice of sensors matters about
