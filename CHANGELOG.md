@@ -1,5 +1,9 @@
 # Version summary
 
+## 21 November 2026 — licensing
+
+- Relicensed later versions: the Python scripts under the PolyForm Noncommercial License 1.0.0 and other material under CC BY-NC 4.0, with Alpha Omega Lattice Corporation, doing business as AlphaOmega Institute, as copyright holder. Versions up to and including `2a1187f` remain available under the MIT License. The third-party cone-fundamental data keep the Colour Developers license.
+
 ## 13 November 2026 — current working draft
 
 - Consolidated one venue-neutral manuscript with four figures, 33 references, and self-contained arguments and bibliography.
