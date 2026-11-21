@@ -37,4 +37,4 @@ Earlier drafts, legacy scripts, import records and the development log remain av
 
 ## License
 
-[MIT](LICENSE).
+Copyright © 2026 Alpha Omega Lattice Corporation, doing business as AlphaOmega Institute. From the version after commit `2a1187f`, the Python scripts are licensed under the PolyForm Noncommercial License 1.0.0 and everything else under CC BY-NC 4.0, except the third-party cone-fundamental data, which keep the Colour Developers license. Versions up to and including `2a1187f` remain available under the MIT License. See [LICENSE.md](LICENSE.md) for details. Commercial use requires a separate license from Alpha Omega Lattice Corporation.
